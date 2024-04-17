@@ -7,7 +7,7 @@ Die individuell erfasste Zeit beinhaltet auch das Lesen von Dokumentationen, Bes
 [option="headers"]
 |===
 |Woche |Jannes |Prit |Philipp |Vihar |Pascal |Meeting
-|1  |2   |…    |2    |…    |…    |3h       
+|1  |2   |…    |2    |…    |…    |3       
 |2  |3,5   |…    |2    |…    |…    |2        
 |3  |…   |…    |…    |…    |…    |…        
 |4  |…   |…    |…    |…    |…    |…        
