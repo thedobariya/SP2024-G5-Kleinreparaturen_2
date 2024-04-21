@@ -1,4 +1,5 @@
 = Pflichtenheft
+[[Pflichtenheft]]
 :project_name: Kleinreparaturen-System
 == __{Kleinreparaturen-System}__
 
@@ -10,9 +11,13 @@
 |===
 
 == Use-Cases
+[[Use-Cases]]
+
 Im folgenden Abschnitt werden die notwendigen Anwendungsfälle, die das System zu unterstützen hat, dokumentiert. Die Anwendungsfälle definieren alle essentiellen Funktionen, die das System den Nutzern zu Verfügung stellen können soll.
 
 === Actors
+[[Actors]]
+
 In Form einer Tabelle ist jeder Actor, also Personen, die mit dem System direkt oder indirekt durch andere Services interagieren, aufgelistet. Zu jedem Actor wird eine Beschreibung beigefügt. Falls ein Actor keine spezifische Person, sondern eine Gruppe von Personen oder eine Verallgemeinerung anderer Actors, beschreibt, werden diese *abstract Actors* mittels *Kursiv* Schrift verdeutlicht.
 
 [options="header", cols="1,1"]
@@ -41,11 +46,14 @@ In Form einer Tabelle ist jeder Actor, also Personen, die mit dem System direkt 
 
 
 === Use-Case Diagram
+[[Use-Case-Diagram]]
 
 image::models/Use-Case-Diagram.jpg[]
 Figure 1. Use-Case Diagramm des Kleinreparaturen-Systems in UML
 
 === Use-Case Description
+[[Use-Case-Description]]
+
 In Form einer Tabelle ist jeder Use-Case aus dem oben aufgezeigten Use-Case Diagramm detailliert aufgelistet und definiert.
 
 |===
@@ -214,7 +222,7 @@ Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt
 | Name | Bilanzerstellung
 | Description | automatisch generierte Finanz-Übersicht aus laufenden, abgeschlossenen Bestellungen und laufenden/ variablen Kosten einer Filiale
 | Actors | Filialmanagement
-| Trigger | *fortlaufend automatisierter Prozess* neue Kosten oder Einnahmen fallen an
+| Trigger | fortlaufend automatisierter Prozess für anfallende Kosten oder Einnahmen
 | Precondition(s) | das System muss online sein und alle Kosten und Beträge von Bestellungen müssen korrekt eingetragen sein
 | Essential Steps | Kosten oder Einnahmen werden durch Bestellungen von Ressourcen, anfallen laufender Kosten oder das Abschließen von Bestellungen im System gespeichert und automatisch vom System in die Finanz-Übersicht eingearbeitet
 | Functional Requirements | Kostenfunktionen, sowie Daten über laufende und variable Kosten und Einnahmen müssen vorhanden sein
@@ -235,7 +243,18 @@ Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt
 |===
 
 
-== Klassenmodell
+== Data-Model
+[[Data-Model]]
+
+=== Datenmodell
+[[Datenmodell]]
+
+image::models/Datenmodell V2.2.png[]
+Figure 2. Datenmodell des Kleinreparaturen-Systems in UML
+
+=== Daten-/ Klassenbeschreibung
+[[Daten-Klassenbeschreibung]]
+
 Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die Verwendung in dem domain model finden. Die Tabelle ist Teil der Dokumentation und dient der Information der Stakeholder über Zentrale Begriffe und Konzepte des Aufbau des Systems.
 
 [options="header", cols="1,1"]
