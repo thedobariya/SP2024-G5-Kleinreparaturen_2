@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Pflichtenheft Kleinreparaturbetrieb Mending Points</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9aafb639-0508-4921-88b3-78a7ab208365" class="page sans"><header><h1 class="page-title">Pflichtenheft <em>Kleinreparaturbetrieb Mending Points</em></h1><p class="page-description"></p></header><div class="page-body"><table id="8c8f3964-f08e-4893-a8fa-0a758548c540" class="simple-table"><tbody><tr id="fb46d0ba-0f7e-4d3c-a081-a2a3931f7525"><td id="f=s\" class="" style="width:230px">Version </td><td id="sB{A" class="" style="width:230px">Processing Date</td><td id="DU@g" class="" style="width:230px">Author</td></tr><tr id="e72ccdbd-5eb8-4154-9fc3-c500b34b0152"><td id="f=s\" class="" style="width:230px">1.0</td><td id="sB{A" class="" style="width:230px">21.04.2024</td><td id="DU@g" class="" style="width:230px">Jannes Schöttke</td></tr></tbody></table><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">1. Inhaltsverzeichnis</summary><div class="indented"><nav id="a478b7c2-3bd6-4d44-927b-48e4d082abd7" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#819a01b0-f746-44cf-ab9e-4798b3111da5">1. Inhaltsverzeichnis</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#886f1e82-15d9-4fcc-9b29-d80c5dbb1b28">2. Zusammenfassung</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2a7231ab-b588-46db-acfa-94ab62beb958">3. Aufgabenstellung und Zielsetzung</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c959796b-420b-48a5-b44d-9de62ec3e682">4. Produktnutzung</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e9267756-78da-4301-8295-f86bc76efeb6">5. Stakeholders</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f7ff6761-34e4-416f-aff8-a45bfd25088e">6. Systemgrenzen und Kontext-Diagram</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#04e332c8-4d02-4cb6-af71-327f15a790bd">7. Use-Cases</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#592f5e7c-7b3d-44fe-953d-dac984727d6e">8. Funktionale Anforderungen</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#cf1183a5-fd93-4f0d-9ad6-843707541c72">9. Nicht-funktionale Anforderungen</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6249ea97-fc12-4ffa-b0f2-fde2207e985a">10. GUI-Prototyp</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fa41647d-d3a8-4893-8f5f-6f7c08b1ba69">11. Datenmodell</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#743b0168-a157-4055-bac3-96be9339f324">12. Akzeptanztestfälle</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8ff08f21-d149-4546-b0a0-cd8fcade98d0">13. Anmerkungen</a></div></nav></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">2. Zusammenfassung</summary><div class="indented"><p id="0f357a43-9d60-4669-a326-d2e11638660a" class="">Das vorliegende Pflichtenheft definiert die Anforderungen und Ziele für die Entwicklung der geplanten Software. Es legt den Umfang der geplanten Software fest, einschließlich ihrer Funktionalitäten, Leistungen und Schnittstellen. Darüber hinaus werden die Anforderungen an die Benutzerinteraktion sowie die technischen Spezifikationen detailliert beschrieben. Das Pflichtenheft dient als Grundlage für das gesamte Softwareentwicklungsprojekt, indem es ein klares Verständnis der Anforderungen schafft und als Referenzpunkt für die Entwicklung, Qualitätssicherung und Abnahme dient.   </p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">3. Aufgabenstellung und Zielsetzung</summary><div class="indented"><p id="76b91dec-35a1-4e8d-b5ed-89a69d9d6a0e" class="">Der Auftraggeber, die Miss-Mint-Kette, ist an einen Softwaresystem interessiert, welches die Annahme, Reparaturplanung, Ausgabe und Lagerung von Waren sowie die Verwaltung von Ressourcen (Personal, Arbeitsgerät, Material, Räume) unterstützt und außerdem dem Filialmanagement laufende und akkumulierte Bilanzen zur Verfügung stellt.</p><p id="d7911e18-ee5a-4219-a7c7-91950b9fae64" class="">Das Ziel dieses Projekts ist die Entwicklung einer umfassenden Softwarelösung für die Verwaltung von Kleinreparaturbetrieben im Rahmen der Miss Mint Mending Points Kette. <br/>Die Software soll alle Aspekte des Betriebs unterstützen, angefangen von der Erstellung von Angeboten sowie der Annahme der Aufträge über die Reparaturplanung bis hin zur Ausgabe und Lagerung. Darüber hinaus soll sie das Filialmanagement bei der Ressourcenverwaltung unterstützen und Bilanzen liefern können.<br/></p><p id="7b4d736e-ffa1-49c7-aa22-df6fdbfeb748" class="">Konkret sollen folgende Funktionen umgesetzt werden:</p><ol type="1" id="2148d2cf-13a5-4b9d-a2b9-6531ba3f2373" class="numbered-list" start="1"><li><strong>Annahme und Abwicklung von Aufträgen:</strong> Die Software soll es ermöglichen, Kundenanfragen entgegenzunehmen, den gewünschten Service zu erfassen und den Preis sofort zu ermitteln. Nach Zahlungseingang erhält der Kunde einen Auftragszettel mit einer eindeutigen Auftragsnummer und dem Fertigstellungstermin.</li></ol><ol type="1" id="bdbfa424-b2f0-4ff0-a34f-5ee400c740f5" class="numbered-list" start="2"><li><strong>Reparaturplanung und -ausführung:</strong> Die Software soll die Ressourcenplanung für die verschiedenen Services unterstützen und eine effiziente Zuweisung von Personal und Arbeitsgeräten ermöglichen. Sie soll auch den Fortschritt der Reparaturen verfolgen und eventuelle Verzögerungen dokumentieren.</li></ol><ol type="1" id="39076bcf-e1e5-4014-a473-a6e2b7cd71f0" class="numbered-list" start="3"><li><strong>Lagerverwaltung:</strong> Die Software soll die Lagerung der Waren und die Verwaltung von Aufbewahrungszeiträumen sowie Gebühren unterstützen. Nicht abgeholte Waren sollen automatisch an eine karitative Organisation gespendet werden.</li></ol><ol type="1" id="7c30b3da-db46-4d2d-96f8-b91b9d6be6c6" class="numbered-list" start="4"><li><strong>Ressourcenmanagement:</strong> Die Software soll dem Filialmanagement bei der Verwaltung von Personal, Arbeitsgeräten, Material und Räumen helfen. Sie soll außerdem monatliche Reingewinne berechnen und an die Zentrale weiterleiten.</li></ol><ol type="1" id="07f87b15-96a2-4263-9a26-9614e99d73b0" class="numbered-list" start="5"><li><strong>Berichterstattung und Bilanzierung:</strong> Die Software soll dem Filialmanagement laufende und akkumulierte Bilanzen zur Verfügung stellen, um eine effektive Geschäftsplanung und -analyse zu ermöglichen.</li></ol><p id="3c50d339-0518-43b5-abd1-418659fe00d6" class="">Die entwickelte Softwarelösung soll eine effiziente Betriebsführung ermöglichen, die Arbeitsabläufe optimieren und die Kundenzufriedenheit steigern.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">4. Produktnutzung</summary><div class="indented"><p id="7dd4e31e-3d38-4397-9258-5e8720b12a6c" class="">Die Softwarelösung, die im Rahmen dieses Projekts entwickelt werden soll, wird in Kleinreparaturbetrieben innerhalb der Miss Mint Mending Points Kette eingesetzt werden. <br/>Diese Betriebe bieten eine Vielzahl von Services an, von der Schuhreparatur bis zur Elektrowerkstatt. Das Hauptziel der Software ist es, die täglichen Abläufe dieser Betriebe digital zu erfassen und dem Management Funktionen zur effizienten Verwaltung von Ressourcen und der Filliale und der Geschäftsplanung zu verfügung zu stellen.<br/></p><p id="1d8d324d-0a77-4055-a05e-e046c37c3e88" class=""><strong>Kontext und Rahmenbedingungen:</strong></p><ul id="6a21509e-4c8b-49f4-bc07-dc799fecbc0e" class="bulleted-list"><li style="list-style-type:disc"><strong>Nutzungskontext:</strong> Die Software wird von Mitarbeitern in den Miss Mint Mending Points-Filialen genutzt, um alle Aspekte des operativen Betriebs zu verwalten, angefangen bei der Angebotserstellung bis zur Ausgabe und Lagerung der reparierten Artikel. Das Filialmanagement wird die Software auch zur Ressourcenverwaltung und Geschäftsanalyse nutzen.</li></ul><ul id="712d0840-c08d-4824-80a5-ddcb5e2024d7" class="bulleted-list"><li style="list-style-type:disc"><strong>Rahmenbedingungen:</strong> Die Nutzung der Software erfolgt in einer typischen Kleinreparaturbetriebsumgebung, in der Mitarbeiter täglich mit Kundeninteraktionen, Reparaturaufträgen und Lagerverwaltungsaufgaben konfrontiert sind. Die Software muss daher benutzerfreundlich, schnell und zuverlässig sein, um den reibungslosen Ablauf der Geschäftsprozesse sicherzustellen.</li></ul><p id="066b2993-1e91-44e6-af9e-e5190b4bab7b" class="">Die entwickelte Softwarelösung wird integraler Bestandteil des täglichen Betriebs der Miss Mint Mending Points-Filialen sein und dazu beitragen, die Effizienz zu steigern und die Qualität der Services für die Kunden zu verbessern.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">5. Stakeholders</summary><div class="indented"><p id="118a4780-7fb7-4a92-9031-9b774df6bf00" class="">Verantwortlichkeit: Jannes Schöttke</p><p id="71202a76-2e8d-477c-ab5d-58ff417559b7" class="">Hier wird jede Gruppe oder Person (real oder juristisch) aufgelistet, die einen Einfluss auf die Anforderungen des Systems hat. In der folgenden Tabelle werden diese Interessengruppen aufgelistet, eine Priorität zugewiesen (falls Anforderungen kollidieren sollten, ermöglicht dies eine einfachere Entscheidung) und ihre übergeordneten Ziele beschrieben. Die zugewiesenen Prioritäten reichen von 1 (niedrigste Priorität) bis 5 (höchste Priorität).</p><table id="a4253e35-0695-4b8f-b0c5-4c1509848add" class="simple-table"><tbody><tr id="58dca4d2-d515-4dff-ab33-cb0683e96991"><td id="dujp" class="" style="width:165.5px">Name</td><td id="OybK" class="" style="width:108.5px">Priorität (1…5)</td><td id="vLvA" class="" style="width:183.5px">Beschreibung</td><td id="vLB?" class="" style="width:203.5px">Ziele</td></tr><tr id="276577a3-3232-4d0a-ae43-e160200514f7"><td id="dujp" class="" style="width:165.5px">Zentrale</td><td id="OybK" class="" style="width:108.5px">4</td><td id="vLvA" class="" style="width:183.5px">Der Hauptauftraggeber - formaler Vertragspartner</td><td id="vLB?" class="" style="width:203.5px">- Digitalisierung der Geschäftsprozesse<br/>- Vereinheitlichung verwendeter SW<br/>- Automatisierte Berichterstellung<br/>- Erfüllung gesetzl. Vorschriften<br/>⇒ Kostenreduzierung bei Fillialverwaltung<br/></td></tr><tr id="51014226-ea91-4241-95d3-77acb51e7072"><td id="dujp" class="" style="width:165.5px">Fillialmanagement</td><td id="OybK" class="" style="width:108.5px">5</td><td id="vLvA" class="" style="width:183.5px">Mitanwender des Softwaresystems - nehmen außerdem teilweise die Rolle des Administrators ein</td><td id="vLB?" class="" style="width:203.5px">- Digitale/Einfache Verwaltung der Filiale <br/>- Vereinfachung der Geschäftsprozesse <br/>- Übersichtszugewinn<br/></td></tr><tr id="cbc5eb39-16cc-4630-a9f9-dc9e8c49ac1a"><td id="dujp" class="" style="width:165.5px">Mitarbeiter</td><td id="OybK" class="" style="width:108.5px">5</td><td id="vLvA" class="" style="width:183.5px">Hauptanwender des Softwaresystems - </td><td id="vLB?" class="" style="width:203.5px">- Reduzierter Arbeitsaufwand für Officetätigkeiten<br/>- Vereinheitlichte GP<br/>- Einfacherere GP<br/>- UX-freundliches System<br/></td></tr><tr id="f39041b1-bc2c-4fcb-9349-fcc87bd1f48a"><td id="dujp" class="" style="width:165.5px">Kunde</td><td id="OybK" class="" style="width:108.5px">2</td><td id="vLvA" class="" style="width:183.5px">Kunde der Miss Mint Mending Points Filliale</td><td id="vLB?" class="" style="width:203.5px">- Schneller &amp; zufriedenstellender Service<br/>- Keine wahrnehmbaren Vorfälle während des Auftrags<br/>- Ganzheitlicher Service<br/>⇒ Gute Service Experience<br/></td></tr><tr id="ced6fd65-f8aa-43a9-bc77-be1c87cd9550"><td id="dujp" class="" style="width:165.5px">Entwickler</td><td id="OybK" class="" style="width:108.5px">4</td><td id="vLvA" class="" style="width:183.5px">Mitarbeiter des Auftragnehmers - Verantwortlich für die Entwicklung und ggf. Wartung des Systems</td><td id="vLB?" class="" style="width:203.5px">- ordentlich + verständlich dokumentierte Anforderungen<br/>- gute gestafftes Projekt<br/>- realistischer Zeitplan <br/></td></tr><tr id="3df663cf-1fdd-4b6d-a019-359e7f817c21"><td id="dujp" class="" style="width:165.5px">Gesetzgeber</td><td id="OybK" class="" style="width:108.5px">5</td><td id="vLvA" class="" style="width:183.5px">Einzuhaltende Vorschriften des Gesetzesgebers </td><td id="vLB?" class="" style="width:203.5px">- Datenschutz, etc.</td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">6. Systemgrenzen und Kontext-Diagram</summary><div class="indented"><h3 id="1182b42a-75a9-4f31-b453-fbbff4257784" class="">6.1 Systemkontext-Diagramm</h3><p id="c91de18a-4208-4a41-b39e-53f68c2055d0" class=""><strong>Verantwortlichkeit: Vihar Kheni</strong></p><figure id="3c7cd951-fcc1-467e-96f4-0c9652fed7d6" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled.png"><img style="width:1024px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled.png"/></a><figcaption>Kontextdiagramm V1.0</figcaption></figure><p id="4412d094-233e-41bf-82d2-83ab593d5fb3" class="">Neben der in der Darstellung aufgeführten User sind als Nachbarsysteme eine Datenbank zur persistenten Speicherung der Daten als auch eine Schnittstelle zum Softwaresystem der Zentrale angedacht.  </p><h3 id="e8901640-49af-4545-9780-043d9bf6483b" class="">6.2. Top-Level-Architektur</h3><p id="53e6e617-fa88-4b50-a379-4dfe104ce4b7" class=""><strong>Verantwortlichkeit: Philipp Danzmann</strong></p><figure id="4dabfcf7-f156-411f-b8e1-60a73e9ea1f8" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%201.png"><img style="width:791px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%201.png"/></a><figcaption>Komponentendiagramm V1.0</figcaption></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">7. Use-Cases</summary><div class="indented"><p id="03be4d52-e1a6-412e-acdd-e58e85ffccf5" class="">Im folgenden Abschnitt werden die notwendigen Anwendungsfälle, die das System zu unterstützen hat, dokumentiert. Die Anwendungsfälle definieren alle essentiellen Funktionen, die das System den Nutzern zu Verfügung stellen können soll.</p><h3 id="b793de92-d8d0-499d-bbb6-6a73935a88f6" class="">7.1 Akteure</h3><p id="b6b93060-9743-427e-9710-e9aec9954ff8" class=""><strong>Verantwortlichkeit: Pritkumar Dobariya</strong></p><p id="a535e3dc-fce8-4408-bb53-0d1ae40ce5ce" class="">In Form einer Tabelle ist jeder Actor, also Personen, die mit dem System direkt oder indirekt durch andere Services interagieren, aufgelistet. Zu jedem Actor wird eine Beschreibung beigefügt. Falls ein Actor keine spezifische Person, sondern eine Gruppe von Personen oder eine Verallgemeinerung anderer Actors, beschreibt, werden diese *abstract Actors* mittels *Kursiv* Schrift verdeutlicht.</p><table id="58ecacb7-3c40-4235-9c85-1763fccc2b58" class="simple-table"><tbody><tr id="bc083a83-51dd-420b-8fc7-be38d59a3a55"><td id="&gt;ZAO" class="" style="width:331px">Name</td><td id="XWt`" class="" style="width:331px">Description</td></tr><tr id="40dab7fd-e64f-41e5-b3ed-ca13daa18479"><td id="&gt;ZAO" class="" style="width:331px"><em>User</em></td><td id="XWt`" class="" style="width:331px">Beschreibt jede authentifizierte und unauthentifizierte Person , welche mit dem System interagiert</td></tr><tr id="8b8ae30f-1b4f-4af5-86b5-36e8368add05"><td id="&gt;ZAO" class="" style="width:331px"><em>Registered User</em></td><td id="XWt`" class="" style="width:331px">Alle <em>User</em>, die im System registriert sind und sich authentifiziert haben und mit dem System interagieren</td></tr><tr id="700ae717-55da-4c39-83de-c70d58814dc6"><td id="&gt;ZAO" class="" style="width:331px"><em>Unauthenticated User</em></td><td id="XWt`" class="" style="width:331px">Alle <em>User</em>, die nicht authentifiziert sind oder nicht im System registriert sind und mit dem System interagieren</td></tr><tr id="83570fe3-ee18-481a-ba8d-49357c8f26e4"><td id="&gt;ZAO" class="" style="width:331px"><em>Customer</em></td><td id="XWt`" class="" style="width:331px">Alle <em>User</em>, die unauthentifiziert sind und per QR-Code des Bestelltickets auf das System zugreifen. Können Bestellfortschritt einsehen</td></tr><tr id="d8da1836-dcbb-431c-918b-04c4b8af3410"><td id="&gt;ZAO" class="" style="width:331px"><em>Worker</em></td><td id="XWt`" class="" style="width:331px">Alle <em>User</em> die als Filialmitarbeiter registriert sind und Bestellungen von Kunden annehmen, bearbeiten und abschließen können</td></tr><tr id="e6aa7de6-260b-4440-ac60-1c3a753978d6"><td id="&gt;ZAO" class="" style="width:331px">Management</td><td id="XWt`" class="" style="width:331px">Ein <em>User</em> welchen als Filialleiter registriert ist und administratorrechte über das System hat</td></tr></tbody></table><h3 id="bc11ade6-c8b3-44ea-b1dd-57392bcb14c4" class="">7.2. Überblick Use-Case-Diagramm</h3><p id="c85979b3-665c-4d60-b72c-4dc33c0e4b51" class=""><strong>Verantwortlichkeit: Pritkumar Dobariya</strong></p><figure id="d4f748b1-8e76-4c7b-8a45-c6319f3385b6" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled.jpeg"><img style="width:576px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled.jpeg"/></a><figcaption>Use-Case-Diagramm V1.0</figcaption></figure><h3 id="4f46c698-bfd8-4f13-baa1-09704ddfd125" class="">7.3. Use-Case-Beschreibung</h3><p id="4541b2df-0817-45c2-9eff-1afc03844602" class=""><strong>Verantwortlichkeit: Pascal Jahn</strong></p><ul id="da7ae8bd-4e23-4174-a961-95aceaab3328" class="toggle"><li><details open=""><summary>ID000 - Geschäfsprozess</summary><table id="a3aadac5-e74d-41b0-9890-38fbf312ca21" class="simple-table"><tbody><tr id="d5d8b095-7ec2-457d-a53e-fa650fa85624"><td id="o&gt;Jt" class="" style="width:331px">ID</td><td id="mrrL" class="" style="width:331px">ID000</td></tr><tr id="631af61b-40d7-4829-b4a8-4f9e59134e6c"><td id="o&gt;Jt" class="" style="width:331px">Name</td><td id="mrrL" class="" style="width:331px">Geschäftsprozess</td></tr><tr id="4659bbe5-c0e7-47c0-aa3d-3e0c5269bf2b"><td id="o&gt;Jt" class="" style="width:331px">Description</td><td id="mrrL" class="" style="width:331px"></td></tr><tr id="caf2bd4a-489a-4e3a-ab42-cb3de1ccd552"><td id="o&gt;Jt" class="" style="width:331px">Actors</td><td id="mrrL" class="" style="width:331px"></td></tr><tr id="9dec8062-502c-41bc-a804-5b19123f4e54"><td id="o&gt;Jt" class="" style="width:331px">Trigger</td><td id="mrrL" class="" style="width:331px"></td></tr><tr id="a02804a1-c043-431d-8c70-24dce5f9f1a0"><td id="o&gt;Jt" class="" style="width:331px">Precondition(s)</td><td id="mrrL" class="" style="width:331px"></td></tr><tr id="9af952ce-cc74-4044-897e-895ec83d3397"><td id="o&gt;Jt" class="" style="width:331px">Essential Steps</td><td id="mrrL" class="" style="width:331px"></td></tr><tr id="0772bfd5-87ad-440a-9b7b-25ad819fe3d9"><td id="o&gt;Jt" class="" style="width:331px">Extentions</td><td id="mrrL" class="" style="width:331px"></td></tr><tr id="0de77ee5-d19f-435d-b57a-7624e8723ac7"><td id="o&gt;Jt" class="" style="width:331px">Functional Requirements</td><td id="mrrL" class="" style="width:331px"></td></tr></tbody></table></details></li></ul><ul id="8d1173b7-2081-4ec6-8d76-c53fa9b3f7da" class="toggle"><li><details open=""><summary>ID001 - Login/Logout</summary><table id="9e8098f6-c218-435a-8fe6-85e9c50f312a" class="simple-table"><tbody><tr id="9eb25d5f-63fc-49af-88d3-bc250c7b3540"><td id="E_Vq" class="" style="width:317px">ID</td><td id="eaVB" class="" style="width:317px">ID001</td></tr><tr id="a0b58db6-822d-46c8-b9a4-928fb8a1de4e"><td id="E_Vq" class="" style="width:317px">Name</td><td id="eaVB" class="" style="width:317px">Login / Logout</td></tr><tr id="eefbe1bb-4dc3-4573-b992-30b537d806e6"><td id="E_Vq" class="" style="width:317px">Description</td><td id="eaVB" class="" style="width:317px">Der Benutzer kann sich authentifizieren, anmelden und abmelden.</td></tr><tr id="077135b6-c886-42a1-860e-d5052623bdd7"><td id="E_Vq" class="" style="width:317px">Actors</td><td id="eaVB" class="" style="width:317px">User(Mitarbeiter)</td></tr><tr id="7e220c82-fb49-44b1-865a-a2b1a03d4c10"><td id="E_Vq" class="" style="width:317px">Trigger</td><td id="eaVB" class="" style="width:317px">Login : Ein Benutzer kann auf Funktionen zugreifen, indem er sich anmeldetLogout : Nach Nutzung der Funktionen kann der Benutzer die Webseite verlassen indem er sich abmeldet</td></tr><tr id="142f38d0-58bc-4e99-99ac-13a29f559c1d"><td id="E_Vq" class="" style="width:317px">Precondition(s)</td><td id="eaVB" class="" style="width:317px">Login : Noch nicht authentifiziertLogout : Der Benutzer ist authentifiziert</td></tr><tr id="009f28c5-a9e3-4db0-934b-59f97dcb3eae"><td id="E_Vq" class="" style="width:317px">Essential Steps</td><td id="eaVB" class="" style="width:317px">Login:- Der Benutzer kann sich über die Navigationsleiste anmelden- Der Benutzer kann ein ID-Passwort eingeben- Der Benutzer kann die Anmeldeschaltfläche drücken- Der Benutzer kann die Funktion „Passwort vergessen“ nutzenLogout:- Der Benutzer kann sich von der Navigationsleiste abmelden- Der Benutzer kann sich abmelden und zur Startseite wechseln</td></tr><tr id="34349b89-317c-4352-9e62-b19f5bf19d49"><td id="E_Vq" class="" style="width:317px">Extentions</td><td id="eaVB" class="" style="width:317px"></td></tr><tr id="553d3de4-e254-4905-af72-6f4bfd5a36fb"><td id="E_Vq" class="" style="width:317px">Functional Requirements</td><td id="eaVB" class="" style="width:317px"></td></tr></tbody></table><table id="2ed069f4-490a-40a9-a927-9c3c1f38adf4" class="simple-table"><tbody><tr id="67b9aad3-e5fa-47f6-af7c-f949ee9d7f56"><td id="]GCO" class="">ID</td><td id="T\^B" class="">ID002</td></tr><tr id="1f7b97a2-90c7-4353-be76-7701b11bca0d"><td id="]GCO" class="">Name</td><td id="T\^B" class="">Passwortwiederherstellung</td></tr><tr id="75f458fd-4230-4a44-a0c1-b28bb2b2d1d0"><td id="]GCO" class="">Description</td><td id="T\^B" class=""></td></tr><tr id="e3da7233-169a-4183-9819-4df9b124e89c"><td id="]GCO" class="">Actors</td><td id="T\^B" class=""></td></tr><tr id="e73358e6-d162-43fb-a40f-4f363d7c435f"><td id="]GCO" class="">Trigger</td><td id="T\^B" class=""></td></tr><tr id="46c0caf2-9a29-42b9-a210-94300a107902"><td id="]GCO" class="">Precondition(s)</td><td id="T\^B" class=""></td></tr><tr id="6e239b8d-b023-426e-a2a1-c8053a2961e0"><td id="]GCO" class="">Essential Steps</td><td id="T\^B" class=""></td></tr><tr id="68eef7bd-cfa1-4a64-96a8-c963912cb4f4"><td id="]GCO" class="">Extentions</td><td id="T\^B" class=""></td></tr><tr id="75ea7ac4-f3c9-4f8b-a0ad-600c9f6bbb3c"><td id="]GCO" class="">Functional Requirements</td><td id="T\^B" class=""></td></tr></tbody></table></details></li></ul><ul id="995cb154-bfa8-40be-8c70-fa5e65445771" class="toggle"><li><details open=""><summary>ID002 - Mitarbeiterregistrierung</summary><table id="11a3ee40-61cf-4f97-aff5-683ef7bf2f98" class="simple-table"><tbody><tr id="1b082ec3-7a64-4a2c-8ea2-e24c601136a4"><td id="O=Mn" class="" style="width:317px">ID</td><td id="Odje" class="" style="width:317px">ID002</td></tr><tr id="27ae63dc-522c-4b98-b2e2-7d29acab44ae"><td id="O=Mn" class="" style="width:317px">Name</td><td id="Odje" class="" style="width:317px">Mitarbeiterregistrierung</td></tr><tr id="cd51dcc4-249d-48a4-a8a9-b67758288b78"><td id="O=Mn" class="" style="width:317px">Description</td><td id="Odje" class="" style="width:317px">Ein Management muss in der Lage sein, ein Konto für neue Mitarbeiter zu erstellen</td></tr><tr id="5b0da2ef-b2a8-4dbd-b4e3-340153346e05"><td id="O=Mn" class="" style="width:317px">Actors</td><td id="Odje" class="" style="width:317px">Management</td></tr><tr id="11c62e32-bdac-4581-a128-6eb6d366224b"><td id="O=Mn" class="" style="width:317px">Trigger</td><td id="Odje" class="" style="width:317px">Ein Filialleiter möchte ein Konto für einen neuen Mitarbeiter erstellen, indem er auf „Registrierung“ klickt</td></tr><tr id="6cca2380-cfa8-45cb-a992-a38a1b036a16"><td id="O=Mn" class="" style="width:317px">Precondition(s)</td><td id="Odje" class="" style="width:317px">Der Benutzer ist noch nicht angemeldet</td></tr><tr id="fda9de2e-d892-4c1a-9547-f7329ca1d03e"><td id="O=Mn" class="" style="width:317px">Essential Steps</td><td id="Odje" class="" style="width:317px">Die Filialleitung drückt auf RegistrierungEs fügt Rolle, Username und Passwort hinzuSystemprüfung auf eindeutigen Benutzernamen bei Generierung eines neuen Kontosim Fall von Duplikaten wird eine Fehlermeldung ausgegeben</td></tr><tr id="214f629f-6b57-438b-b7cd-2303ec950c89"><td id="O=Mn" class="" style="width:317px">Extentions</td><td id="Odje" class="" style="width:317px"></td></tr><tr id="c4c2e1b8-0943-4f53-b7f9-e4c611f87f09"><td id="O=Mn" class="" style="width:317px">Functional Requirements</td><td id="Odje" class="" style="width:317px"></td></tr></tbody></table></details></li></ul><ul id="f858acdf-2cf0-4dc0-a0e8-ed2c0a5e242e" class="toggle"><li><details open=""><summary>ID003 - Bestellübersicht</summary><table id="b3cdc3e1-303e-408f-ba0e-e2a708160628" class="simple-table"><tbody><tr id="f848cea6-36e4-4bfb-ae65-91898c0d113c"><td id="r&lt;sm" class="" style="width:317px">Name</td><td id=";{\K" class="" style="width:317px">Bestellübersicht</td></tr><tr id="a320c8bc-2459-481a-9791-8cc3c0a8a7c6"><td id="r&lt;sm" class="" style="width:317px">Description</td><td id=";{\K" class="" style="width:317px">Der Kunde kann mehrere Dienste hinzufügen, diese anzeigen lassen und als neue Bestellung aufgeben</td></tr><tr id="433acb8c-3ca7-4f88-b675-afead632474a"><td id="r&lt;sm" class="" style="width:317px">Actors</td><td id=";{\K" class="" style="width:317px">Customer</td></tr><tr id="2458ca78-2ef8-42e2-b859-2f949f0ee08b"><td id="r&lt;sm" class="" style="width:317px">Trigger</td><td id=";{\K" class="" style="width:317px">Zugriff auf die Funktion „Zum Warenkorb hinzufügen“, um eine Dienstleistung zu einer Bestellung hinzuzufügen</td></tr><tr id="de9daf35-f778-4c6c-9bf3-d6c3bf3745fe"><td id="r&lt;sm" class="" style="width:317px">Precondition(s)</td><td id=";{\K" class="" style="width:317px">Menge und Beschreibung des Services muss vervollständigt sein</td></tr><tr id="e9cf26c6-1fc3-4e02-8e22-0c66fb4babcd"><td id="r&lt;sm" class="" style="width:317px">Essential Steps</td><td id=";{\K" class="" style="width:317px">Auf der Produktserviceseite kann der Benutzer einen Service zum Warenkorb hinzufügenDem Benutzer werden alle ausgewählten Services im Warenkorb mit einem automatisch errechneten Gesamtpreis dargestelltDer Benutzer kann die Bestellung aufgeben indem er den Warenkorb abschließt</td></tr><tr id="3fe52183-68b2-45f8-a85b-9b32653648b0"><td id="r&lt;sm" class="" style="width:317px">Extentions</td><td id=";{\K" class="" style="width:317px">Abschließen einer Bestellung mit Knopf &quot;Auschecken&quot; und so Kauf bestätigen und mittels angebotenen Zahlungsmitteln (Apple Pay, PayPal, GooglePay, Barzahlung) Kaufbetrag im Voraus begleichen</td></tr><tr id="65f7a6aa-178a-4d59-a761-e352f2f29503"><td id="r&lt;sm" class="" style="width:317px">Functional Requirements</td><td id=";{\K" class="" style="width:317px"></td></tr></tbody></table></details></li></ul><ul id="cc05b663-fead-48f0-92f7-89ea78a02c90" class="toggle"><li><details open=""><summary>ID004 - Servicerverwaltung</summary><table id="e05debde-7f5d-4ceb-9091-3e33c764ec06" class="simple-table"><tbody><tr id="6c0e50fc-ead3-4a6d-8b9a-ec576a0f68d5"><td id="d]rG" class="">ID</td><td id="e=ie" class="">ID004</td></tr><tr id="0f908287-f631-48ef-9f75-b46b3cde43ca"><td id="d]rG" class="">Name</td><td id="e=ie" class="">Serviceverwaltung</td></tr><tr id="246df3f5-4e0f-454f-89db-fc0a5be0943a"><td id="d]rG" class="">Description</td><td id="e=ie" class="">Alle Mitarbeiter müssen auf den Katalog zugreifen könnenEs werden alle angebotenen Dienste gezeigtDer Servicekatalog bietet die Möglichkeit zwischen verschiedenen Arten von Services zu unterscheiden</td></tr><tr id="ef1c1aaa-c738-4239-a3ed-47945f8ade18"><td id="d]rG" class="">Actors</td><td id="e=ie" class="">Mitarbeiter</td></tr><tr id="31aca21e-3069-4ec6-a3ad-672d141eba0c"><td id="d]rG" class="">Trigger</td><td id="e=ie" class="">Verwenden eines Navigationselements, das für die Anzeige des Servicekatalogs verantwortlich ist</td></tr><tr id="78eafa05-ef1d-4ef0-982f-5977b048f5cf"><td id="d]rG" class="">Precondition(s)</td><td id="e=ie" class=""></td></tr><tr id="650ae5c4-bb2e-46dd-9d97-7e3009aebbaa"><td id="d]rG" class="">Essential Steps</td><td id="e=ie" class="">Mitarbeiter klicken auf das Navigationselement (Leistungsliste)Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt</td></tr><tr id="d6a31833-607f-4762-a113-537a7d5d85fc"><td id="d]rG" class="">Extentions</td><td id="e=ie" class=""></td></tr><tr id="cb544c85-aef4-4498-a18d-78e2b39ba554"><td id="d]rG" class="">Functional Requirements</td><td id="e=ie" class=""></td></tr></tbody></table></details></li></ul><ul id="3a7d19b7-ffb0-48d0-912e-fb2af429e254" class="toggle"><li><details open=""><summary>ID005 - Ressourcenverwaltung</summary><table id="917a91dc-da01-4790-ab39-13a2eb8da94a" class="simple-table"><tbody><tr id="66a673ab-2030-4d9e-80f2-6dd8cfd3e1de"><td id="o`J=" class="">ID</td><td id="&lt;tBt" class="">ID005</td></tr><tr id="818e7a74-2042-4d69-9c76-2e424e3b6a11"><td id="o`J=" class="">Name</td><td id="&lt;tBt" class="">Ressourcenverwaltung</td></tr><tr id="baa29447-fa43-4ec0-a88c-72b313216ae4"><td id="o`J=" class="">Description</td><td id="&lt;tBt" class=""></td></tr><tr id="c7e997e1-d385-439a-b58b-47accf4c3609"><td id="o`J=" class="">Actors</td><td id="&lt;tBt" class=""></td></tr><tr id="06080559-6e4f-4a7f-9a82-0bba9b9478c0"><td id="o`J=" class="">Trigger</td><td id="&lt;tBt" class=""></td></tr><tr id="bdb66a43-0c41-4492-aa76-3451b1f079a0"><td id="o`J=" class="">Precondition(s)</td><td id="&lt;tBt" class=""></td></tr><tr id="d5fef805-b048-4990-9449-37eccdeadf00"><td id="o`J=" class="">Essential Steps</td><td id="&lt;tBt" class=""></td></tr><tr id="01efde95-556a-468f-b395-afbd8252f61f"><td id="o`J=" class="">Extentions</td><td id="&lt;tBt" class=""></td></tr><tr id="012510e5-7dd3-4e17-96b5-886070938e87"><td id="o`J=" class="">Functional Requirements</td><td id="&lt;tBt" class=""></td></tr></tbody></table></details></li></ul><ul id="d0fc27be-f77d-4e23-b7e6-795c4e6399d7" class="toggle"><li><details open=""><summary>ID006 - Spende</summary><table id="3514582c-6a5a-4cc7-a69f-8676a048f366" class="simple-table"><tbody><tr id="13f89fe6-da37-4028-a1d6-865f4091cd9c"><td id="i&gt;XA" class="">ID</td><td id="~p[=" class="">ID006</td></tr><tr id="903aa388-da3a-4485-90de-01d3e2853084"><td id="i&gt;XA" class="">Name</td><td id="~p[=" class="">Spende</td></tr><tr id="de2aa457-4d41-4082-8377-05eb0bf22719"><td id="i&gt;XA" class="">Description</td><td id="~p[=" class=""></td></tr><tr id="b5c2c643-f024-43e1-99ac-90bc16d75c1d"><td id="i&gt;XA" class="">Actors</td><td id="~p[=" class=""></td></tr><tr id="dd9a93ec-ebdb-445c-b84a-7c72c52fef94"><td id="i&gt;XA" class="">Trigger</td><td id="~p[=" class=""></td></tr><tr id="85409642-41ec-439c-8561-3c3d83589f99"><td id="i&gt;XA" class="">Precondition(s)</td><td id="~p[=" class=""></td></tr><tr id="5fa23a9e-2095-43de-9459-280bd8ea1c98"><td id="i&gt;XA" class="">Essential Steps</td><td id="~p[=" class=""></td></tr><tr id="66b71137-40d3-491f-86c7-feb86dca83e5"><td id="i&gt;XA" class="">Extentions</td><td id="~p[=" class=""></td></tr><tr id="553eda9d-0b22-4495-9966-3ad02b75b875"><td id="i&gt;XA" class="">Functional Requirements</td><td id="~p[=" class=""></td></tr></tbody></table></details></li></ul><ul id="54af0768-3a0e-4b18-a540-9f26090f5f73" class="toggle"><li><details open=""><summary>ID007 - Bilanzerstellung </summary><table id="4d60be2d-c9da-4a7f-a5b1-3f64f1842638" class="simple-table"><tbody><tr id="9b8027fb-1891-437d-b0cc-f4684efce090"><td id="qcZ{" class="">ID</td><td id="&lt;`u_" class="">ID007</td></tr><tr id="3021f467-296d-4704-907e-37797d9a41de"><td id="qcZ{" class="">Name</td><td id="&lt;`u_" class="">Bilanzerstellung</td></tr><tr id="cd326858-49ac-482a-b8e7-d137d1157fff"><td id="qcZ{" class="">Description</td><td id="&lt;`u_" class=""></td></tr><tr id="9593da9b-78e3-449c-8be0-a3eebcf86f15"><td id="qcZ{" class="">Actors</td><td id="&lt;`u_" class=""></td></tr><tr id="b3e90e87-c59a-41b0-9299-a9186af39c93"><td id="qcZ{" class="">Trigger</td><td id="&lt;`u_" class=""></td></tr><tr id="3cd9f96a-f9a0-44bc-b0b8-ddf5372791e7"><td id="qcZ{" class="">Precondition(s)</td><td id="&lt;`u_" class=""></td></tr><tr id="b285c8e9-b6e7-4fff-8bed-29b4c4b38daa"><td id="qcZ{" class="">Essential Steps</td><td id="&lt;`u_" class=""></td></tr><tr id="c38d79ae-1a35-413e-acfa-ff00f89982cd"><td id="qcZ{" class="">Extentions</td><td id="&lt;`u_" class=""></td></tr><tr id="069a838a-038c-416f-aaa4-5c25cb877b8d"><td id="qcZ{" class="">Functional Requirements</td><td id="&lt;`u_" class=""></td></tr></tbody></table></details></li></ul><ul id="c1a93f6f-1607-4ed8-9eaa-d20886482abd" class="toggle"><li><details open=""><summary>ID008 - Materialbestellung</summary><table id="1e686503-b116-46bd-b738-aff338e90dae" class="simple-table"><tbody><tr id="032b4034-ef92-445d-ae40-68582bdef22b"><td id="~mUB" class="">ID</td><td id="zKhX" class="">ID008</td></tr><tr id="adb97b7e-2b82-4244-b7f2-fa76cd096154"><td id="~mUB" class="">Name</td><td id="zKhX" class="">Materialbestellung</td></tr><tr id="21280554-4b37-4eba-9fea-3efdd804c3dc"><td id="~mUB" class="">Description</td><td id="zKhX" class=""></td></tr><tr id="510cf1f5-c629-4841-97c5-a26ce3ae6d5b"><td id="~mUB" class="">Actors</td><td id="zKhX" class=""></td></tr><tr id="de24d36a-8ecb-4904-92c9-d20e956ccade"><td id="~mUB" class="">Trigger</td><td id="zKhX" class=""></td></tr><tr id="0de2f970-0260-45e6-ba14-a61cf939d890"><td id="~mUB" class="">Precondition(s)</td><td id="zKhX" class=""></td></tr><tr id="2a3eb348-b14b-46a2-979b-7f1f62c6930f"><td id="~mUB" class="">Essential Steps</td><td id="zKhX" class=""></td></tr><tr id="15d52b08-ab59-4284-ad7c-1278d0d42c66"><td id="~mUB" class="">Extentions</td><td id="zKhX" class=""></td></tr></tbody></table></details></li></ul><ul id="367c09a0-3a31-4ab8-9bfb-7f6ff1e1498b" class="toggle"><li><details open=""><summary>ID013 - Kundenverwaltung</summary><table id="620bee63-a9d2-4020-84fa-ed35e74e61ab" class="simple-table"><tbody><tr id="7004d5f6-3fd2-4261-a97c-36b4ac92f544"><td id="Q{&lt;?" class="" style="width:331px">ID</td><td id="OlFD" class="" style="width:331px">ID013</td></tr><tr id="a38778cd-265d-481a-862a-3fd3254eb073"><td id="Q{&lt;?" class="" style="width:331px">Name</td><td id="OlFD" class="" style="width:331px">Kundenverwaltung</td></tr><tr id="32e3d83b-e0fa-468d-9cd4-17a63ce1291d"><td id="Q{&lt;?" class="" style="width:331px">Description</td><td id="OlFD" class="" style="width:331px"></td></tr><tr id="4e53a2ee-a44d-4d54-aeb0-9a271116c95e"><td id="Q{&lt;?" class="" style="width:331px">Actors</td><td id="OlFD" class="" style="width:331px"></td></tr><tr id="e7d3a784-42e5-4620-8aee-1ff64f379a2d"><td id="Q{&lt;?" class="" style="width:331px">Trigger</td><td id="OlFD" class="" style="width:331px"></td></tr><tr id="020a6852-4439-43f4-aab4-802a057ba3c6"><td id="Q{&lt;?" class="" style="width:331px">Precondition(s)</td><td id="OlFD" class="" style="width:331px"></td></tr><tr id="96c73509-6793-4e69-a884-a7af8f1b1f02"><td id="Q{&lt;?" class="" style="width:331px">Essential Steps</td><td id="OlFD" class="" style="width:331px"></td></tr><tr id="40c64011-c21e-4e9d-aea0-13c6cc9831d0"><td id="Q{&lt;?" class="" style="width:331px">Extentions</td><td id="OlFD" class="" style="width:331px"></td></tr><tr id="30ea5b6d-961b-4d94-85d1-a80b9925cf85"><td id="Q{&lt;?" class="" style="width:331px">Functional Requirements</td><td id="OlFD" class="" style="width:331px"></td></tr></tbody></table></details></li></ul><ul id="cfcec1c2-4739-4d1d-9681-5a383d5de3a2" class="toggle"><li><details open=""><summary>ID023 - Bestellverwaltung</summary><table id="8e4bc9e3-cc6f-4bd6-9907-c0a7ce417be9" class="simple-table"><tbody><tr id="f4de6557-4792-4a78-89f8-495724e0fc2c"><td id="tQ|D" class="" style="width:331px">ID</td><td id="&gt;_oV" class="" style="width:331px">ID023</td></tr><tr id="775dfbb1-cfdc-4c7b-9d85-595b7faebd54"><td id="tQ|D" class="" style="width:331px">Name</td><td id="&gt;_oV" class="" style="width:331px">Bestellverwaltung</td></tr><tr id="dbba9522-bec6-43f0-8ba5-784fcdd0cd94"><td id="tQ|D" class="" style="width:331px">Description</td><td id="&gt;_oV" class="" style="width:331px"></td></tr><tr id="35c35137-27f9-48ce-b380-f22637135569"><td id="tQ|D" class="" style="width:331px">Actors</td><td id="&gt;_oV" class="" style="width:331px"></td></tr><tr id="a23dc7f2-590d-44cb-bea6-797c52055563"><td id="tQ|D" class="" style="width:331px">Trigger</td><td id="&gt;_oV" class="" style="width:331px"></td></tr><tr id="e755ce81-06ff-407e-8671-1a3164424f9a"><td id="tQ|D" class="" style="width:331px">Precondition(s)</td><td id="&gt;_oV" class="" style="width:331px"></td></tr><tr id="a9cdfa8d-2481-4707-a500-a09d47f1caa7"><td id="tQ|D" class="" style="width:331px">Essential Steps</td><td id="&gt;_oV" class="" style="width:331px"></td></tr><tr id="6810513c-3136-4867-95f8-d23541567330"><td id="tQ|D" class="" style="width:331px">Extentions</td><td id="&gt;_oV" class="" style="width:331px"></td></tr><tr id="7b0f3807-cf09-4558-a6f5-47032d662555"><td id="tQ|D" class="" style="width:331px">Functional Requirements</td><td id="&gt;_oV" class="" style="width:331px"></td></tr></tbody></table></details></li></ul><ul id="79df1e16-a0e6-438f-be6c-9563c61c2744" class="toggle"><li><details open=""><summary>ID033 - Check-Out</summary><table id="efa044bc-2ef6-4e71-b32a-1697f27484ec" class="simple-table"><tbody><tr id="040c6328-9395-43a8-bfe8-f6aa034ca1a9"><td id="f}}`" class="">ID</td><td id="`?ZD" class="">ID033</td></tr><tr id="9c437543-c1f3-4607-a28b-a299085f5f10"><td id="f}}`" class="">Name</td><td id="`?ZD" class="">Check-Out</td></tr><tr id="b05ab313-f6ed-42b6-ab56-1494f51ced31"><td id="f}}`" class="">Description</td><td id="`?ZD" class=""></td></tr><tr id="452f3308-1797-4e4a-9122-67402447cc50"><td id="f}}`" class="">Actors</td><td id="`?ZD" class=""></td></tr><tr id="e6f854a3-e2bd-4420-a984-949bbb68007d"><td id="f}}`" class="">Trigger</td><td id="`?ZD" class=""></td></tr><tr id="d286908a-6662-4af5-bbff-bd1024bc7cc8"><td id="f}}`" class="">Precondition(s)</td><td id="`?ZD" class=""></td></tr><tr id="ce71e66b-84fd-4998-a8bb-8a83bd519acf"><td id="f}}`" class="">Essential Steps</td><td id="`?ZD" class=""></td></tr><tr id="a0b269ae-b4aa-4f5a-94d6-88118d72b2dc"><td id="f}}`" class="">Extentions</td><td id="`?ZD" class=""></td></tr><tr id="4bf1b7a8-bbdd-437d-a786-57aa014510a7"><td id="f}}`" class="">Functional Requirements</td><td id="`?ZD" class=""></td></tr></tbody></table></details></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">8. Funktionale Anforderungen</summary><div class="indented"><p id="09043b22-09fb-403e-8b50-2317b5c4bd36" class=""><strong>Verantwortlichkeit: Jannes Schöttke</strong></p><p id="73c0d6b6-8b4e-49dd-99be-041092d6f2e8" class="">Dieser Abschnitt stellt die Version 1 der “Funktionale Anforderungstabelle” dar.<br/>Diese Tabelle enthält folgende Informationen zu den jeweiligen funktionalen Anforderungen:<br/></p><ul id="d6f9e452-7ce2-42bf-a61c-be52f8508276" class="bulleted-list"><li style="list-style-type:disc">Kategorie (Muss- bzw. Kann-Anforderung</li></ul><ul id="0ef71987-b007-4a16-8e48-313283edef06" class="bulleted-list"><li style="list-style-type:disc">Komponentenzuordnung</li></ul><ul id="879d957a-55a0-42d4-9e8a-fb9d76e60ae0" class="bulleted-list"><li style="list-style-type:disc">ID</li></ul><ul id="9e46e6c1-ff93-4514-88b6-996bca529ea7" class="bulleted-list"><li style="list-style-type:disc">Version</li></ul><ul id="28e4e5d2-eea6-409a-bf5d-74da4cc1974d" class="bulleted-list"><li style="list-style-type:disc">Name</li></ul><ul id="7ecc4648-3b51-4540-949a-b24c0f285c1f" class="bulleted-list"><li style="list-style-type:disc">Input- und Output-Daten sowie gewünschtes Verhalten</li></ul><ul id="7b86b5e8-bb8a-4193-afa4-8bc05d71a93c" class="bulleted-list"><li style="list-style-type:disc">Beschreibung</li></ul><p id="d6a4ca85-f556-4c77-bd8d-7166d6cfaf7e" class="">Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht jede Eigenschaft immer ausgefüllt ist.</p><table id="3aaeb2e4-9ab1-46e6-a22b-d65654fe5942" class="simple-table"><tbody><tr id="4efdf388-0d2c-4726-b8e5-96856eae6c4e"><td id="eAfb" class="" style="width:73.55555555555556px">Kategorie</td><td id="GTgd" class="" style="width:73.55555555555556px">Zuordnung</td><td id="vnFg" class="" style="width:73.55555555555556px">ID</td><td id="OWhW" class="" style="width:64.45833587646484px">Version</td><td id="sxUf" class="" style="width:73.55555555555556px">Name</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Inputdaten</td><td id="DEQ~" class="" style="width:73.55555555555556px">Verhalten (Verarbeitung)</td><td id="Hedp" class="" style="width:73.55555555555556px">Output</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Beschreibung</td></tr><tr id="f61eb740-38a1-4984-88c1-d241921482d5"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0010</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Benutzerverwaltung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Name, MA-ID, Postition, Studensatz</td><td id="DEQ~" class="" style="width:73.55555555555556px">Erstellt ein Objekt der Klasse MA</td><td id="Hedp" class="" style="width:73.55555555555556px">MA-Objekt bzw. ID</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">User müssen angelegt, bearbeitet und gelöscht werden können</td></tr><tr id="88c27d6b-c850-41fa-8949-d8a52efb0a82"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Annahme</td><td id="vnFg" class="" style="width:73.55555555555556px">F0020</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Kunden anlegen</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Adresse, Name, Emailadresse</td><td id="DEQ~" class="" style="width:73.55555555555556px">Erstellen eines Kundenobjektes</td><td id="Hedp" class="" style="width:73.55555555555556px">Erstellte KundenID</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Kunde muss zur Auftragserstellung im System anlegt sein/werden - damit ID Zuordnung gewährleistet werden kann</td></tr><tr id="73d0b0e3-9035-45c5-83c9-5e5cf4e7e6e6"><td id="eAfb" class="" style="width:73.55555555555556px">Kann</td><td id="GTgd" class="" style="width:73.55555555555556px">Reparatur planung</td><td id="vnFg" class="" style="width:73.55555555555556px">F0040</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Statustracking</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Zeitstempel, MA-ID, Checkpoints</td><td id="DEQ~" class="" style="width:73.55555555555556px">Status wird von bearbeitender Abteilung bzw. durch Geschäftslogik geändert</td><td id="Hedp" class="" style="width:73.55555555555556px">New, open, stored, in repair, complete, expired, donated)</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Auswahlfeld für den aktuellen Status des Reparaturauftrags (New, Open, stored, in repair, complete, expired, donated)</td></tr><tr id="44dfd6fd-bbb9-41ce-b4ca-3e12198162e1"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Annahme</td><td id="vnFg" class="" style="width:73.55555555555556px">F0050</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Preisermittlung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Gegenstand(Kategorie), Zustand, Service,</td><td id="DEQ~" class="" style="width:73.55555555555556px">Berechnet aus den Inputdaten einen Preis</td><td id="Hedp" class="" style="width:73.55555555555556px">Preisvorschlag</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Zur Angebotserstellung muss ein Preis ermittelt werden - Grundlage: zu erbringender Service</td></tr><tr id="c4289cdd-f38e-45cc-8cb1-4c9077753f81"><td id="eAfb" class="" style="width:73.55555555555556px">Kann</td><td id="GTgd" class="" style="width:73.55555555555556px">Annahme</td><td id="vnFg" class="" style="width:73.55555555555556px">F0051</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Mengenrabatt</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">KundenID, Preis</td><td id="DEQ~" class="" style="width:73.55555555555556px">Abrufen kummulierter Kundenumsatz, Ableitung Mengenrabatt, Preisanpassung</td><td id="Hedp" class="" style="width:73.55555555555556px">Reduzierter Preis</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px"></td></tr><tr id="edddbc26-caa2-4c7e-a3ad-4986d8279856"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Reparatur planung</td><td id="vnFg" class="" style="width:73.55555555555556px">F0051</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Berechnung Abholdatum</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Service, Zustand, ItemID, Material, MA-ID</td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px">Abholdatum</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Berechnet aus dem Service + zugeordneten MA, dessen Verfügbarkeit, dem Arbeits-/Materialbedarf (in Abhängigkeit der Verfügbarkeit) und der Gegenstandskategorie ein vrsl. Abholdatum</td></tr><tr id="44111c21-37b3-4ad5-b11b-842939d34def"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Annahme</td><td id="vnFg" class="" style="width:73.55555555555556px">F0060</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Zeitermittlung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Service, Zustand, Gegenstand</td><td id="DEQ~" class="" style="width:73.55555555555556px">Ermittelt benötigte Zeit</td><td id="Hedp" class="" style="width:73.55555555555556px">Abholdatum</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Zeitschätzung bis zur Fertigstellung</td></tr><tr id="39e94ad8-acb9-4152-b4e8-bacb18d0df21"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Annahme</td><td id="vnFg" class="" style="width:73.55555555555556px">F0070</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Auftrag anlegen</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Übernahme der Angebotsdaten</td><td id="DEQ~" class="" style="width:73.55555555555556px">Erstellen (KundenID), GegenstandsID - Checkbox: Preis bezahlt</td><td id="Hedp" class="" style="width:73.55555555555556px">AuftragsID</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Bestätigung des erstellten Angebots mit eventuell geänderten Daten</td></tr><tr id="e320d888-e6cc-41c3-8928-df2f8dd45f6b"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Annahme</td><td id="vnFg" class="" style="width:73.55555555555556px">F0080</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Abholschein ausgeben</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">GegenstandsID</td><td id="DEQ~" class="" style="width:73.55555555555556px">Erstellung QR Code</td><td id="Hedp" class="" style="width:73.55555555555556px">QR-Code</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Es muss in einer beliebigen Form ein Abholschein mit einer ein-indeutigen ID erstellt und ausgegeben werden</td></tr><tr id="59f25afc-8ad0-4bad-990c-31f2d51392a1"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Annahme</td><td id="vnFg" class="" style="width:73.55555555555556px">F0090</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Angebot erstellen</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Gegenstand(Kategorie), Zustand, Service, Preis, Abholdatum, Zeitstempel</td><td id="DEQ~" class="" style="width:73.55555555555556px">Erstellt ein Objekt der Klasse Angebot</td><td id="Hedp" class="" style="width:73.55555555555556px">AngebotsID</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Setzt sich mind. aus Preis, Zeit und ID zusammen</td></tr><tr id="ed2388d9-4b24-4165-b135-0256fd3742bb"><td id="eAfb" class="" style="width:73.55555555555556px">Kann</td><td id="GTgd" class="" style="width:73.55555555555556px">Annahme</td><td id="vnFg" class="" style="width:73.55555555555556px">F0091</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Angebot erstellen</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Gegenstandskategorie, Zustand, Service, Preis, Zeitstempel,</td><td id="DEQ~" class="" style="width:73.55555555555556px">Erstellung eines Angebotsobjekts aus den Inputdaten</td><td id="Hedp" class="" style="width:73.55555555555556px">Angebotsobjekt + visuelle Darstellung dessen</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Weitere optionale Felder für die Angebotserstellung (Bevorzugtes Material, Kommentare, etc.)</td></tr><tr id="159ac1c4-2740-4bc3-943e-7fb288afaa24"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Architektur</td><td id="vnFg" class="" style="width:73.55555555555556px">F0110</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Eingabedatenvalidierung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Beliebige Inputdaten</td><td id="DEQ~" class="" style="width:73.55555555555556px">Überprüfung der eingegebenen Daten auf Zweckgebundenheit</td><td id="Hedp" class="" style="width:73.55555555555556px">Eine bzw. keine Fehlermeldung</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Prüfung der Eingabedaten auf Zweckgebundenheit -&gt; Sicherheitsaspekt</td></tr><tr id="4611ae9e-e560-4b07-9747-6f3024dd5031"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Lager</td><td id="vnFg" class="" style="width:73.55555555555556px">F0120</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Lagerverwaltung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">ItemID, Zeitstempel</td><td id="DEQ~" class="" style="width:73.55555555555556px">Erstellt aus ItemObject ein LagerObjekt bzw. Eintrag in DB</td><td id="Hedp" class="" style="width:73.55555555555556px">Erfassung des Gegegenstandes +  Zustände im Lager</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Erfassung von Zu- und Abgängen des Lagers (Sowohl Ressourcen als auch Auftragsgegenstände)</td></tr><tr id="de1aef66-ee21-406c-880e-d53d24a97f60"><td id="eAfb" class="" style="width:73.55555555555556px">Kann</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0121</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Bestellfunktion Material</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Art, Menge, Kommentar, Service</td><td id="DEQ~" class="" style="width:73.55555555555556px">Erstellt einen Bestellung aus den Inputdaten (wird an Fillialmanagement gepusht)</td><td id="Hedp" class="" style="width:73.55555555555556px">Bestellungsformular</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Bestellfunktion für Arbeitsgerät; wird in Form eines Bestellformulars an Fillialleitung weiter gegeben</td></tr><tr id="5a7d4d28-c590-4757-9574-bd385a0f886c"><td id="eAfb" class="" style="width:73.55555555555556px">Kann</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0122</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Bestellfunktion Arbeitsgerät</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Art, Menge, Kommentar, verwendbarer Service?</td><td id="DEQ~" class="" style="width:73.55555555555556px">Erstellt einen Bestellung aus den Inputdaten (wird an Fillialmanagement gepusht)</td><td id="Hedp" class="" style="width:73.55555555555556px">Bestellungsformular</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Bestellfunktion für Material; wird in Form eines Bestellformulars an Fillialleitung weiter gegeben</td></tr><tr id="8170d548-1cbe-4253-b2b8-0ec94a9513a5"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Architektur</td><td id="vnFg" class="" style="width:73.55555555555556px">F0130</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Login/Logout-Funktion</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">inkl. Passwortreset</td></tr><tr id="8d290b1c-5877-4ccf-b4f6-19c9b557cd1c"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Architektur</td><td id="vnFg" class="" style="width:73.55555555555556px">F0131</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Benutzervalidierung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Anmeldename + dazugehöriges Passwort</td><td id="DEQ~" class="" style="width:73.55555555555556px">Abgleich der eingegeben Daten mit UserTable (DB)</td><td id="Hedp" class="" style="width:73.55555555555556px">Check bzw. uncheck zur Weiterverarbeitung der Oberfläche</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Abgleich, ob Benutzer mit diesen Daten im System</td></tr><tr id="57edad49-fd97-4332-8877-f989716c6f09"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Bilanzierung</td><td id="vnFg" class="" style="width:73.55555555555556px">F0170</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Kostenerfassung für KLR</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">per Auftrag: Umsatz, Material- und Personalkosten; pro Filliale/Monat: Betriebskosten Arbeitsgerät, Räume und Anschaffungskosten Arbeitsgerät/12</td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px">Gewinn/Verlust pro Monat</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Erfassung von Personal-, Material- und Nebenkosten</td></tr><tr id="9828bf2b-1333-4902-a765-cccfb6173e71"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Bilanzierung</td><td id="vnFg" class="" style="width:73.55555555555556px">F0171</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Erfassung Materialkosten</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Materialart,-qualität,-menge</td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Ermittelt die Materialkosten einer Filiale/Monat</td></tr><tr id="1b56dd49-999c-42dc-88ee-6f03aa56a1e0"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Bilanzierung</td><td id="vnFg" class="" style="width:73.55555555555556px">F0172</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Erfassung Nebenkosten</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">aus Preiseigenschaft von RaumObjekt, ArbeitsgerätObjekt,</td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Ermittelt Nebenkosten einer Filiale/Monat</td></tr><tr id="cd48033f-70c6-4f86-b916-13df99b8cc0c"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Bilanzierung</td><td id="vnFg" class="" style="width:73.55555555555556px">F0173</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Erfassung Personalkosten</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">MA-ID, Zeitaufwand</td><td id="DEQ~" class="" style="width:73.55555555555556px">for each MI-ID (MI-ID.Stundensatz * kummulierter Zeitaufwand/Monat)</td><td id="Hedp" class="" style="width:73.55555555555556px">Personalkosten/Monat</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Ermittelt die Personalkosten für eine Filiale - benötigt Stundenzähler in MA-ID</td></tr><tr id="4911f8d3-0dee-4275-9740-8c95b061376d"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0200</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Login Page</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">MIN: Username, Passwort, Passwortreset</td></tr><tr id="39f68963-0e6e-4434-ba76-09ba45fb0c92"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0201</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Startpage</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">MIN: New Offer, New Order, Services, Depot, Filiale (MA, Ressourcen, Finanzen)</td></tr><tr id="1cfd63d4-8678-464f-b813-81ead738eb5c"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0202</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">New Order</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">MIN: CustomerID, ItemID, Payed?, Comment</td></tr><tr id="3b78b1f1-a381-4239-a805-dc6cabc9ad5f"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0203</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">New Offer</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">MIN: Itemcategorie, condition, service, quote, estimated time, time stamp</td></tr><tr id="fd2db7cf-292c-491a-95c0-a18039f359be"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0204</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Depot</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">MIN: Database table which stores the different items</td></tr><tr id="78a01343-405b-4564-a6d3-12269831846a"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0205</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">New Customer</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">MIN: Name, email, turnover, agreement</td></tr><tr id="312bdc64-d3d0-453c-baff-f070c08956bf"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0206</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Ressources</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">MIN: Arbeitsgerät, Material, Räume</td></tr><tr id="624546d4-2d26-4fa1-bfed-395c1be26c56"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0207</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Finance</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">MIN: Listview monthly + yearly (costs + revenue) + Darta</td></tr><tr id="77bd56e1-9feb-44b8-8712-d7c201e043ac"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0208</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Management</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Links zu Ressourcen, Finanzen, Mitarbeiter + Diagramm im Inhaltsbereich</td></tr><tr id="6b274a05-2ce7-46ec-a196-883ef9115e4c"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0209</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Object check out</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px"></td></tr><tr id="d6b18096-bbc2-4b20-84f0-6f6138243098"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0210</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Landingpage</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Eingeschränkte View; nur Optionen ServiceCatalog einzusehen + Login/Register</td></tr><tr id="240929c7-5e15-4fd2-96b9-8ca17dbbb9bc"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">GUI</td><td id="vnFg" class="" style="width:73.55555555555556px">F0211</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Register User</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">MIN: First &amp; Last name, username, Password, Terms&amp;Conditions</td></tr><tr id="87fec739-e634-4440-99d7-ecbef517f6bd"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0270</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Serviceverwaltung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Bearbeiten von Services</td></tr><tr id="37eea8b6-2c98-4832-a20f-7390ae1c87a5"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0280</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Personalverwaltung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Erstellen, bearbeiten und löschen von MA-Objekten (nur durch Fillialmanagement)</td></tr><tr id="8137b2f6-8d7e-4957-b51c-adfb327ee9c7"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0290</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Geschäftsraumverwaltung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Erstellen, bearbeiten und löschen von Geschäftsräumen (nur durch Fillialmanagement)</td></tr><tr id="079b755f-964e-4aa8-998c-33b71b7d24f9"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0300</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Arbeitsgeräteverwaltung</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Erstellen, bearbeiten und löschen von Geschäftsräumen (durch autorisierte MA)</td></tr><tr id="7a3773dd-6ae0-4eb7-8d65-894a7efb254f"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0310</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Zuweisung freier MA</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Datum, Dauer (Abgeleitet von Service + Zustand), Prio?</td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px">Setzt MA für Dauer auf NA</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung</td></tr><tr id="6d664087-d9ad-4bd9-b4b0-f553f8d7a04c"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0311</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Buchung Arbeitsgerät</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Kategorie, ArbeitsgerätID, Dauer</td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px">Setzt Arbeitsgerät für Dauer auf NA</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung</td></tr><tr id="c40964e5-a235-4ca5-9002-21e57d0eaab2"><td id="eAfb" class="" style="width:73.55555555555556px">Kann</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0311</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Neuzuweisung freier MA</td><td id="fAG&gt;" class="" style="width:73.55555555555556px"></td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px"></td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Für den Fall, dass zugewiesener MA nicht verfügbar ist</td></tr><tr id="6fbcd0be-207f-4aab-b90d-13a70659b151"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0312</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Buchung Materialbedarf</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Art, Menge, Kommentar</td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px">Reduziert Materialart um Menge</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung</td></tr><tr id="d7b35361-3d5e-445a-8ced-3df0ccc1c274"><td id="eAfb" class="" style="width:73.55555555555556px">Muss</td><td id="GTgd" class="" style="width:73.55555555555556px">Ressourcen management</td><td id="vnFg" class="" style="width:73.55555555555556px">F0313</td><td id="OWhW" class="" style="width:64.45833587646484px">1.0</td><td id="sxUf" class="" style="width:73.55555555555556px">Buchung Raum/Arbeitsplatz</td><td id="fAG&gt;" class="" style="width:73.55555555555556px">Dauer, Kommentar/Hinweise</td><td id="DEQ~" class="" style="width:73.55555555555556px"></td><td id="Hedp" class="" style="width:73.55555555555556px">Setzt Raum/Arbeitsplatz für Dauer auf NA</td><td id="Ce&lt;T" class="" style="width:73.55555555555556px">Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung</td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">9. Nicht-funktionale Anforderungen</summary><div class="indented"><p id="8a86c1ab-d36c-4741-b91e-157406d0f092" class=""><strong>Verantwortlichkeit: Pascal Jahn</strong></p><p id="5a68fdc3-a557-45dd-bf42-bcdba591f351" class="">Die nicht funktionalen Anforderungen des Managementsystems beschreiben Anforderungen, welche das System in <strong>Stabilität</strong>, <strong>Arbeitsweise</strong> und unter verschiedenen Szenarien definieren.</p><h3 id="b3fda575-8068-4ad6-a2fc-ae0483c0e43b" class="">9.1 qualitative Anforderungen</h3><p id="38e8c5bc-f2d0-432e-b200-c76035ef2fe2" class="">Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt. Dabei wird jede nicht funktionalen Anforderung gewichtet, was die spätere Formulierung konkreter NF Anforderungen beeinflussen muss.</p><p id="e00316a1-069c-4c08-beb8-80b9307c7605" class="">1 = unwichtig ... 5 = sehr wichtig</p><table id="02d35df8-a474-437b-a1b5-076f48a423b3" class="simple-table"><tbody><tr id="0c3a1212-8b37-4304-a0dd-88e9e5072ec3"><td id="{PaS" class="" style="width:220.66666666666666px">Qualitative Anforderung</td><td id="q{zm" class="" style="width:220.66666666666666px">Gewichtung</td><td id="aOTS" class="" style="width:220.66666666666666px">Beschreibung</td></tr><tr id="07146c81-6c31-434c-9962-0a79467f7268"><td id="{PaS" class="" style="width:220.66666666666666px">Bedienbarkeit</td><td id="q{zm" class="" style="width:220.66666666666666px">4</td><td id="aOTS" class="" style="width:220.66666666666666px">das Managementsystem muss sowohl für ältere Mitarbeiter, die nicht viel Erfahren mit Informationssystemen haben, als auch für alle Kunden intuitiv zu verstehen und bedienen sein</td></tr><tr id="7a140fad-fbd5-4411-a563-c317f72de4e6"><td id="{PaS" class="" style="width:220.66666666666666px">Effizienz/ Automatisierung</td><td id="q{zm" class="" style="width:220.66666666666666px">3</td><td id="aOTS" class="" style="width:220.66666666666666px">Zeitbasierte Datenverwaltung von Bestellung und Nutzerdaten</td></tr><tr id="b13698d2-43c6-428c-839a-2e621386143b"><td id="{PaS" class="" style="width:220.66666666666666px">Sicherheit</td><td id="q{zm" class="" style="width:220.66666666666666px">3</td><td id="aOTS" class="" style="width:220.66666666666666px">Datenschutz und somit die Sicherheit persönlicher Daten von Kunden ist sehr wichtig, jedoch sind interne Daten von Prozessen der Dienstleistungen nicht kritisch</td></tr><tr id="aacfdc96-80e8-4129-8286-7ac6bff87995"><td id="{PaS" class="" style="width:220.66666666666666px">Skalierbarkeit</td><td id="q{zm" class="" style="width:220.66666666666666px">4</td><td id="aOTS" class="" style="width:220.66666666666666px">Das System muss auf eine wachsende Anzahl kleiner Filialen unterstützen und muss somit primär für interne Finanzen und Ressourcenverwaltung gut skalierbar sein</td></tr><tr id="02bab5e4-01e6-4978-9713-069a98857a73"><td id="{PaS" class="" style="width:220.66666666666666px">Verfügbarkeit</td><td id="q{zm" class="" style="width:220.66666666666666px">4</td><td id="aOTS" class="" style="width:220.66666666666666px">da Kunden online Bestellungen aufgeben können sollen und Kunden jederzeit ihren Auftragsfortschritt einsehen sollen ist uptime dieses Systems zu maximieren</td></tr></tbody></table><p id="1b719411-e7ef-4152-aaff-16e1fd3a2a9a" class="">
+</p><h3 id="e00bbbd8-0752-401b-9436-c80586c977a0" class="">9.2 konkrete nicht funktionale Anforderungen</h3><table id="15c1e319-ad1b-40c9-be70-9dfa8bf5e444" class="simple-table"><tbody><tr id="7345bf15-f52c-4987-b6d7-3e94f87b2119"><td id="mjhz" class="">ID</td><td id=";WUO" class="">Version</td><td id="yJpr" class="">Name</td><td id="Fvgh" class="">Beschreibung</td></tr><tr id="3c901022-fd91-43d9-b68e-e09d68d025ad"><td id="mjhz" class="">[NF0010]</td><td id=";WUO" class="">v 0.1</td><td id="yJpr" class="">Verfügbarkeit/ uptime</td><td id="Fvgh" class="">Das System sollte eine Uptime größer gleich 99% haben</td></tr><tr id="bb8743d3-d2dd-41b9-95eb-ba62b41e7886"><td id="mjhz" class="">[NF0020]</td><td id=";WUO" class="">v 0.1</td><td id="yJpr" class="">Sicherheit/ Nutzerdatenverwaltung</td><td id="Fvgh" class="">Nutzerdaten können nur mit Einverständnis des Kunden und nur für eine bestimmte Zeit in einer Datenbank gespeichert werden</td></tr><tr id="0b720322-4ee1-4446-9d8e-9dbcab280319"><td id="mjhz" class="">[NF0030]</td><td id=";WUO" class="">v 0.1</td><td id="yJpr" class="">Effizienz/ Datenverwaltung</td><td id="Fvgh" class="">abgeschlossene oder abgelaufene Bestellungen sollten nach Bestimmter Zeit aus dem System entfernt werden oder archiviert werden, manuelle Inventarverwaltung zu erleichtern</td></tr><tr id="535e7bd0-d35e-4be2-93bd-342883a3a35e"><td id="mjhz" class="">[NF0040]</td><td id=";WUO" class="">v 0.1</td><td id="yJpr" class="">Sicherheit/ Passwort</td><td id="Fvgh" class="">Passwörter sollen zur Systemsicherheit und gegen Identitätsdiebstahl nur in Hash-Werten gespeichert werden</td></tr><tr id="f220a5d2-cbed-441b-8554-43d9c7f86753"><td id="mjhz" class="">[NF0050]</td><td id=";WUO" class="">v 0.1</td><td id="yJpr" class="">Bedienbarkeit/ GUI</td><td id="Fvgh" class="">das Anlegen einer Bestellung mit dem Kunden Vorort soll während der Kundeninteraktion die wenigste Zeit in Anspruch nehmen</td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">10. GUI-Prototyp</summary><div class="indented"><p id="5e22f1df-cb88-4e5f-b5f9-10dbff7a14f1" class=""><strong>Verantwortlichkeit: Vahir Kheni, Jannes Schöttke</strong></p><figure id="ecc4eaba-56e0-460d-a3a2-d7a2390e5d81" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%202.png"><img style="width:1908px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%202.png"/></a><figcaption>View: addCustomer V1.0</figcaption></figure><figure id="f9fd735f-7c75-43f6-98af-93b48d1fdf43" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%203.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%203.png"/></a><figcaption>View: authenticated V1.0</figcaption></figure><figure id="c2fdbda4-9812-4329-83b3-275b6b27ae94" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%204.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%204.png"/></a><figcaption>View: checlout V1.0</figcaption></figure><figure id="6eda7072-ba78-456c-bd1c-a1917600df35" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%205.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%205.png"/></a><figcaption>View: data V1.0</figcaption></figure><figure id="e17c4a76-da74-4b06-8715-7bec6534d68e" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%206.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%206.png"/></a><figcaption>View: depot V1.0</figcaption></figure><figure id="b40b035c-540e-4b5d-9dc7-d12ac5f36126" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%207.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%207.png"/></a><figcaption>View: finance V1.0</figcaption></figure><figure id="536323f9-eaca-4d66-8560-d37389215483" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%208.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%208.png"/></a><figcaption>View: landingpage V1.0</figcaption></figure><figure id="aad07e21-22b7-4a17-acf7-91f18c499bd9" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%209.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%209.png"/></a><figcaption>View: loginpage V1.0</figcaption></figure><figure id="9f01582c-fc4e-446f-8a6d-ecdfe396d08d" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2010.png"><img style="width:1908px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2010.png"/></a><figcaption>View: logout V1.0</figcaption></figure><figure id="9f596104-e23e-4ffb-a219-0341f38a039c" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2011.png"><img style="width:1908px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2011.png"/></a><figcaption>View: management V1.0</figcaption></figure><figure id="3c450551-c519-4d70-9b69-b1254456d88f" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2012.png"><img style="width:1908px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2012.png"/></a><figcaption>View: newOffer V1.0</figcaption></figure><figure id="19260058-48fa-49e4-9cd6-60d845481536" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2013.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2013.png"/></a><figcaption>View: newOrder V1.0</figcaption></figure><figure id="3e4e6fb8-f702-4200-af84-ec45dc957f8a" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2014.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2014.png"/></a><figcaption>View: registerUser V1.0</figcaption></figure><figure id="0a60d932-27e6-4c4d-bd09-2e3a464a2c29" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2015.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2015.png"/></a><figcaption>View: ressources V1.0</figcaption></figure><figure id="62f33d0d-491c-4e9c-acce-ba449d66f046" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2016.png"><img style="width:680px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2016.png"/></a><figcaption>View: servicecatalog V1.0</figcaption></figure><figure id="4201a00b-1606-4845-a428-d16546ddd6dd" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2017.png"><img style="width:1924px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Untitled%2017.png"/></a><figcaption>View: startpage V1.0</figcaption></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">11. Datenmodell</summary><div class="indented"><h3 id="fcd097b3-ab56-482e-8316-188dd5728279" class="">11.1 Klassendiagramm</h3><p id="b1207f24-e630-4519-a564-ad9d246ec810" class=""><strong>Verantwortlichkeit: Phillip Danzmann, Jannes Schöttke</strong></p><figure id="1b5d5556-da54-48d9-b591-0050fc35b931" class="image"><a href="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Datenmodell_V2.drawio.png"><img style="width:1361px" src="Pflichtenheft%20Kleinreparaturbetrieb%20Mending%20Points%209aafb6390508492188b378a7ab208365/Datenmodell_V2.drawio.png"/></a></figure><h3 id="8d41aed8-9e67-4df2-a729-d7dc0e785724" class="">11.2 Klassen und Enumerations</h3><p id="c3071d9d-83f7-4fe5-a54f-6e2766be2e73" class=""><strong>Verantwortlichkeit: Pritkumar Dobariya</strong></p><p id="e8b9eb92-6cb8-4065-81fc-a8c3b32cb475" class="">Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die Verwendung in dem domain model finden. Die Tabelle ist Teil der Dokumentation und dient der Information der Stakeholder über Zentrale Begriffe und Konzepte des Aufbau des Systems.</p><table id="c0ba1b48-7b1a-4ec4-a039-154fece57b5e" class="simple-table"><tbody><tr id="7a817c74-cb45-40f2-aff6-415b1d714296"><td id="LSVu" class="" style="width:331px">Enumerations</td><td id="iReH" class="" style="width:331px">Description</td></tr><tr id="ac4c4b43-f132-4244-851d-c67e64a1475a"><td id="LSVu" class="" style="width:331px">Filialmanagementsystem</td><td id="iReH" class="" style="width:331px">Hauptklasse des Systems, welches eine reale Kleinreparaturen Filiale beschreibt</td></tr><tr id="71746f26-9931-4492-9342-759a51eda301"><td id="LSVu" class="" style="width:331px">Finanzbuchhaltung</td><td id="iReH" class="" style="width:331px"></td></tr><tr id="c9e5428e-c7b3-4f4c-9274-5fb5fecd4e6d"><td id="LSVu" class="" style="width:331px">Lager</td><td id="iReH" class="" style="width:331px">Repräsentation eines Verzeichnisses an in System gespeicherten Items</td></tr><tr id="69ce64fd-574e-4752-8b6b-b2edfddac426"><td id="LSVu" class="" style="width:331px">Item</td><td id="iReH" class="" style="width:331px">Repräsentation eines zur Reparatur abgegebenen Gegenstandes</td></tr><tr id="fdc167c3-8229-4ee4-aadb-179e11df04f5"><td id="LSVu" class="" style="width:331px">→ ITEMID</td><td id="iReH" class="" style="width:331px">Repräsentation einer Kennnummer des abgegebenen Reparaturgegenstandes</td></tr><tr id="25b67452-6f31-4f20-a1aa-7fe727825fe9"><td id="LSVu" class="" style="width:331px">→ KATEGORIE</td><td id="iReH" class="" style="width:331px">Repräsentation einer Zuordnung zu nötigen Services</td></tr><tr id="0ec75985-1d84-48b8-920b-2433cb51d938"><td id="LSVu" class="" style="width:331px">→ ZUSTAND</td><td id="iReH" class="" style="width:331px">Einschätzung der Reparierbarkeit in einen originalzustand</td></tr><tr id="5814d4f4-626c-4dca-9179-bbf39d794434"><td id="LSVu" class="" style="width:331px">→ BILD</td><td id="iReH" class="" style="width:331px">Repräsentation eines Fotos des physischen Gegenstandes nach der Abgabe</td></tr><tr id="8e993d40-ae47-4d7d-8a56-8fc5cb617e80"><td id="LSVu" class="" style="width:331px">Service Catalog</td><td id="iReH" class="" style="width:331px">Repräsentation eines Verzeichnisses an im System angelegten Services</td></tr><tr id="ec4d422e-9dfa-4a12-83cf-08f37d378ebe"><td id="LSVu" class="" style="width:331px">Service</td><td id="iReH" class="" style="width:331px">Repräsentation der angebotenen Services mittels einem Namen, Preis und einer Beschreibung möglicher Dienstleistungen</td></tr><tr id="6574255c-5e0e-4653-b852-5c349d266365"><td id="LSVu" class="" style="width:331px">→ NAME</td><td id="iReH" class="" style="width:331px">Kenn-Name eines im System vermerkten Services</td></tr><tr id="251647d2-3dff-4aef-82d8-daf5190c0900"><td id="LSVu" class="" style="width:331px">→ PREIS</td><td id="iReH" class="" style="width:331px">pauschaler Grundpreis eines im System vermerkten Services</td></tr><tr id="e22811d4-fa82-472a-8c2b-be5af9feb929"><td id="LSVu" class="" style="width:331px">Bestellübersicht</td><td id="iReH" class="" style="width:331px">Repräsentation der Verwaltung und Erstellung von Offer und Order</td></tr><tr id="cfc01444-4b53-4d0c-9b01-d599e52760a5"><td id="LSVu" class="" style="width:331px">→COMMENT</td><td id="iReH" class="" style="width:331px">Repräsentation von Vermerkungen und Kommentaren einer Angebote und Bestellungen</td></tr><tr id="7ee114e4-f2f4-4bf7-b970-6edf5f98e171"><td id="LSVu" class="" style="width:331px">Offer</td><td id="iReH" class="" style="width:331px">Repräsentation eines eingegangenen Angebots</td></tr><tr id="49d0d0e6-7961-479d-a432-0f07c1308710"><td id="LSVu" class="" style="width:331px">→OFFERID</td><td id="iReH" class="" style="width:331px">Repräsentation einer Kennnummer des Angebots</td></tr><tr id="37304c38-def3-4b0c-b924-5841a1721e78"><td id="LSVu" class="" style="width:331px">→PREIS</td><td id="iReH" class="" style="width:331px">Repräsentation einer für den Bestellabschluss zu vorauszahlenden Summe</td></tr><tr id="ab2361ff-d745-474c-8ecb-edf2682cc8d6"><td id="LSVu" class="" style="width:331px">Order</td><td id="iReH" class="" style="width:331px">Repräsentation einer laufenden Bestellung nach Angebotsbestätigung</td></tr><tr id="11cfca72-9170-4605-b101-fe1ef192796d"><td id="LSVu" class="" style="width:331px">→ORDERID</td><td id="iReH" class="" style="width:331px">Repräsentation</td></tr><tr id="0c99ef93-5c05-4d13-a04c-147c6b45dc3a"><td id="LSVu" class="" style="width:331px">→ZEITSTEMPEL</td><td id="iReH" class="" style="width:331px">Repräsentation</td></tr><tr id="bed7072e-5902-4391-9714-336e8cd09b14"><td id="LSVu" class="" style="width:331px">→STATUS</td><td id="iReH" class="" style="width:331px">Repräsentation</td></tr><tr id="a0145dac-7607-4ed0-80c4-4b72a7b3ff72"><td id="LSVu" class="" style="width:331px">→Status</td><td id="iReH" class="" style="width:331px">Bearbeitungsstatus einer Bestellung eines Kunden [Open, Complete, Stored, Expired]</td></tr><tr id="1458693c-b0fd-4316-9a2d-684e6271e513"><td id="LSVu" class="" style="width:331px">Kunden</td><td id="iReH" class="" style="width:331px">Repräsentation einer Realen Person, die Kunde, also Auftraggeber, mittels einer Bestellung bei einem Repair-Shop ist</td></tr><tr id="0b817a85-bcfb-4682-8301-d4e7796a62a8"><td id="LSVu" class="" style="width:331px">→ KundenID</td><td id="iReH" class="" style="width:331px">Repräsentation einer Kennnummer eines Kunden</td></tr><tr id="12c5b86f-29b3-4692-9ba8-0785e34b526b"><td id="LSVu" class="" style="width:331px">Ressourcen</td><td id="iReH" class="" style="width:331px">Repräsentation von realen betriebseigenen Arbeitsmitteln</td></tr><tr id="497f929f-6f42-47bc-b4be-b010d70183d8"><td id="LSVu" class="" style="width:331px">Arbeitsgerät</td><td id="iReH" class="" style="width:331px">Repräsentation von Werkzeugen und anderen betriebseigenen Gerätschaften, die in einer Filiale vorhanden sind</td></tr><tr id="ffed269b-e7e9-48e9-948a-ba58ce8de569"><td id="LSVu" class="" style="width:331px">Material</td><td id="iReH" class="" style="width:331px">Repräsentation von physischen betriebeigenen Material, was betrieblichen Zwecken dient</td></tr><tr id="57a17eec-b08b-402a-ace0-5a2205cca439"><td id="LSVu" class="" style="width:331px">Räume</td><td id="iReH" class="" style="width:331px">Repräsentation von physischen Orten einer Filiale, die unter betrieblicher Verwendung stehen</td></tr><tr id="4fa102bc-944a-42f1-900b-257f87107adb"><td id="LSVu" class="" style="width:331px">User</td><td id="iReH" class="" style="width:331px">Repräsentation einer realen Person</td></tr><tr id="97cafe38-55ba-4118-b74a-832e8c24c983"><td id="LSVu" class="" style="width:331px">Registered User</td><td id="iReH" class="" style="width:331px">Repräsentation einer realen Person, die im System registriert ist und mittels Login sich authentifizieren können</td></tr><tr id="ca375318-f77e-4149-9122-d242492ec4f9"><td id="LSVu" class="" style="width:331px">→ USERNAME</td><td id="iReH" class="" style="width:331px">Name einer realen Person, mit der diese im System eingetragen ist</td></tr><tr id="df8f6ed4-8805-4eb6-8fa1-dc441a794be0"><td id="LSVu" class="" style="width:331px">→ PASSWORD</td><td id="iReH" class="" style="width:331px">Passwort das eine registrierte Person in Verbindung mit dem USERNAME im Login authentifiziert</td></tr><tr id="7cd9cff5-4787-4e23-8eae-10998ef0897e"><td id="LSVu" class="" style="width:331px">→ ADRESS</td><td id="iReH" class="" style="width:331px">Repräsentation der Rolle und Rechten eines spezifischen Users</td></tr><tr id="f86cdc5b-8973-42be-b3bb-46dec7018ad3"><td id="LSVu" class="" style="width:331px">Mitarbeiter</td><td id="iReH" class="" style="width:331px">Repräsentation eines realen Mitarbeiters</td></tr><tr id="07168b4c-4eb8-48b3-8585-f46220fa3623"><td id="LSVu" class="" style="width:331px">→ ID</td><td id="iReH" class="" style="width:331px">Repräsentation einer Kennnummer eines spezifischen Mitarbeiters im System</td></tr><tr id="00ee0cb2-8952-49dd-ae08-675c2f7add44"><td id="LSVu" class="" style="width:331px">Filialmanagement</td><td id="iReH" class="" style="width:331px">Repräsentation einer realen Filialleitung</td></tr><tr id="2525c4ed-bc4e-43bb-8da8-04ac334a12c8"><td id="LSVu" class="" style="width:331px">→ ID</td><td id="iReH" class="" style="width:331px">Repräsentation einer Kennnummer eines spezifischen Filialmanagements im System</td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">12. Akzeptanztestfälle</summary><div class="indented"><p id="ffa31f01-4ede-4760-b183-b300288576cf" class=""><strong>Verantwortlichkeit: Pritkumar Dobariya</strong></p><p id="991f9e55-35cc-4848-8678-88aa7ea08ead" class="">An dieser Stelle wird von einer detaillierten Ausführung der Akzeptanztestfälle abgesehen, da diese in Grundzügen bereits in den Use Cases beschrieben sind. Eine detaillierte Beschreibung wird jedoch im Rahmen der zu erstellenden technischen Dokumentation angefertigt werden.  </p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">13. Anmerkungen</summary><div class="indented"><ul id="8cd96d66-4976-48f6-b33b-25f3ad8b3a16" class="bulleted-list"><li style="list-style-type:disc">Eine abweichende Verwendung der Begriffe Management, Filialleitung und Filialmanagement in den Diagrammen ist aufgrund der unterschiedlichen Perspektive möglich. Diese sind jedoch als synonym zu betrachten und weisen auf die gleiche Stakeholder-Gruppe hin. </li></ul></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
