@@ -8,12 +8,8 @@
 |===
 |Version | Status       | Bearbeitungsdatum   | Autoren(en)     |  Vermerk
 | 1.0    | abgeschlossen| 21.04.2024          | Jannes Schöttke | Initiale Version außerhalb Asciidoc
-|1.1     | In Arbeit    | 23.04.24            | Pascal Jahn     | Initiale Version
+| 1.2    | In Arbeit    | 23.04.24            | Pascal Jahn     | Initiale Version
 |===
-
-== Inhaltsverzeichnis
-[[Inhaltsverzeichnis]]
-
 
 == 1. Zusammenfassung
 [[Zusammenfassung]]
@@ -120,11 +116,8 @@ a|
 [[System-context-diagram]]
 *Verantwortlichkeit: Vahir Kheni*
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
-
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/Systemkontext.png[]
+Figure 1.  System-context-diagram des Kleinreparaturen-Systems in UML
 
 Neben der in der Darstellung aufgeführten User sind als Nachbarsysteme eine Datenbank zur persistenten Speicherung der Daten als auch eine Schnittstelle zum Softwaresystem der Zentrale angedacht.
 
@@ -132,11 +125,8 @@ Neben der in der Darstellung aufgeführten User sind als Nachbarsysteme eine Dat
 [[Top-level-architektur]]
 *Verantwortlichkeit: Phillip Danzmann*
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
-
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/Top-Level-Architektur.png[]
+Figure 2.  Top-level-architecture-diagram des Kleinreparaturen-Systems in UML
 
 == 6. Use-Cases
 [[Use-Cases]]
@@ -179,7 +169,7 @@ In Form einer Tabelle ist jeder Actor, also Personen, die mit dem System direkt 
 *Verantwortlichkeit: Pritkumar Dobariya*
 
 image::models/Use-Case-Diagram.jpg[]
-Figure 1. Use-Case Diagramm des Kleinreparaturen-Systems in UML
+Figure 3. Use-Case Diagramm des Kleinreparaturen-Systems in UML
 
 === 6.3 Use-Case Description
 [[Use-Case-Description]]
@@ -529,53 +519,35 @@ Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt.
 [[GUIPrototyp]]
 *Verantwortlichkeit: Vahir Kheni, Jannes Schöttke*
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/langingpage.png[]
+Figure 4. Abbildung eines Gui-Prototyps der Landing-Page
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/registeruser.png[]
+Figure 5. Abbildung eines Gui-Prototyps der User-Registrierungs-Page
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/authenticated.png[]
+Figure 6. Abbildung eines Gui-Prototyps der Startseite und dem Service-Katalog-Page
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/newoffer.png[]
+Figure 7. Abbildung eines Gui-Prototyps der Angebotserstellungs-Page
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/neworder.png[]
+Figure 8. Abbildung eines Gui-Prototyps der Bestellungsverwaltungs-Page
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/depot.png[]
+Figure 9. Abbildung eines Gui-Prototyps der Lagerverwaltungs-Page
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/ressources.png[]
+Figure 10. Abbildung eines Gui-Prototyps der Ressourcenverwaltungs-Page
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/checkout.png[]
+Figure 11. Abbildung eines Gui-Prototyps des Check-Out-Page
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/management.png[]
+Figure 12. Abbildung eines Gui-Prototyps der Filialverwaltungs-Page
 
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
-
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
-
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
-
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
-
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
-
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
-
-IMAGE-PLACEHOLDER
-DESCRIPTION-PLACEHOLDER
+image::models/pages/logout.png[]
+Figure 13. Abbildung eines Gui-Prototyps der Logout-Page
 
 == 10. Data-Model
 [[DataModel]]
