@@ -8,7 +8,7 @@
 |===
 |Version | Status       | Bearbeitungsdatum   | Autoren(en)     |  Vermerk
 | 1.0    | abgeschlossen| 21.04.2024          | Jannes Schöttke | Initiale Version außerhalb Asciidoc
-| 1.2    | In Arbeit    | 23.04.24            | Pascal Jahn     | Initiale Version
+| 1.2    | In Arbeit    | 24.04.24            | Pascal Jahn, Philipp Danzmann     | Initiale Version
 |===
 
 == 1. Zusammenfassung
@@ -112,21 +112,21 @@ a|
 == 5. System Boundaries and Component Structure
 [[System-Boundaries-and-Component-Structure]]
 
-=== 5.1 System-context-diagram
-[[System-context-diagram]]
-*Verantwortlichkeit: Vahir Kheni*
+=== 5.1 System-Kontext-Diagramm
+[[System-Kontext-Diagramm]]
+*Verantwortlichkeit: Vihar Kheni*
 
 image::models/Systemkontext.png[]
-Figure 1.  System-context-diagram des Kleinreparaturen-Systems in UML
+Figure 1.  System-Kontext-Diagramm des Kleinreparaturen-Systems in UML
 
 Neben der in der Darstellung aufgeführten User sind als Nachbarsysteme eine Datenbank zur persistenten Speicherung der Daten als auch eine Schnittstelle zum Softwaresystem der Zentrale angedacht.
 
-=== 5.2 Top-level-architecture
-[[Top-level-architektur]]
-*Verantwortlichkeit: Phillip Danzmann*
+=== 5.2 Top-Level-Architektur
+[[Top-Level-Architektur]]
+*Verantwortlichkeit: Philipp Danzmann*
 
 image::models/Top-Level-Architektur.png[]
-Figure 2.  Top-level-architecture-diagram des Kleinreparaturen-Systems in UML
+Figure 2.  Top-Level-Architektur-Diagramm des Kleinreparaturen-Systems in UML
 
 == 6. Use-Cases
 [[Use-Cases]]
@@ -370,7 +370,7 @@ Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt
 Dieser Abschnitt stellt die Version 1 der “Funktionale Anforderungstabelle” dar.
 Diese Tabelle enthält folgende Informationen zu den jeweiligen funktionalen Anforderungen:
 
-- Kategorie (Muss- bzw. Kann-Anforderung
+- Kategorie (Muss- bzw. Kann-Anforderung)
 - Komponentenzuordnung
 - ID
 - Version
@@ -517,7 +517,7 @@ Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt.
 
 == 9. GUI-Prototyp
 [[GUIPrototyp]]
-*Verantwortlichkeit: Vahir Kheni, Jannes Schöttke*
+*Verantwortlichkeit: Vihar Kheni, Jannes Schöttke*
 
 image::models/pages/langingpage.png[]
 Figure 4. Abbildung eines Gui-Prototyps der Landing-Page
@@ -554,7 +554,7 @@ Figure 13. Abbildung eines Gui-Prototyps der Logout-Page
 
 === 10.1 Class-Diagram
 [[Datenmodell]]
-*Verantwortlichkeit: Phillip Danzmann, Jannes Schöttke*
+*Verantwortlichkeit: Philipp Danzmann, Jannes Schöttke*
 
 image::models/Datenmodell V2.2.png[]
 Figure 2. Datenmodell des Kleinreparaturen-Systems in UML
