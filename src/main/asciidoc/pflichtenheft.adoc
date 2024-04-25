@@ -556,7 +556,7 @@ Figure 13. Abbildung eines Gui-Prototyps der Logout-Page
 [[Datenmodell]]
 *Verantwortlichkeit: Philipp Danzmann, Jannes Schöttke*
 
-image::models/Datenmodell V2.2.png[]
+image::models/Datenmodell V2.3.png[]
 Figure 2. Datenmodell des Kleinreparaturen-Systems in UML
 
 === 10.2 Classes and Enumerations
