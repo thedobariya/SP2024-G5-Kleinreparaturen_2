@@ -1,5 +1,4 @@
 = Pflichtenheft
-:doctype: book
 :toc: left
 :toc-title: Inhaltsverzeichnis
 :toclevels: 3
