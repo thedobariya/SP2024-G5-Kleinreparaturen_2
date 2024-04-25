@@ -2,6 +2,7 @@
 [[Pflichtenheft]]
 :project_name: Kleinreparaturen-System
 == __{Kleinreparaturen-System}__
+toc::[]
 
 [options="header"]
 [cols="1, 1, 1, 1, 4"]
@@ -10,6 +11,8 @@
 | 1.0    | abgeschlossen| 21.04.2024          | Jannes Schöttke | Initiale Version außerhalb Asciidoc
 | 1.2    | In Arbeit    | 24.04.24            | Pascal Jahn, Philipp Danzmann     | Initiale Version
 |===
+
+
 
 == 1. Zusammenfassung
 [[Zusammenfassung]]
