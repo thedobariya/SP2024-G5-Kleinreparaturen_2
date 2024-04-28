@@ -13,7 +13,8 @@
 |===
 |Version | Status       | Bearbeitungsdatum   | Autoren(en)     |  Vermerk
 | 1.0    | abgeschlossen| 21.04.2024          | Jannes Schöttke | Initiale Version außerhalb Asciidoc
-| 1.2    | In Arbeit    | 24.04.24            | Pascal Jahn, Philipp Danzmann     | Initiale Version
+| 1.1    | In Arbeit    | 24.04.24            | Philipp Danzmann     | Initiale Version
+| 1.3    | In Arbeit    | 28.04.24            | Pascal Jahn     | Englische Version updated
 |===
 
 toc::[]
@@ -186,7 +187,7 @@ In Form einer Tabelle ist jeder Use-Case aus dem oben aufgezeigten Use-Case Diag
 
 |===
 | ID | ID000
-| Name | Geschäftsprozess
+| Name | Business process
 | Description | Der Benutzer kann das System öffnen und somit jeglichen beschriebenen Prozess starten
 | Actors | User
 | Trigger | .exe des Systems wird auf individuellem Client gestartet
@@ -220,7 +221,7 @@ Logout : Der Benutzer ist authentifiziert
 
 |===
 | ID | ID002
-| Name | Passwortwiederherstellung
+| Name | Password recovery
 | Description | kann ein neues Passwort für einen spezifischen User, der im System bereits Registriert ist, anfordern
 | Actors | registered User
 | Trigger | auf dem Anmeldebildschirm wird auf den Button "Passwortwiederherstellung geklickt"
@@ -234,9 +235,9 @@ Logout : Der Benutzer ist authentifiziert
 
 |===
 | ID | ID002
-| Name | Mitarbeiterregistrierung
+| Name | register Worker
 | Description | Ein Management muss in der Lage sein, ein Konto für neue Mitarbeiter zu erstellen
-| Actors | Filialmanagement
+| Actors | Management
 | Trigger | Ein Filialleiter möchte ein Konto für einen neuen Mitarbeiter erstellen, indem er auf „Registrierung“ klickt
 | Precondition(s) | Der Benutzer ist noch nicht angemeldet
 | Essential Steps a| 
@@ -249,7 +250,7 @@ Logout : Der Benutzer ist authentifiziert
 
 |===
 | ID | ID003
-| Name | Bestellübersicht
+| Name | Order overview
 | Description | Der Kunde kann mehrere Dienste hinzufügen, diese anzeigen lassen und als neue Bestellung aufgeben
 | Actors | Worker
 | Trigger | Zugriff auf die Funktion „Angebot erstellen“, "Angebot verwalten", "Bestellung verwalten" mittels Doppelklick der jeweiligen Buttons im Menü
@@ -265,7 +266,7 @@ Logout : Der Benutzer ist authentifiziert
 
 |===
 | ID | ID013
-| Name | Kundenverwaltung
+| Name | Customer management
 | Description | anlegen und verwalten von Kunden und deren Informationen
 | Actors | Worker
 | Trigger | ein neuer Kunde schließt eine Bestellung ab
@@ -276,7 +277,7 @@ Logout : Der Benutzer ist authentifiziert
 
 |===
 | ID | ID023
-| Name | Bestellverwaltung
+| Name | Order management
 | Description | Menü zur Verwaltung von Angeboten und Bestellungen
 | Actors | Worker
 | Trigger | Worker wählt im Hauptmenü die "Bestellübersicht" mittels Doppelklick aus
@@ -304,7 +305,7 @@ Logout : Der Benutzer ist authentifiziert
 
 |===
 | ID | ID004
-| Name | Serviceverwaltung
+| Name | Service managent
 | Description a| 
 Alle Mitarbeiter müssen auf den Katalog zugreifen können 
 Es werden alle angebotenen Dienste gezeigt 
@@ -320,9 +321,9 @@ Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt
 
 |===
 | ID | ID005
-| Name | Ressourcenverwaltung
+| Name | Ressource management
 | Description | Anlegen und Verwaltung von Ressourcen einer Filiale
-| Actors | Filialmanagement
+| Actors | Management
 | Trigger | Manager geht mittels Doppelklick des Fensters "Ressourcenverwaltung" im Hauptmenü in die Ressourcenverwaltung
 | Precondition(s) | Manager ist authentifiziert und registriert
 | Essential Steps a| 
@@ -333,7 +334,7 @@ Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt
 
 |===
 | ID | ID006
-| Name | Spende
+| Name | Donation
 | Description | spenden eines Gegenstandes bei Überschreitung einer Lagerfrist von 3 Monaten
 | Actors | Worker
 | Trigger | vorhandener Gegenstand überschreitet Lagerfrist von 3 Monaten gerechnet ab Ablauf der Abholfrist in der Filiale von einer Woche
@@ -347,9 +348,9 @@ Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt
 
 |===
 | ID | ID007
-| Name | Bilanzerstellung
+| Name | finance report generation
 | Description | automatisch generierte Finanz-Übersicht aus laufenden, abgeschlossenen Bestellungen und laufenden/ variablen Kosten einer Filiale
-| Actors | Filialmanagement
+| Actors | Management
 | Trigger | fortlaufend automatisierter Prozess für anfallende Kosten oder Einnahmen
 | Precondition(s) | das System muss online sein und alle Kosten und Beträge von Bestellungen müssen korrekt eingetragen sein
 | Essential Steps | Kosten oder Einnahmen werden durch Bestellungen von Ressourcen, anfallen laufender Kosten oder das Abschließen von Bestellungen im System gespeichert und automatisch vom System in die Finanz-Übersicht eingearbeitet
@@ -358,9 +359,9 @@ Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt
 
 |===
 | ID | ID008
-| Name | Materialbestellung
+| Name | order material
 | Description | Eintragen von Bestellung von Ressourcen in das System
-| Actors | Filialmanagement
+| Actors | Management
 | Trigger | ein Manager bestellt neue Ressourcen und dokumentiert die anfallenden Kosten und neue Ressourcen im System
 | Precondition(s) | bestellte Ressource muss beschaffbar und im System angelegt sein
 | Essential Steps a| 
@@ -487,21 +488,21 @@ Die nicht funktionalen Anforderungen des Managementsystems beschreiben Anforderu
 
 Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt. Dabei wird jede nicht funktionalen Anforderung gewichtet, was die spätere Formulierung konkreter NF Anforderungen beeinflussen muss.
 
-1 = unwichtig ... 5 = sehr wichtig
+1 = unimportend ... 5 = importend
 
 [options="header", cols="1,1,1"]
 |===
-| Qualitative Anforderung | Gewichtung | Beschreibung
+| quality demands | importance | description
 
-| Bedienbarkeit | 4 | das Managementsystem muss sowohl für ältere Mitarbeiter, die nicht viel Erfahren mit Informationssystemen haben, als auch für alle Kunden intuitiv zu verstehen und bedienen sein
+| useabillity | 4 | das Managementsystem muss sowohl für ältere Mitarbeiter, die nicht viel Erfahren mit Informationssystemen haben, als auch für alle Kunden intuitiv zu verstehen und bedienen sein
 
-| Effizienz/ Automatisierung | 3 | Zeitbasierte Datenverwaltung von Bestellung und Nutzerdaten
+| efficency/ automation | 3 | Zeitbasierte Datenverwaltung von Bestellung und Nutzerdaten
 
-| Sicherheit | 3 | Datenschutz und somit die Sicherheit persönlicher Daten von Kunden ist sehr wichtig, jedoch sind interne Daten von Prozessen der Dienstleistungen nicht kritisch
+| security | 3 | Datenschutz und somit die Sicherheit persönlicher Daten von Kunden ist sehr wichtig, jedoch sind interne Daten von Prozessen der Dienstleistungen nicht kritisch
 
-| Skalierbarkeit | 4 | Das System muss auf eine wachsende Anzahl kleiner Filialen unterstützen und muss somit primär für interne Finanzen und Ressourcenverwaltung gut skalierbar sein
+| scaleabillity | 4 | Das System muss auf eine wachsende Anzahl kleiner Filialen unterstützen und muss somit primär für interne Finanzen und Ressourcenverwaltung gut skalierbar sein
 
-| Verfügbarkeit | 4 | da Kunden online Bestellungen aufgeben können sollen und Kunden jederzeit ihren Auftragsfortschritt einsehen sollen ist uptime dieses Systems zu maximieren
+| uptime | 4 | da Kunden online Bestellungen aufgeben können sollen und Kunden jederzeit ihren Auftragsfortschritt einsehen sollen ist uptime dieses Systems zu maximieren
 |===
 
 == 8.2 Concrete NF Requirementsn
@@ -511,15 +512,15 @@ Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt.
 |===
 | ID | Version | Name | Beschreibung
 
-| [NF0010] | v 0.1 | Verfügbarkeit/ uptime | Das System sollte eine Uptime größer gleich 99% haben
+| [NF0010] | v 0.1 | uptime | Das System sollte eine Uptime größer gleich 99% haben
 
-| [NF0020] | v 0.1 | Sicherheit/ Nutzerdatenverwaltung | Nutzerdaten können nur mit Einverständnis des Kunden und nur für eine bestimmte Zeit in einer Datenbank gespeichert werden
+| [NF0020] | v 0.1 | user data management | Nutzerdaten können nur mit Einverständnis des Kunden und nur für eine bestimmte Zeit in einer Datenbank gespeichert werden
 
-| [NF0030] | v 0.1 | Effizienz/ Datenverwaltung | abgeschlossene oder abgelaufene Bestellungen sollten nach Bestimmter Zeit aus dem System entfernt werden oder archiviert werden, manuelle Inventarverwaltung zu erleichtern
+| [NF0030] | v 0.1 | effecient data management | abgeschlossene oder abgelaufene Bestellungen sollten nach Bestimmter Zeit aus dem System entfernt werden oder archiviert werden, manuelle Inventarverwaltung zu erleichtern
 
-| [NF0040] | v 0.1 | Sicherheit/ Passwort | Passwörter sollen zur Systemsicherheit und gegen Identitätsdiebstahl nur in Hash-Werten gespeichert werden
+| [NF0040] | v 0.1 | password security | Passwörter sollen zur Systemsicherheit und gegen Identitätsdiebstahl nur in Hash-Werten gespeichert werden
 
-| [NF0050] | v 0.1 | Bedienbarkeit/ GUI | das Anlegen einer Bestellung mit dem Kunden Vorort soll während der Kundeninteraktion die wenigste Zeit in Anspruch nehmen
+| [NF0050] | v 0.1 | GUI useabillity | das Anlegen einer Bestellung mit dem Kunden Vorort soll während der Kundeninteraktion die wenigste Zeit in Anspruch nehmen
 |===
 
 == 9. GUI-Prototyp
@@ -577,13 +578,13 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | Enumerations
 | Description
 
-| Filialmanagementsystem
+| Management system
 | Hauptklasse des Systems, welches eine reale Kleinreparaturen Filiale beschreibt
 
-| Finanzbuchhaltung
+| Finances
 | Repräsentation eines Buchungssystems mit automatisierten Einfangprozessen und Übersichterstellung
 
-| Lager
+| Stock
 | Repräsentation eines Verzeichnisses an in System gespeicherten Items
 
 | Item
@@ -592,13 +593,13 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | → ITEMID
 | Repräsentation einer Kennnummer des abgegebenen Reparaturgegenstandes
 
-| → KATEGORIE
+| → CATHEGORY
 | Repräsentation einer Zuordnung zu nötigen Services
 
-| → ZUSTAND
+| → CONDITIONS
 | Einschätzung der Reparierbarkeit in einen originalzustand
 
-| → BILD
+| → IMAGE
 | Repräsentation eines Fotos des physischen Gegenstandes nach der Abgabe
 
 | Service Catalog
@@ -610,10 +611,10 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | → NAME
 | Kenn-Name eines im System vermerkten Services
 
-| → PREIS
+| → PRICE
 | pauschaler Grundpreis eines im System vermerkten Services
 
-| Bestellübersicht
+| Order overview
 | Repräsentation der Verwaltung und Erstellung von Offer und Order
 
 | → COMMENT
@@ -625,7 +626,7 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | → OFFERID
 | Repräsentation einer Kennnummer des Angebots
 
-| → PREIS
+| → PRICE
 | Repräsentation einer für den Bestellabschluss zu vorauszahlenden Summe
 
 | Order
@@ -634,28 +635,28 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | → ORDERID
 | Repräsentation einer Kennnummer einer spezifischen Bestellung
 
-| → ZEITSTEMPEL
+| → TIMESTAMP
 | Repräsentation eines Datums der letzten Statusänderung
 
 | → STATUS
 | Repräsentation des Bearbeitungsstatus einer Bestellung eines Kunden [Open, Complete, Stored, Expired]
 
-| Kunden
+| Customer
 | Repräsentation einer Realen Person, die Kunde, also Auftraggeber, mittels einer Bestellung bei einem Repair-Shop ist
 
-| → KundenID
+| → CustomerID
 | Repräsentation einer Kennnummer eines Kunden
 
-| Ressourcen
+| Ressources
 | Repräsentation von realen betriebseigenen Arbeitsmitteln
 
-| Arbeitsgerät
+| Tools
 | Repräsentation von Werkzeugen und anderen betriebseigenen Gerätschaften, die in einer Filiale vorhanden sind
 
 | Material
 | Repräsentation von physischen betriebseigenen Material, was betrieblichen Zwecken dient
 
-| Räume
+| Rooms
 | Repräsentation von physischen Orten einer Filiale, die unter betrieblicher Verwendung stehen
 
 | User
@@ -673,13 +674,13 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | → ADRESS
 | Repräsentation der Rolle und Rechten eines spezifischen Users
 
-| Mitarbeiter
+| Worker
 | Repräsentation eines realen Mitarbeiters
 
 | → ID
 | Repräsentation einer Kennnummer eines spezifischen Mitarbeiters im System
 
-| Filialmanagement
+| Management
 | Repräsentation einer realen Filialleitung
 
 | → ID
