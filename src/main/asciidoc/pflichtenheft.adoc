@@ -181,7 +181,7 @@ Figure 3. Use-Case Diagramm des Kleinreparaturen-Systems in UML
 
 === 6.3 Sequenzdiagramm
 *Verantwortlichkeit: Jannes Schöttke*
-image::models/Sequenzdiagramm_V1.0
+image::models/Sequenzdiagramm_V1.0[]
 Figure 4. Sequenzdiagramm des Geschäftsprozesses aus User-Perspektive. Auf eine Abbildung rein technischer und somit nicht direkt sichtbarer Funktion wurde zum jetzigen Zeitpunkt verzichtet.
 
 
