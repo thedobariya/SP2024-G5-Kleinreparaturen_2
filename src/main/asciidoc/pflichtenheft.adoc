@@ -541,7 +541,7 @@ Figure 4. Abbildung eines Gui-Prototyps der Landing-Page
 image::models/pages/registeruser.png[]
 Figure 5. Abbildung eines Gui-Prototyps der User-Registrierungs-Page
 
-image::models/pages/authenticated.png[]
+image::models/pages/servicecatalog.png[]
 Figure 6. Abbildung eines Gui-Prototyps der Startseite und dem Service-Katalog-Page
 
 image::models/pages/newoffer.png[]
@@ -556,8 +556,8 @@ Figure 9. Abbildung eines Gui-Prototyps der Lagerverwaltungs-Page
 image::models/pages/ressources.png[]
 Figure 10. Abbildung eines Gui-Prototyps der Ressourcenverwaltungs-Page
 
-image::models/pages/checkout.png[]
-Figure 11. Abbildung eines Gui-Prototyps des Check-Out-Page
+image::models/pages/add_customer.png[]
+Figure 11. Abbildung eines Gui-Prototyps des Add-customer-Page
 
 image::models/pages/management.png[]
 Figure 12. Abbildung eines Gui-Prototyps der Filialverwaltungs-Page
