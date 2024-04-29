@@ -161,10 +161,10 @@ In Form einer Tabelle ist jeder Actor, also Personen, die mit dem System direkt 
 | _User_
 |  Beschreibt jede authentifizierte und unauthentifizierte Person , welche mit dem System interagiert
 
-| _Registered User_
+| _Registered Worker_
 | Alle _User_, die im System registriert sind und sich authentifiziert haben und mit dem System interagieren
 
-| _Unauthenticated User_
+| _Unregistered Worker_
 | Alle _User_, die nicht authentifiziert sind oder nicht im System registriert sind und mit dem System interagieren
 
 | _Customer_
