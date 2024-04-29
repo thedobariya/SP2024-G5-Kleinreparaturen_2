@@ -13,7 +13,7 @@
 |===
 |Version | Status       | Bearbeitungsdatum   | Autoren(en)     |  Vermerk
 | 1.0    | abgeschlossen| 21.04.2024          | Jannes Schöttke | Initiale Version außerhalb Asciidoc
-| 1.1    | Abgeschlossen| 24.04.2024            | Philipp Danzmann     | Initiale Version
+| 1.2    | abgeschlossen| 29.04.2024            | Philipp Danzmann     | Feinschliff
 | 1.3    | In Arbeit    | 28.04.2024            | Pascal Jahn     | Englische Version updated
 |===
 
@@ -24,8 +24,8 @@ toc::[]
 
 Das vorliegende Pflichtenheft definiert die Anforderungen und Ziele für die Entwicklung der geplanten Software. Es legt den Umfang der geplanten Software fest, einschließlich ihrer Funktionalitäten, Leistungen und Schnittstellen. Darüber hinaus werden die Anforderungen an die Benutzerinteraktion sowie die technischen Spezifikationen detailliert beschrieben. Das Pflichtenheft dient als Grundlage für das gesamte Softwareentwicklungsprojekt, indem es ein klares Verständnis der Anforderungen schafft und als Referenzpunkt für die Entwicklung, Qualitätssicherung und Abnahme dient.
 
-== 2. Task Definition
-[[Task-Definition]]
+== 2. Aufgabenstellung
+[[Aufgabenstellung]]
 
 Der Auftraggeber, die Miss-Mint-Kette, ist an einen Softwaresystem interessiert, welches die Annahme, Reparaturplanung, Ausgabe und Lagerung von Waren sowie die Verwaltung von Ressourcen (Personal, Arbeitsgerät, Material, Räume) unterstützt und außerdem dem Filialmanagement laufende und akkumulierte Bilanzen zur Verfügung stellt.
 
@@ -42,8 +42,8 @@ Konkret sollen folgende Funktionen umgesetzt werden:
 
 Die entwickelte Softwarelösung soll eine effiziente Betriebsführung ermöglichen, die Arbeitsabläufe optimieren und die Kundenzufriedenheit steigern.
 
-== 3. Product Usage
-[[Product-Usage]]
+== 3. Produktverwendung
+[[Produktverwendung]]
 
 Die Softwarelösung, die im Rahmen dieses Projekts entwickelt werden soll, wird in Kleinreparaturbetrieben innerhalb der Miss Mint Mending Points Kette eingesetzt werden.
 Diese Betriebe bieten eine Vielzahl von Services an, von der Schuhreparatur bis zur Elektrowerkstatt. Das Hauptziel der Software ist es, die täglichen Abläufe dieser Betriebe digital zu erfassen und dem Management Funktionen zur effizienten Verwaltung von Ressourcen und der Filliale und der Geschäftsplanung zu verfügung zu stellen.
@@ -117,15 +117,15 @@ a|
 | - Datenschutz, etc.
 |===
 
-== 5. System Boundaries and Component Structure
-[[System-Boundaries-and-Component-Structure]]
+== 5. Systemgrenzen und Komponentenstruktur
+[[Systemgrenzen und Komponentenstruktur]]
 
-=== 5.1 System-Kontext-Diagramm
-[[System-Kontext-Diagramm]]
+=== 5.1 Systemkontextdiagramm
+[[Systemkontextdiagramm]]
 *Verantwortlichkeit: Vihar Kheni*
 
 image::models/Systemkontext.png[]
-Figure 1.  System-Kontext-Diagramm des Kleinreparaturen-Systems in UML
+Figure 1.  Systekontextdiagramm des Kleinreparaturen-Systems in UML
 
 Neben der in der Darstellung aufgeführten User sind als Nachbarsysteme eine Datenbank zur persistenten Speicherung der Daten als auch eine Schnittstelle zum Softwaresystem der Zentrale angedacht.
 
@@ -141,11 +141,17 @@ Figure 2.  Top-Level-Architektur-Diagramm des Kleinreparaturen-Systems in UML
 
 Im folgenden Abschnitt werden die notwendigen Anwendungsfälle, die das System zu unterstützen hat, dokumentiert. Die Anwendungsfälle definieren alle essentiellen Funktionen, die das System den Nutzern zu Verfügung stellen können soll.
 
-=== 6.1 Actors
-[[Actors]]
+=== 6.1 Akteure
+[[Akteure]]
 *Verantwortlichkeit: Pascal Jahn, Pritkumar Dobariya*
 
+Jeder Actor, d.h. die Personen, die direkt oder indirekt über andere Services mit dem System interagieren, wird in tabellarischer Form aufgelistet. Jedem Actor ist eine Beschreibung beigefügt. Wenn ein Actor keine spezifische Person, sondern eine Gruppe von Personen oder eine Verallgemeinerung anderer Actors beschreibt, werden diese _abstract Actors_ durch _kursive_ Schrift hervorgehoben.
+
+[comment]
+--
+alte Version:
 In Form einer Tabelle ist jeder Actor, also Personen, die mit dem System direkt oder indirekt durch andere Services interagieren, aufgelistet. Zu jedem Actor wird eine Beschreibung beigefügt. Falls ein Actor keine spezifische Person, sondern eine Gruppe von Personen oder eine Verallgemeinerung anderer Actors, beschreibt, werden diese _abstract Actors_ mittels _Kursiv_ Schrift verdeutlicht.
+--
 
 [options="header", cols="1,1"]
 |===
@@ -172,12 +178,12 @@ In Form einer Tabelle ist jeder Actor, also Personen, die mit dem System direkt 
 |===
 
 
-=== 6.2 Use-Case Diagram
-[[Use-Case-Diagram]]
+=== 6.2 Use-Case-Diagramm
+[[Use-Case-Diagramm]]
 *Verantwortlichkeit: Pritkumar Dobariya*
 
 image::models/Use-Case-Diagram.jpg[]
-Figure 3. Use-Case Diagramm des Kleinreparaturen-Systems in UML
+Figure 3. Use-Case-Diagramm des Kleinreparaturen-Systems in UML
 
 === 6.3 Sequenzdiagramm
 [[Sequenzdiagramm]]
@@ -187,8 +193,8 @@ image::models/Sequenzdiagramm_V1.0.PNG[]
 Figure 4. Sequenzdiagramm des Geschäftsprozesses aus User-Perspektive. Auf eine Abbildung rein technischer und somit nicht direkt sichtbarer Funktion wurde zum jetzigen Zeitpunkt verzichtet.
 
 
-=== 6.4 Use-Case Description
-[[Use-Case-Description]]
+=== 6.4 Use-Case-Beschreibung
+[[Use-Case-Beschreibung]]
 *Verantwortlichkeit: Pascal Jahn*
 
 In Form einer Tabelle ist jeder Use-Case aus dem oben aufgezeigten Use-Case Diagramm detailliert aufgelistet und definiert.
@@ -379,11 +385,11 @@ Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt
 | Functional Requirements | Ressourcen müssen im System angelegt sein, Manager muss authentifiziert sein
 |===
 
-== 7. Functional Requirements
-[[FunctionalRequirements]]
+== 7. Funktionale Anforderungen
+[[Funktionale Anforderungen]]
 *Verantwortlichkeit: Jannes Schöttke*
 
-Dieser Abschnitt stellt die Version 1 der “Funktionale Anforderungstabelle” dar.
+Dieser Abschnitt stellt die Version 1 der “Funktionalen Anforderungstabelle” dar.
 Diese Tabelle enthält folgende Informationen zu den jeweiligen funktionalen Anforderungen:
 
 - Kategorie (Muss- bzw. Kann-Anforderung)
@@ -391,22 +397,22 @@ Diese Tabelle enthält folgende Informationen zu den jeweiligen funktionalen Anf
 - ID
 - Version
 - Name
-- Input- und Output-Daten sowie gewünschtes Verhalten
+- Eingabe- und Ausgabe-Daten sowie gewünschtes Verhalten
 - Beschreibung
 
 Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht jede Eigenschaft immer ausgefüllt ist.
 
 [options="header", cols="1,1,1,1,1,1,1,1,1"]
 |===
-| Kategorie | Zuordnung | ID | Version | Name | Inputdaten | Verhalten (Verarbeitung) | Output | Beschreibung
+| Kategorie | Zuordnung | ID | Version | Name | Eingabedaten | Verhalten (Verarbeitung) | Ausgabe | Beschreibung
 
 | Muss | Ressourcen management | F0010 | 1.0 | Benutzerverwaltung | Name, MA-ID, Postition, Studensatz | Erstellt ein Objekt der Klasse MA | MA-Objekt bzw. ID | User müssen angelegt, bearbeitet und gelöscht werden können
 
 | Muss | Annahme | F0020 | 1.0 | Kunden anlegen | Adresse, Name, Emailadresse | Erstellen eines Kundenobjektes | Erstellte KundenID | Kunde muss zur Auftragserstellung im System anlegt sein/werden - damit ID Zuordnung gewährleistet werden kann
 
-| Kann | Reparatur planung | F0040 | 1.0 | Statustracking | Zeitstempel, MA-ID, Checkpoints | Status wird von bearbeitender Abteilung bzw. durch Geschäftslogik geändert | New, open, stored, in repair, complete, expired, donated) | Auswahlfeld für den aktuellen Status des Reparaturauftrags (New, Open, stored, in repair, complete, expired, donated)
+| Kann | Reparatur planung | F0040 | 1.0 | Statustracking | Zeitstempel, MA-ID, Checkpoints | Status wird von bearbeitender Abteilung bzw. durch Geschäftslogik geändert | new, open, stored, in repair, complete, expired, donated | Auswahlfeld für den aktuellen Status des Reparaturauftrags (new, Open, stored, in repair, complete, expired, donated)
 
-| Muss | Annahme | F0050 | 1.0 | Preisermittlung | Gegenstand(Kategorie), Zustand, Service, | Berechnet aus den Inputdaten einen Preis | Preisvorschlag | Zur Angebotserstellung muss ein Preis ermittelt werden - Grundlage: zu erbringender Service
+| Muss | Annahme | F0050 | 1.0 | Preisermittlung | Gegenstand (Kategorie), Zustand, Service, | Berechnet aus den Inputdaten einen Preis | Preisvorschlag | Zur Angebotserstellung muss ein Preis ermittelt werden - Grundlage: zu erbringender Service
 
 | Kann | Annahme | F0051 | 1.0 | Mengenrabatt | KundenID, Preis | Abrufen kummulierter Kundenumsatz, Ableitung Mengenrabatt, Preisanpassung | Reduzierter Preis |
 
@@ -418,7 +424,7 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | Annahme | F0080 | 1.0 | Abholschein ausgeben | GegenstandsID | Erstellung QR Code | QR-Code | Es muss in einer beliebigen Form ein Abholschein mit einer ein-indeutigen ID erstellt und ausgegeben werden
 
-| Muss | Annahme | F0090 | 1.0 | Angebot erstellen | Gegenstand(Kategorie), Zustand, Service, Preis, Abholdatum, Zeitstempel | Erstellt ein Objekt der Klasse Angebot | AngebotsID | Setzt sich mind. aus Preis, Zeit und ID zusammen
+| Muss | Annahme | F0090 | 1.0 | Angebot erstellen | Gegenstand (Kategorie), Zustand, Service, Preis, Abholdatum, Zeitstempel | Erstellt ein Objekt der Klasse Angebot | AngebotsID | Setzt sich mind. aus Preis, Zeit und ID zusammen
 
 | Kann | Annahme | F0091 | 1.0 | Angebot erstellen | Gegenstandskategorie, Zustand, Service, Preis, Zeitstempel, | Erstellung eines Angebotsobjekts aus den Inputdaten | Angebotsobjekt + visuelle Darstellung dessen | Weitere optionale Felder für die Angebotserstellung (Bevorzugtes Material, Kommentare, etc.)
 
@@ -440,7 +446,7 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | Bilanzierung | F0172 | 1.0 | Erfassung Nebenkosten | aus Preiseigenschaft von RaumObjekt, ArbeitsgerätObjekt, |  |  | Ermittelt Nebenkosten einer Filiale/Monat
 
-| Muss | Bilanzierung | F0173 | 1.0 | Erfassung Personalkosten | MA-ID, Zeitaufwand | for each MI-ID (MI-ID.Stundensatz * kummulierter Zeitaufwand/Monat) | Personalkosten/Monat | Ermittelt die Personalkosten für eine Filiale - benötigt Stundenzähler in MA-ID
+| Muss | Bilanzierung | F0173 | 1.0 | Erfassung Personalkosten | MA-ID, Zeitaufwand | für jede MI-ID (MI-ID.Stundensatz * kummulierter Zeitaufwand/Monat) | Personalkosten/Monat | Ermittelt die Personalkosten für eine Filiale - benötigt Stundenzähler in MA-ID
 
 | Muss | GUI | F0200 | 1.0 | Login Page |  |  |  | MIN: Username, Passwort, Passwortreset
 
@@ -485,14 +491,14 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 | Muss | Ressourcen management | F0313 | 1.0 | Buchung Raum/Arbeitsplatz | Dauer, Kommentar/Hinweise |  | Setzt Raum/Arbeitsplatz für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 |===
 
-== 8. Non-Functional Requirements
-[[NonFunctionalRequirements]]
+== 8. nicht-funktionale Anforderungen
+[[nicht-funktionale Anforderungen]]
 *Verantwortlichkeit: Pascal Jahn*
 
-Die nicht funktionalen Anforderungen des Managementsystems beschreiben Anforderungen, welche das System in **Stabilität**, **Arbeitsweise** und unter verschiedenen Szenarien definieren.
+Die nicht-funktionalen Anforderungen des Managementsystems beschreiben Anforderungen, welche das System in **Stabilität**, **Arbeitsweise** und unter verschiedenen Szenarien definieren.
 
-=== 8.1 Quality Demands
-[[QualityDemands]]
+=== 8.1 Qualitätsanforderungen
+[[Qualitätsanforderungen]]
 
 Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt. Dabei wird jede nicht funktionalen Anforderung gewichtet, was die spätere Formulierung konkreter NF Anforderungen beeinflussen muss.
 
@@ -513,8 +519,8 @@ Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt.
 | uptime | 4 | da Kunden online Bestellungen aufgeben können sollen und Kunden jederzeit ihren Auftragsfortschritt einsehen sollen ist uptime dieses Systems zu maximieren
 |===
 
-== 8.2 Concrete NF Requirementsn
-[[ConcreteNFRequirements]]
+== 8.2 konkrete NF Anforderungen
+[[konkreteNFAnforderungen]]
 
 [options="header", cols="1,1,1,1"]
 |===
@@ -531,8 +537,8 @@ Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt.
 | [NF0050] | v 0.1 | GUI useabillity | das Anlegen einer Bestellung mit dem Kunden Vorort soll während der Kundeninteraktion die wenigste Zeit in Anspruch nehmen
 |===
 
-== 9. GUI-Prototyp
-[[GUIPrototyp]]
+== 9. GUI-Prototypen
+[[GUIPrototypen]]
 *Verantwortlichkeit: Vihar Kheni, Jannes Schöttke*
 
 image::models/pages/langingpage.png[]
@@ -565,21 +571,27 @@ Figure 12. Abbildung eines Gui-Prototyps der Filialverwaltungs-Page
 image::models/pages/logout.png[]
 Figure 13. Abbildung eines Gui-Prototyps der Logout-Page
 
-== 10. Data-Model
-[[DataModel]]
-
-=== 10.1 Class-Diagram
+== 10. Datenmodell
 [[Datenmodell]]
+
+=== 10.1 Klassendiagram
+[[Klassendiagramm]]
 *Verantwortlichkeit: Philipp Danzmann, Jannes Schöttke*
 
 image::models/Datenmodell V2.3.png[]
-Figure 2. Datenmodell des Kleinreparaturen-Systems in UML
+Figure 2. Klassenmodell des Kleinreparaturen-Systems in UML
 
-=== 10.2 Classes and Enumerations
-[[DatenKlassenbeschreibung]]
+=== 10.2 Klassen und Enumerationen
+[[Klassen und Enumerationen]]
 *Verantwortlichkeit: Pascal Jahn*
 
+Die folgende Tabelle gibt einen übersichtlichen Überblick über alle Klassen/Enums, die im Domänenmodell verwendet werden. Die Tabelle ist Teil der Dokumentation und dient der Information der Stakeholder über die zentralen Begriffe und Konzepte der Systemarchitektur.
+
+[comment]
+--
+alte Version:
 Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die Verwendung in dem domain model finden. Die Tabelle ist Teil der Dokumentation und dient der Information der Stakeholder über Zentrale Begriffe und Konzepte des Aufbau des Systems.
+--
 
 [options="header", cols="1,1"]
 |===
@@ -695,13 +707,24 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | Repräsentation einer Kennnummer eines spezifischen Filialmanagements im System
 |===
 
-== 11. Acceptance Testing
-[[AcceptanceTesting]]
+== 11. Akzeptanztesten
+[[Akzeptanztesten]]
 *Verantwortlichkeit: Pritkumar Dobariya*
 
+Auf eine detaillierte Ausführung der Abnahmetestfälle wird an dieser Stelle verzichtet, da diese bereits in den Use Cases in groben Zügen beschrieben sind. Eine detaillierte Beschreibung erfolgt jedoch im Rahmen der zu erstellenden technischen Dokumentation. 
+
+[comment]
+--
+alte Version:
 An dieser Stelle wird von einer detaillierten Ausführung der Akzeptanztestfälle abgesehen, da diese in Grundzügen bereits in den Use Cases beschrieben sind. Eine detaillierte Beschreibung wird jedoch im Rahmen der zu erstellenden technischen Dokumentation angefertigt werden. 
+--
 
-== 12. Comments
-[[Comments]]
+== 12. Kommentare
+[[Kommentare]]
 
+- Eine unterschiedliche Verwendung der Begriffe Management, Filialleitung und Filialmanagement in den Diagrammen ist aufgrund der unterschiedlichen Perspektive möglich. Sie sind jedoch als Synonyme zu verstehen und beziehen sich auf die gleiche Gruppe von Akteuren.
+
+[comment]
+--
 - Eine abweichende Verwendung der Begriffe Management, Filialleitung und Filialmanagement in den Diagrammen ist aufgrund der unterschiedlichen Perspektive möglich. Diese sind jedoch als synonym zu betrachten und weisen auf die gleiche Stakeholder-Gruppe hin.
+--
