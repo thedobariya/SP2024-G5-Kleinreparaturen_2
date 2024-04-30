@@ -195,7 +195,7 @@ Figure 4. Sequenzdiagramm des Geschäftsprozesses aus User-Perspektive. Auf eine
 
 === 6.4 Use-Case-Beschreibung
 [[Use-Case-Beschreibung]]
-*Verantwortlichkeit: Pascal Jahn*
+*Verantwortlichkeit: Pascal Jahn, Vihar Kheni*
 
 In Form einer Tabelle ist jeder Use-Case aus dem oben aufgezeigten Use-Case Diagramm detailliert aufgelistet und definiert.
 
@@ -566,10 +566,13 @@ image::models/pages/add_customer.png[]
 Figure 11. Abbildung eines Gui-Prototyps des Add-customer-Page
 
 image::models/pages/management.png[]
-Figure 12. Abbildung eines Gui-Prototyps der Filialverwaltungs-Page
+Figure 12. Abbildung eines Gui-Prototyps der Management-Page
 
-image::models/pages/logout.png[]
-Figure 13. Abbildung eines Gui-Prototyps der Logout-Page
+image::models/pages/finance.png[]
+Figure 14. Abbildung eines Gui-Prototyps der Finance-Page
+
+image::models/pages/data.png[]
+Figure 15. Abbildung eines Gui-Prototyps der Data-Page
 
 == 10. Datenmodell
 [[Datenmodell]]
