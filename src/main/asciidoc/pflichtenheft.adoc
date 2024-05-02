@@ -1,4 +1,4 @@
-= Pflichtenheft
+ = Pflichtenheft
 :toc: left
 :toc-title: Inhaltsverzeichnis
 :toclevels: 3
@@ -69,7 +69,7 @@ Hier wird jede Gruppe oder Person (real oder juristisch) aufgelistet, die einen 
 | Beschreibung
 | Ziele
 
-| Zentrale
+| Headquarter
 | 4
 | Der Hauptauftraggeber - formaler Vertragspartner
 a|
@@ -79,7 +79,7 @@ a|
 - Erfüllung gesetzl. Vorschriften
 - Kostenreduzierung bei Fillialverwaltung
 
-| Fillialmanagement
+| Branch Management
 | 5
 | Mitanwender des Softwaresystems - nehmen außerdem teilweise die Rolle des Administrators ein
 a|
@@ -87,7 +87,7 @@ a|
 - Vereinfachung der Geschäftsprozesse 
 - Übersichtszugewinn
 
-| Mitarbeiter
+| Worker
 | 5
 | Hauptanwender des Softwaresystems
 a| - Reduzierter Arbeitsaufwand für Officetätigkeiten
@@ -95,7 +95,7 @@ a| - Reduzierter Arbeitsaufwand für Officetätigkeiten
 - Einfacherere GP
 - UX-freundliches System
 
-| Kunde
+| Customer
 | 2
 | Kunde der Miss Mint Mending Points Filliale
 a|
@@ -104,18 +104,6 @@ a|
 - Ganzheitlicher Service
 - Gute Service Experience
 
-| Entwickler
-| 4
-| Mitarbeiter des Auftragnehmers - Verantwortlich für die Entwicklung und ggf. Wartung des Systems
-a|
-- ordentlich + verständlich dokumentierte Anforderungen
-- gute gestafftes Projekt
-- realistischer Zeitplan
-
-| Gesetzgeber
-| 5
-| Einzuhaltende Vorschriften des Gesetzesgebers
-| - Datenschutz, etc.
 |===
 
 == 5. Systemgrenzen und Komponentenstruktur
@@ -407,23 +395,23 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 |===
 | Kategorie | Zuordnung | ID | Version | Name | Eingabedaten | Verhalten (Verarbeitung) | Ausgabe | Beschreibung
 
-| Muss | Ressourcen management | F0010 | 1.0 | Benutzerverwaltung | Name, MA-ID, Postition, Studensatz | Erstellt ein Objekt der Klasse MA | MA-Objekt bzw. ID | User müssen angelegt, bearbeitet und gelöscht werden können
+| Muss | Ressourcen management | F0010 | 1.0 | Benutzerverwaltung | Name, User-ID, Postition, Studensatz | Erstellt ein Objekt der Klasse User | User-Objekt bzw. ID | User müssen angelegt, bearbeitet und gelöscht werden können
 
-| Muss | Annahme | F0020 | 1.0 | Kunden anlegen | Adresse, Name, Emailadresse | Erstellen eines Kundenobjektes | Erstellte KundenID | Kunde muss zur Auftragserstellung im System anlegt sein/werden - damit ID Zuordnung gewährleistet werden kann
+| Muss | Annahme | F0020 | 1.0 | Customer anlegen | Adresse, Name, Emailadresse | Erstellen eines Customer-Objektes | Erstellte CustomerID | Customer muss zur Auftragserstellung im System anlegt sein/werden - damit ID Zuordnung gewährleistet werden kann
 
-| Kann | Reparatur planung | F0040 | 1.0 | Statustracking | Zeitstempel, MA-ID, Checkpoints | Status wird von bearbeitender Abteilung bzw. durch Geschäftslogik geändert | new, open, stored, in repair, complete, expired, donated | Auswahlfeld für den aktuellen Status des Reparaturauftrags (new, Open, stored, in repair, complete, expired, donated)
+| Kann | Reparatur-planung | F0040 | 1.0 | Statustracking | Zeitstempel, User-ID, Checkpoints | Status wird von bearbeitender Abteilung bzw. durch Geschäftslogik geändert | new, open, stored, in repair, complete, expired, donated | Auswahlfeld für den aktuellen Status des Reparaturauftrags (new, Open, stored, in repair, complete, expired, donated)
 
 | Muss | Annahme | F0050 | 1.0 | Preisermittlung | Gegenstand (Kategorie), Zustand, Service, | Berechnet aus den Inputdaten einen Preis | Preisvorschlag | Zur Angebotserstellung muss ein Preis ermittelt werden - Grundlage: zu erbringender Service
 
-| Kann | Annahme | F0051 | 1.0 | Mengenrabatt | KundenID, Preis | Abrufen kummulierter Kundenumsatz, Ableitung Mengenrabatt, Preisanpassung | Reduzierter Preis |
+| Kann | Annahme | F0051 | 1.0 | Mengenrabatt | CustomerID, Preis | Abrufen kummulierter Kundenumsatz, Ableitung Mengenrabatt, Preisanpassung | Reduzierter Preis |
 
-| Muss | Reparatur planung | F0051 | 1.0 | Berechnung Abholdatum | Service, Zustand, ItemID, Material, MA-ID |  | Abholdatum | Berechnet aus dem Service + zugeordneten MA, dessen Verfügbarkeit, dem Arbeits-/Materialbedarf (in Abhängigkeit der Verfügbarkeit) und der Gegenstandskategorie ein vrsl. Abholdatum
+| Muss | Reparatur planung | F0051 | 1.0 | Berechnung Abholdatum | Service, Zustand, ItemID, Material, UserID |  | Abholdatum | Berechnet aus dem Service + zugeordneten Worker, dessen Verfügbarkeit, dem Arbeits-/Materialbedarf (in Abhängigkeit der Verfügbarkeit) und der Gegenstandskategorie ein vrsl. Abholdatum
 
 | Muss | Annahme | F0060 | 1.0 | Zeitermittlung | Service, Zustand, Gegenstand | Ermittelt benötigte Zeit | Abholdatum | Zeitschätzung bis zur Fertigstellung
 
-| Muss | Annahme | F0070 | 1.0 | Auftrag anlegen | Übernahme der Angebotsdaten | Erstellen (KundenID), GegenstandsID - Checkbox: Preis bezahlt | AuftragsID | Bestätigung des erstellten Angebots mit eventuell geänderten Daten
+| Muss | Annahme | F0070 | 1.0 | Auftrag anlegen | Übernahme der Angebotsdaten | Erstellen (CustomerID), ItemID - Checkbox: Preis bezahlt | OrderID | Bestätigung des erstellten Angebots mit eventuell geänderten Daten
 
-| Muss | Annahme | F0080 | 1.0 | Abholschein ausgeben | GegenstandsID | Erstellung QR Code | QR-Code | Es muss in einer beliebigen Form ein Abholschein mit einer ein-indeutigen ID erstellt und ausgegeben werden
+| Muss | Annahme | F0080 | 1.0 | Abholschein ausgeben | ItemID | Erstellung QR Code | QR-Code | Es muss in einer beliebigen Form ein Abholschein mit einer ein-indeutigen ID erstellt und ausgegeben werden
 
 | Muss | Annahme | F0090 | 1.0 | Angebot erstellen | Gegenstand (Kategorie), Zustand, Service, Preis, Abholdatum, Zeitstempel | Erstellt ein Objekt der Klasse Angebot | AngebotsID | Setzt sich mind. aus Preis, Zeit und ID zusammen
 
@@ -431,7 +419,7 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | Architektur | F0110 | 1.0 | Eingabedatenvalidierung | Beliebige Inputdaten | Überprüfung der eingegebenen Daten auf Zweckgebundenheit | Eine bzw. keine Fehlermeldung | Prüfung der Eingabedaten auf Zweckgebundenheit -> Sicherheitsaspekt
 
-| Muss | Lager | F0120 | 1.0 | Lagerverwaltung | ItemID, Zeitstempel | Erstellt aus ItemObject ein LagerObjekt bzw. Eintrag in DB | Erfassung des Gegegenstandes +  Zustände im Lager | Erfassung von Zu- und Abgängen des Lagers (Sowohl Ressourcen als auch Auftragsgegenstände)
+| Muss | Lager | F0120 | 1.0 | Lagerverwaltung | ItemID, Zeitstempel | Erstellt aus ItemObject ein DepotObjekt bzw. Eintrag in DB | Erfassung des Gegegenstandes +  Zustände im Lager | Erfassung von Zu- und Abgängen des Lagers (Sowohl Ressourcen als auch Auftragsgegenstände)
 
 | Kann | Ressourcen management | F0121 | 1.0 | Bestellfunktion Material | Art, Menge, Kommentar, Service | Erstellt einen Bestellung aus den Inputdaten (wird an Fillialmanagement gepusht) | Bestellungsformular | Bestellfunktion für Arbeitsgerät; wird in Form eines Bestellformulars an Fillialleitung weiter gegeben
 
@@ -447,7 +435,7 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | Bilanzierung | F0172 | 1.0 | Erfassung Nebenkosten | aus Preiseigenschaft von RaumObjekt, ArbeitsgerätObjekt, |  |  | Ermittelt Nebenkosten einer Filiale/Monat
 
-| Muss | Bilanzierung | F0173 | 1.0 | Erfassung Personalkosten | MA-ID, Zeitaufwand | für jede MI-ID (MI-ID.Stundensatz * kummulierter Zeitaufwand/Monat) | Personalkosten/Monat | Ermittelt die Personalkosten für eine Filiale - benötigt Stundenzähler in MA-ID
+| Muss | Bilanzierung | F0173 | 1.0 | Erfassung Personalkosten | WorkerID, Zeitaufwand | für jede WorkerID (WorkerID.Stundensatz * kummulierter Zeitaufwand/Monat) | Personalkosten/Monat | Ermittelt die Personalkosten für eine Filiale - benötigt Stundenzähler in WorkerID
 
 | Muss | GUI | F0200 | 1.0 | Login Page |  |  |  | MIN: Username, Passwort, Passwortreset
 
@@ -467,7 +455,7 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | GUI | F0208 | 1.0 | Management |  |  |  | Links zu Ressourcen, Finanzen, Mitarbeiter + Diagramm im Inhaltsbereich
 
-| Muss | GUI | F0209 | 1.0 | Object check out |  |  |  |
+| Muss | GUI | F0209 | 1.0 | Object check out |  |  |  | ?
 
 | Muss | GUI | F0210 | 1.0 | Landingpage |  |  |  | Eingeschränkte View; nur Optionen ServiceCatalog einzusehen + Login/Register
 
@@ -475,17 +463,17 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | Ressourcen management | F0270 | 1.0 | Serviceverwaltung |  |  |  | Bearbeiten von Services
 
-| Muss | Ressourcen management | F0280 | 1.0 | Personalverwaltung |  |  |  | Erstellen, bearbeiten und löschen von MA-Objekten (nur durch Fillialmanagement)
+| Muss | Ressourcen management | F0280 | 1.0 | Personalverwaltung |  |  |  | Erstellen, bearbeiten und löschen von MA-Objekten (nur durch BranchManagement)
 
-| Muss | Ressourcen management | F0290 | 1.0 | Geschäftsraumverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Geschäftsräumen (nur durch Fillialmanagement)
+| Muss | Ressourcen management | F0290 | 1.0 | Geschäftsraumverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Geschäftsräumen (nur durch BranchManagement)
 
 | Muss | Ressourcen management | F0300 | 1.0 | Arbeitsgeräteverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Geschäftsräumen (durch autorisierte MA)
 
-| Muss | Ressourcen management | F0310 | 1.0 | Zuweisung freier MA | Datum, Dauer (Abgeleitet von Service + Zustand), Prio? |  | Setzt MA für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
+| Muss | Ressourcen management | F0310 | 1.0 | Zuweisung freier Worker | Datum, Dauer (Abgeleitet von Service + Zustand), Prio? |  | Setzt Worker für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 
 | Muss | Ressourcen management | F0311 | 1.0 | Buchung Arbeitsgerät | Kategorie, ArbeitsgerätID, Dauer |  | Setzt Arbeitsgerät für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 
-| Kann | Ressourcen management | F0311 | 1.0 | Neuzuweisung freier MA |  |  |  | Für den Fall, dass zugewiesener MA nicht verfügbar ist
+| Kann | Ressourcen management | F0311 | 1.0 | Neuzuweisung freier Worker |  |  |  | Für den Fall, dass zugewiesener Worker nicht verfügbar ist
 
 | Muss | Ressourcen management | F0312 | 1.0 | Buchung Materialbedarf | Art, Menge, Kommentar |  | Reduziert Materialart um Menge | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 
@@ -602,10 +590,10 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | Enumerations
 | Description
 
-| Management system
+| Management System
 | Hauptklasse des Systems, welches eine reale Kleinreparaturen Filiale beschreibt
 
-| Finances
+| Finance
 | Repräsentation eines Buchungssystems mit automatisierten Einfangprozessen und Übersichterstellung
 
 | Stock
@@ -614,16 +602,16 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | Item
 | Repräsentation eines zur Reparatur abgegebenen Gegenstandes
 
-| → ITEMID
+| → ItemID
 | Repräsentation einer Kennnummer des abgegebenen Reparaturgegenstandes
 
-| → CATHEGORY
+| → Category
 | Repräsentation einer Zuordnung zu nötigen Services
 
-| → CONDITIONS
+| → Conditions
 | Einschätzung der Reparierbarkeit in einen originalzustand
 
-| → IMAGE
+| → Image
 | Repräsentation eines Fotos des physischen Gegenstandes nach der Abgabe
 
 | Service Catalog
@@ -632,37 +620,37 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | Service
 | Repräsentation der angebotenen Services mittels einem Namen, Preis und einer Beschreibung möglicher Dienstleistungen
 
-| → NAME
+| → Name
 | Kenn-Name eines im System vermerkten Services
 
-| → PRICE
+| → Price
 | pauschaler Grundpreis eines im System vermerkten Services
 
-| Order overview
+| Order Overview
 | Repräsentation der Verwaltung und Erstellung von Offer und Order
 
-| → COMMENT
+| → Comment
 | Repräsentation von Vermerkungen und Kommentaren einer Angebote und Bestellungen
 
 | Offer
 | Repräsentation eines eingegangenen Angebots
 
-| → OFFERID
+| → OfferID
 | Repräsentation einer Kennnummer des Angebots
 
-| → PRICE
+| → Price
 | Repräsentation einer für den Bestellabschluss zu vorauszahlenden Summe
 
 | Order
 | Repräsentation einer laufenden Bestellung nach Angebotsbestätigung
 
-| → ORDERID
+| → OrderID
 | Repräsentation einer Kennnummer einer spezifischen Bestellung
 
-| → TIMESTAMP
+| → Timestamp
 | Repräsentation eines Datums der letzten Statusänderung
 
-| → STATUS
+| → Status
 | Repräsentation des Bearbeitungsstatus einer Bestellung eines Kunden [Open, Complete, Stored, Expired]
 
 | Customer
@@ -689,13 +677,13 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | Registered User
 | Repräsentation einer realen Person, die im System registriert ist und mittels Login sich authentifizieren können
 
-| → USERNAME
+| → Username
 | Name einer realen Person, mit der diese im System eingetragen ist
 
-| → PASSWORD
+| → Password
 | Passwort das eine registrierte Person in Verbindung mit dem USERNAME im Login authentifiziert
 
-| → ADRESS
+| → Adress
 | Repräsentation der Rolle und Rechten eines spezifischen Users
 
 | Worker
