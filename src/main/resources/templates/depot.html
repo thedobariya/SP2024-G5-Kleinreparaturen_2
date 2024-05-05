@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depot</title>
+    <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
+
+</head>
+<body>
+<div id="banner">
+    <h1>Kleinreparatur Service</h1>
+</div>
+
+<div id="navbar">
+    <a href="#">Service catalog</a>
+    <a href="#">New Offers</a>
+    <a href="#">New Orders</a>
+    <a href="depot.html">Depot</a>
+    <a href="ressources.html">Ressources</a>
+    <a href="#">New Customer</a>
+    <a href="managment.html">Managment</a>
+    <a href="cart.html">Cart</a>
+    <a href="#">Logout</a>
+</div>
+
+<div class="container">
+    <h2>Items in Your Depot</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>New Items</th>
+            <th>Days</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Add Services dynamically here -->
+        <tr th:each="item, iterStat : ${newItems}">
+            <td>
+                <input type="checkbox" th:id="'checkbox_' + ${iterStat.index}" />
+                <label th:for="'checkbox_' + ${iterStat.index}" th:text="${item.name}"></label>
+            </td>
+            <td th:text="${item.days}"></td>
+        </tr>
+
+        </tbody>
+        <thead>
+        <tr>
+
+            <th>Finished Items</th>
+            <th>Days</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Add Services dynamically here -->
+        <tr th:each="item, iterStat : ${finishedItems}">
+            <td>
+                <input type="checkbox" th:id="'checkbox_' + ${iterStat.index}" />
+                <label th:for="'checkbox_' + ${iterStat.index}" th:text="${item.name}"></label>
+            </td>
+            <td th:text="${item.days}"></td>
+        </tr>
+
+        </tbody>
+        <thead>
+        <tr>
+
+            <th>Donation Items</th>
+            <th>Days</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Add Services dynamically here -->
+        <tr th:each="item, iterStat : ${donationItems}">
+            <td>
+                <input type="checkbox" th:id="'checkbox_' + ${iterStat.index}" />
+                <label th:for="'checkbox_' + ${iterStat.index}" th:text="${item.name}"></label>
+            </td>
+            <td th:text="${item.days}"></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div class="total-container">
+        <tc>
+            Total Items: <span th:text="${totalItems}"></span>
+        </tc>
+
+    </div>
+<tc>
+    <button class="button">DoSomething</button>
+</tc>
+
+</div>
+</body>
+</html>

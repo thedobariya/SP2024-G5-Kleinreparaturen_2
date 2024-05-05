@@ -1,4 +1,4 @@
-package kickstart.order;
+package kickstart.welcome;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
