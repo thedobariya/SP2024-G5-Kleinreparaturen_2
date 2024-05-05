@@ -25,4 +25,8 @@ public class WelcomeController {
 	public String index() {
 		return "welcome";
 	}
+
+	@GetMapping("managment.html")
+	public String managment() { return "managment"; }
+
 }

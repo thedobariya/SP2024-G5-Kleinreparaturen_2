@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finance Overview</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    #banner {
+        background-color: lightblue;
+        text-align: center;
+        padding: 20px 0;
+    }
+    #navbar {
+        background-color: #333;
+        overflow: hidden;
+    }
+    #navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    #navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    .container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+    .column {
+        flex: 1;
+        padding: 20px;
+        border: 1px solid #ccc;
+    }
+    h2 {
+        text-align: center;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+    .button {
+        display: block;
+        width: 200px;
+        padding: 10px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: lightgray;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition-duration: 0.4s;
+        color: white;
+    }
+    .button:hover {
+        background-color: lightblue;
+        color: #333;
+    }
+</style>
+</head>
+<body>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
+    
+    <div id="navbar">
+        <a href="#">Service catalog</a>
+        <a href="#">New Offers</a>
+        <a href="#">New Orders</a>
+        <a href="#">Depot</a>
+        <a href="#">Ressources</a>
+        <a href="#">New Customer</a>
+        <a href="managment.html">Managment</a>
+        <a href="#">Logout</a>
+    </div>
+    
+    <div class="container">
+        <div class="column">
+            <h2>Yearly Overview</h2>
+            <ul>
+                <li><input type="checkbox" id="2015"><label for="2015">2015</label></li>
+                <li><input type="checkbox" id="2016"><label for="2016">2016</label></li>
+                <li><input type="checkbox" id="2017"><label for="2017">2017</label></li>
+                <li><input type="checkbox" id="2018"><label for="2018">2018</label></li>
+                <li><input type="checkbox" id="2019"><label for="2019">2019</label></li>
+                <li><input type="checkbox" id="2020"><label for="2020">2020</label></li>
+                <li><input type="checkbox" id="2021"><label for="2021">2021</label></li>
+                <li><input type="checkbox" id="2022"><label for="2022">2022</label></li>
+                <li><input type="checkbox" id="2023"><label for="2023">2023</label></li>
+                <li><input type="checkbox" id="2024"><label for="2024">2024</label></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Monthly Overview</h2>
+            <ul>
+                <li><input type="checkbox" id="jan"><label for="jan">January</label></li>
+                <li><input type="checkbox" id="feb"><label for="feb">February</label></li>
+                <li><input type="checkbox" id="mar"><label for="mar">March</label></li>
+                <li><input type="checkbox" id="apr"><label for="apr">April</label></li>
+                <li><input type="checkbox" id="may"><label for="may">May</label></li>
+                <li><input type="checkbox" id="jun"><label for="jun">June</label></li>
+                <li><input type="checkbox" id="jul"><label for="jul">July</label></li>
+                <li><input type="checkbox" id="aug"><label for="aug">August</label></li>
+                <li><input type="checkbox" id="sep"><label for="sep">September</label></li>
+                <li><input type="checkbox" id="oct"><label for="oct">October</label></li>
+                <li><input type="checkbox" id="nov"><label for="nov">November</label></li>
+                <li><input type="checkbox" id="dec"><label for="dec">December</label></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Cost and Revenue</h2>
+            <p>Hier stehen Informationen zu Kosten und Einnahmen.</p>
+            <a href="#" class="button">Detailed Data analytics</a>
+        </div>
+    </div>
+</body>
+</html>

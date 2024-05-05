@@ -1,12 +1,77 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" th:href="@{/resources/css/style.css}">
-		<title th:text="#{welcome.title}">Welcome!</title>
-	</head>
-	<body>
-		<h1 th:text="#{welcome.title}">Welcome!</h1>
-		<p th:text="#{welcome.text}"></p>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Seite</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #banner {
+            background-color: lightblue;
+            text-align: center;
+            padding: 20px 0;
+        }
+        #navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        #navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        #navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        #main {
+            padding: 20px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            padding: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+            background-color: lightgray;
+            border: none;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: lightblue;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div id="banner">
+    <h1>Kleinreparatur Service</h1>
+</div>
+
+<div id="navbar">
+    <a href="#">Service catalog</a>
+    <a href="#">New Offers</a>
+    <a href="#">New Orders</a>
+    <a href="#">Depot</a>
+    <a href="#">Ressources</a>
+    <a href="#">New Customer</a>
+    <a href="managment.html">Managment</a>
+    <a href="#">Logout</a>
+</div>
+
+<div class="main">
+    <h1>Willkommen auf unserer Website</h1>
+    <p>Dies ist unsere Startseite. Hier finden Sie Informationen über unser Unternehmen und unsere Dienstleistungen.</p>
+</div>
+
+</body>
 </html>
