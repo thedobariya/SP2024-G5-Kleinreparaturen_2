@@ -22,32 +22,32 @@ public class DepotController {
 		allItems.add(new Item("Item 2", 8, 30.00)); // Will be categorized as finished item after one week
 		allItems.add(new Item("Item 3", 25, 15.00)); // Will be categorized as finished item after one week
 		allItems.add(new Item("Item 4", 3, 25.00)); // Will be categorized as new item
-		allItems.add(new Item("Item 5", 110, 40.00)); // Will be categorized as donation item after three months
+		allItems.add(new Item("Item 5", 45, 40.00)); // Will be categorized as donation item after three months
 		allItems.add(new Item("Item 6", 5, 10.00)); // Will be categorized as new item
-		allItems.add(new Item("Item 7", 100, 35.00)); // Will be categorized as finished item after one week
+		allItems.add(new Item("Item 7", 15, 35.00)); // Will be categorized as finished item after one week
 		allItems.add(new Item("Item 8", 1, 15.00)); // Will be categorized as new item
-		allItems.add(new Item("Item 9", 35, 50.00)); // Will be categorized as donation item after three months
-		allItems.add(new Item("Item 10", 45, 20.00)); // Will be categorized as donation item after three months
+		allItems.add(new Item("Item 9", 100, 50.00)); // Will be categorized as donation item after three months
+		allItems.add(new Item("Item 10", 140, 20.00)); // Will be categorized as donation item after three months
 
 		// Categorize items
 		for (Item item : allItems) {
 			if (item.getDays() <= 7) {
-				newItems.add(item);
 				item.setStorageFee(1.50 * ((item.getDays() - 7) / 7)); // Calculate storage fee
 
+				newItems.add(item);
 			} else if ((item.getDays() > 7) && (item.getDays() < 90)) {
 				// If item is between 8 and 89 days old, it is finished but not yet donation
 				item.setStorageFee(1.50 * ((item.getDays() - 7) / 7)); // Calculate storage fee
 				finishedItems.add(item);
 			} else {
-				// If item is 90 days old or more, it becomes a donation item
-				donationItems.add(item);
 				item.setStorageFee(1.50 * ((item.getDays() - 7) / 7)); // Calculate storage fee
 
+				// If item is 90 days old or more, it becomes a donation item
+				donationItems.add(item);
 			}
 		}
 
-		//Calculate total number of items
+		// Calculate total number of items
 		int totalItems = newItems.size() + finishedItems.size() + donationItems.size();
 
 		model.addAttribute("newItems", newItems);
@@ -90,6 +90,11 @@ public class DepotController {
 
 		public double getCost() {
 			return cost;
+		}
+
+		// Method to calculate the final cost including storage fees
+		public double calculateFinalCost() {
+			return cost + storageFee;
 		}
 	}
 }
