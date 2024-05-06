@@ -33,6 +33,8 @@ public class DepotController {
 		for (Item item : allItems) {
 			if (item.getDays() <= 7) {
 				newItems.add(item);
+				item.setStorageFee(1.50 * ((item.getDays() - 7) / 7)); // Calculate storage fee
+
 			} else if ((item.getDays() > 7) && (item.getDays() < 90)) {
 				// If item is between 8 and 89 days old, it is finished but not yet donation
 				item.setStorageFee(1.50 * ((item.getDays() - 7) / 7)); // Calculate storage fee
@@ -40,6 +42,8 @@ public class DepotController {
 			} else {
 				// If item is 90 days old or more, it becomes a donation item
 				donationItems.add(item);
+				item.setStorageFee(1.50 * ((item.getDays() - 7) / 7)); // Calculate storage fee
+
 			}
 		}
 
