@@ -31,6 +31,7 @@
         <tr>
             <th>New Items</th>
             <th>Days</th>
+            <th>Additional Storage Fees</th>
 
         </tr>
         </thead>
@@ -42,7 +43,7 @@
                 <label th:for="'checkbox_' + ${iterStat.index}" th:text="${item.name}"></label>
             </td>
             <td th:text="${item.days}"></td>
-        </tr>
+            <td th:text="${item.storageFee}"></td>        </tr>
 
         </tbody>
         <thead>
@@ -50,6 +51,8 @@
 
             <th>Finished Items</th>
             <th>Days</th>
+            <th>Additional Storage Fees</th>
+
 
         </tr>
         </thead>
@@ -61,7 +64,7 @@
                 <label th:for="'checkbox_' + ${iterStat.index}" th:text="${item.name}"></label>
             </td>
             <td th:text="${item.days}"></td>
-        </tr>
+            <td th:text="${item.storageFee}"></td>        </tr>
 
         </tbody>
         <thead>
@@ -69,6 +72,8 @@
 
             <th>Donation Items</th>
             <th>Days</th>
+            <th>Additional Storage Fees</th>
+
         </tr>
         </thead>
         <tbody>
@@ -79,6 +84,7 @@
                 <label th:for="'checkbox_' + ${iterStat.index}" th:text="${item.name}"></label>
             </td>
             <td th:text="${item.days}"></td>
+            <td th:text="${item.storageFee}"></td>
         </tr>
 
         </tbody>

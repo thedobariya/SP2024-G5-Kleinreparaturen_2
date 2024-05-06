@@ -1,7 +1,5 @@
 package kickstart.welcome;
 
-
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,29 +18,32 @@ public class DepotController {
 
 		// Creating items based on their day count
 		List<Item> allItems = new ArrayList<>();
-		allItems.add(new Item("Item 1", 50));
-		allItems.add(new Item("Item 2", 15));
-		allItems.add(new Item("Item 3", 25));
-		allItems.add(new Item("Item 4", 35));
-		allItems.add(new Item("Item 5", 45));
-		allItems.add(new Item("Item 6", 5));
-		allItems.add(new Item("Item 7", 15));
-		allItems.add(new Item("Item 8", 25));
-		allItems.add(new Item("Item 9", 35));
-		allItems.add(new Item("Item 10", 45));
+		allItems.add(new Item("Item 1", 7, 20.00)); // Will be categorized as new item
+		allItems.add(new Item("Item 2", 8, 30.00)); // Will be categorized as finished item after one week
+		allItems.add(new Item("Item 3", 25, 15.00)); // Will be categorized as finished item after one week
+		allItems.add(new Item("Item 4", 3, 25.00)); // Will be categorized as new item
+		allItems.add(new Item("Item 5", 110, 40.00)); // Will be categorized as donation item after three months
+		allItems.add(new Item("Item 6", 5, 10.00)); // Will be categorized as new item
+		allItems.add(new Item("Item 7", 100, 35.00)); // Will be categorized as finished item after one week
+		allItems.add(new Item("Item 8", 1, 15.00)); // Will be categorized as new item
+		allItems.add(new Item("Item 9", 35, 50.00)); // Will be categorized as donation item after three months
+		allItems.add(new Item("Item 10", 45, 20.00)); // Will be categorized as donation item after three months
 
 		// Categorize items
 		for (Item item : allItems) {
-			if (item.getDays() < 10) {
+			if (item.getDays() <= 7) {
 				newItems.add(item);
-			} else if ((item.getDays() >= 10) && (item.getDays() < 30)) {
+			} else if ((item.getDays() > 7) && (item.getDays() < 90)) {
+				// If item is between 8 and 89 days old, it is finished but not yet donation
+				item.setStorageFee(1.50 * ((item.getDays() - 7) / 7)); // Calculate storage fee
 				finishedItems.add(item);
 			} else {
+				// If item is 90 days old or more, it becomes a donation item
 				donationItems.add(item);
 			}
 		}
 
-		// Calculate total number of items
+		//Calculate total number of items
 		int totalItems = newItems.size() + finishedItems.size() + donationItems.size();
 
 		model.addAttribute("newItems", newItems);
@@ -55,16 +56,16 @@ public class DepotController {
 		return "depot";
 	}
 
-
-
-
 	private static class Item {
 		private String name;
-		private int days; // Change from double to int for days
+		private int days;
+		private double storageFee;
+		private double cost;
 
-		public Item(String name, int days) {
+		public Item(String name, int days, double cost) {
 			this.name = name;
 			this.days = days;
+			this.cost = cost;
 		}
 
 		public String getName() {
@@ -73,6 +74,18 @@ public class DepotController {
 
 		public int getDays() {
 			return days;
+		}
+
+		public double getStorageFee() {
+			return storageFee;
+		}
+
+		public void setStorageFee(double storageFee) {
+			this.storageFee = storageFee;
+		}
+
+		public double getCost() {
+			return cost;
 		}
 	}
 }
