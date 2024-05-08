@@ -1,4 +1,4 @@
-package kickstart.welcome;
+package kickstart.cart;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -40,29 +40,17 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<!--
-			Additional project dependencies go here.
-
-			BUT PLEASE NOTE!
-
-			The parent pom that is referenced above already includes most libraries
-			necessary for the lab: Spring, Salespoint, Hibernate, JUnit, etc.
-
-			You can list the current dependencies and their versions using the
-			`mvn dependency:list` command.
-
-			Use Maven Central for package search (https://search.maven.org/).
-		-->
-
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<repositories>
-
 		<repository>
 			<id>salespointframework</id>
 			<url>https://www.st.inf.tu-dresden.de/SalesPoint/repository</url>
 		</repository>
-
 	</repositories>
-
 </project>
