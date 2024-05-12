@@ -25,16 +25,4 @@ public class WelcomeController {
 	public String index() {
 		return "welcome";
 	}
-
-	@GetMapping("managment.html")
-	public String managment() { return "managment"; }
-
-	@GetMapping("ressources.html")
-	public String ressources() { return "ressources"; }
-
-	@GetMapping("depot.html")
-	public String depot() { return "depot"; }
-
-	@GetMapping("cart.html")
-	public String cart() { return "cart"; }
 }
