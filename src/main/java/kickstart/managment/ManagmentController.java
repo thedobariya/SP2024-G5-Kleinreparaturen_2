@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ManagmentController {
 
-	@GetMapping("managment.html")
+	@GetMapping("management.html")
 	public String managment() { return "managment"; }
 
-	@GetMapping("ressources.html")
+	@GetMapping("resources.html")
 	public String ressources() { return "ressources"; }
 
 	@GetMapping("finance.html")

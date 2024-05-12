@@ -27,6 +27,22 @@ Die Miss-Mint-Kette ist an Software interessiert, welche die Annahme, Reparaturp
 
 
 === Qualitätsziele
+*Funktionalität und Zuverlässigkeit:*
+Die Web-Anwendung muss alle erforderlichen Funktionen bereitstellen, um die Geschäftsprozesse der Miss Mint Mending Points effektiv zu unterstützen.
+Sie muss zuverlässig sein, um einen unterbrechungsfreien Betrieb und eine hohe Verfügbarkeit sicherzustellen.
+
+*Benutzerfreundlichkeit und Effizienz:*
+Die Benutzeroberfläche der Web-Anwendung sollte benutzerfreundlich gestaltet sein, um eine einfache und intuitive Nutzung durch die Mitarbeiter zu gewährleisten.
+Die Anwendung muss effizient arbeiten und eine schnelle Verarbeitung von Transaktionen ermöglichen, um die Produktivität zu steigern.
+
+*Sicherheit und Wartbarkeit:*
+Die Sicherheit der Web-Anwendung ist von entscheidender Bedeutung, um die Vertraulichkeit, Integrität und Verfügbarkeit der Daten zu gewährleisten.
+Sie sollte gut strukturiert und dokumentiert sein, um eine einfache Wartung und Weiterentwicklung zu ermöglichen, während sie gleichzeitig vor Bedrohungen wie Cyberangriffen geschützt ist.
+
+*Portabilität und Kompatibilität:*
+Als Web-Anwendung sollte die Software plattformübergreifend und auf verschiedenen Geräten und Betriebssystemen nutzbar sein.
+Sie sollte mit gängigen Webbrowsern kompatibel sein und eine reibungslose Benutzererfahrung auf Desktops, Laptops, Tablets und Smartphones bieten.
+
 
 == Randbedingungen
 === Hardware-Spezifikationen
@@ -34,8 +50,10 @@ Eine Liste der notwendigen Geräte / Hardware, um die Anwendung auszuführen und
 
 * Server
 * Computer
+* Bildschirm
 * Tastatur
 * Maus
+
 
 === Software-Spezifikationen
 Eine Liste der notwendigen Software, um die Anwendung auszuführen und zu verwenden.
@@ -73,7 +91,12 @@ image::./models/context_diagram.jpg[context diagram c4, 100%, 100%, pdfwidth=100
 [options="header"]
 |=== 
 |Qualitätsziel |Lösungsansatz
-|... |...
+|Funktionaliät | Verwendung des Spring Frameworks, insbesondere Spring MVC, um Controller zu definieren und die Anwendungslogik zu implementieren.
+Einbindung von Spring Data für die Datenbankintegration, um die Persistenzschicht zu verwalten und den Zugriff auf die Datenbank zu erleichtern.
+|Benutzerfreundlichkeit | Nutzung von Thymeleaf zur Gestaltung der Benutzeroberfläche, was eine einfache Integration von Java-Code in HTML-Templates ermöglicht.
+|Sicherheit | Integration von Spring Security, um benutzerdefinierte Authentifizierungs- und Autorisierungsschemata zu implementieren und die Anwendung vor Sicherheitsbedrohungen zu schützen.
+| Kompatibilität |Entwickeln der Anwendung in Java für plattformunabhängige Ausführung auf verschiedenen Betriebssystemen und Geräten.
+Einsatz von Thymeleaf für serverseitiges Rendern von Templates, um eine konsistente Benutzererfahrung auf verschiedenen Geräten und Browsern sicherzustellen.
 |===
 
 === Softwarearchitektur
