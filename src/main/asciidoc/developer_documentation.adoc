@@ -11,7 +11,7 @@
 
 
 == Einführung und Ziele
-=== Einfürung
+=== Einführung
 Mit {company_name} drängt eine neue Kette von Kleinreparaturbetrieben auf den Markt, die sich nach dem Slogan: "Alles aus einer Hand" durch ein besonders umfassendes Dienstleistungsangebot etablieren möchte. Jeder Miss-Mint-Reparaturbetrieb umfasst:
 
 * eine Flickschusterei (Absätze, Sohlen, Nähte)
