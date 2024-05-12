@@ -98,6 +98,13 @@ Die Persistenz ist standardmäßig ausgeschaltet. Um die Persistenzspeicherung z
 ....
 
 
+==== User Interface
+
+[[user-interface]]
+image::./models/UI Diagram.png[context diagram c4, 100%, 100%, pdfwidth=100%, title= "Dialog Map of the Kleinreparatur Service", align=center]
+
+NOTE: Die grüne Kästen zeigen ein HTML-Template an. Die weißen Kästchen innerhalb der Vorlagen stellen Schaltflächen dar, die zu den Vorlagen weiterleiten, deren ausgehende Pfeile auf._ zeigen.
+
 ==== Benutzeroberfläche
 * Verwendung externer Frameworks
 
