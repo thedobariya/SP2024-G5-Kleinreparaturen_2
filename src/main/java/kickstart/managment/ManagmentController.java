@@ -12,8 +12,8 @@ public class ManagmentController {
 	@GetMapping("ressources.html")
 	public String ressources() { return "ressources"; }
 
-	//@GetMapping("finance.html")
-	//public String finance() { return "finance"; }
+	@GetMapping("finance.html")
+	public String finance() { return "finance"; }
 
 	@GetMapping("depot.html")
 	public String depot() { return "depot"; }
