@@ -1,4 +1,4 @@
-package servicecatalog;
+package kickstart.servicecatalog;
 
 public class SerivceController {
 }

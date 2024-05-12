@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ManagmentController {
 
 	@GetMapping("management.html")
-	public String managment() { return "managment"; }
+	public String management() { return "management"; }
 
 	@GetMapping("resources.html")
-	public String ressources() { return "ressources"; }
+	public String resources() { return "resources"; }
 
 	@GetMapping("finance.html")
 	public String finance() { return "finance"; }
@@ -20,4 +20,7 @@ public class ManagmentController {
 
 	@GetMapping("cart.html")
 	public String cart() { return "cart"; }
+
+	@GetMapping("servicecatalog.html")
+	public String servicecatalog() {return "servicecatalog";}
 }
