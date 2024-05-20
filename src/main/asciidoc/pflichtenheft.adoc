@@ -1,11 +1,11 @@
- = Pflichtenheft
+= Pflichtenheft
+:project_name: Kleinreparaturen
 :toc: left
 :toc-title: Inhaltsverzeichnis
-:toclevels: 3
-:toc-placement!:
+:numbered:
+
 [[Pflichtenheft]]
 :project_name: Kleinreparaturen-System
-== __{Kleinreparaturen-System}__
 
 
 [options="header"]
