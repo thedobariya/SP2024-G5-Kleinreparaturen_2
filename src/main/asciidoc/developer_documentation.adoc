@@ -1,6 +1,9 @@
 = Entwicklerdokumentation
-:project_name: Kleinreperaturen
-:company_name: Miss Mint Mending Points
+:project_name: Kleinreparaturen
+:toc: left
+:toc-title: Inhaltsverzeichnis
+:numbered:
+
 [options="header"]
 [cols="1, 3, 3"]
 |===
@@ -124,7 +127,7 @@ Die Persistenz ist standardmäßig ausgeschaltet. Um die Persistenzspeicherung z
 
 ==== Benutzeroberfläche
 [[user-interface]]
-image::./models/UI Diagram.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Dialog Map of the Kleinreparatur Service", align=center]
+image::./models/UI_Diagram.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Dialog Map of the Kleinreparatur Service", align=center]
 
 NOTE: Die grüne Kästen zeigen ein HTML-Template an. Die weißen Kästchen innerhalb der Vorlagen stellen Schaltflächen dar, die zu den Vorlagen weiterleiten, deren ausgehende Pfeile auf._ zeigen.
 
@@ -151,16 +154,35 @@ NOTE: Die grüne Kästen zeigen ein HTML-Template an. Die weißen Kästchen inne
 |... |...
 |===
 
-=== Rückverfolgbarkeit zwischen Analyse- und Entwurfsmodell
-_Die folgende Tabelle zeigt die Rückverfolgbarkeit zwischen Entwurfs- und Analysemodell._
+=== User
+image::./models/BlockViewUser.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "User Block-View-Diagramm", align=center]
 
-[options="header"]
-|===
-|Klasse/Enumeration (Analysemodell) |Klasse/Enumeration (Entwurfsmodell)
-|... |...
-|===
+=== Depot
+image::./models/DepotController.drawio.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Depot Block-View-Diagramm", align=center]
+
+=== Order
+image::./models/OrderController.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Order Block-View-Diagramm", align=center]
+
+=== Item
+image::./models/Komponentendiagramm-Item.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Item Block-View-Diagramm", align=center]
+
+=== Service
+image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
 
 == Laufzeitsicht
 * Darstellung der Komponenteninteraktion anhand eines Sequenzdiagramms, welches die relevantesten Interaktionen darstellt.
 
+=== User
+image::./models/SequenzdiagrammUser.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "User Sequenzdiagramm", align=center]
 
+=== Depot
+image::./models/Seq Diagram Depot.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Depot Sequenzdiagramm", align=center]
+
+=== Order
+image::./models/order_sequenzdiagramm.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Order Sequenzdiagramm", align=center]
+
+=== Item
+image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Item Sequenzdiagramm", align=center]
+
+=== Service
+image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
