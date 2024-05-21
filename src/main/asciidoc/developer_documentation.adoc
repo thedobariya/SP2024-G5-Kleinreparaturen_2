@@ -127,9 +127,9 @@ Die Persistenz ist standardmäßig ausgeschaltet. Um die Persistenzspeicherung z
 
 ==== Benutzeroberfläche
 [[user-interface]]
-image::./models/UI_Diagram.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Dialog Map of the Kleinreparatur Service", align=center]
+image::./models/UI_Diagramm_V2.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Dialog Map of the Kleinreparatur Service", align=center]
 
-NOTE: Die grüne Kästen zeigen ein HTML-Template an. Die weißen Kästchen innerhalb der Vorlagen stellen Schaltflächen dar, die zu den Vorlagen weiterleiten, deren ausgehende Pfeile auf._ zeigen.
+NOTE: Die gelben Kästchen innerhalb der Vorlagen stellen Schaltflächen dar, die zu den Vorlagen weiterleiten, deren ausgehende Pfeile auf._ zeigen.
 
 
 * Verwendung externer Frameworks
@@ -167,7 +167,7 @@ image::./models/OrderController.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title
 image::./models/Komponentendiagramm-Item.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Item Block-View-Diagramm", align=center]
 
 === Service
-image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
+image::./models/DeveloperDocumentation_Catalog-BuildingblockView.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
 
 == Laufzeitsicht
 * Darstellung der Komponenteninteraktion anhand eines Sequenzdiagramms, welches die relevantesten Interaktionen darstellt.
@@ -185,4 +185,4 @@ image::./models/order_sequenzdiagramm.jpg[UI Diagram, 100%, 100%, pdfwidth=100%,
 image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Item Sequenzdiagramm", align=center]
 
 === Service
-image::./models/DeveloperDocumentation_Catalog-BuildingblockView.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
+image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
