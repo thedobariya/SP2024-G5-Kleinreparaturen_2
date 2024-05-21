@@ -186,4 +186,4 @@ image::./models/order_sequenzdiagramm.jpg[UI Diagram, 100%, 100%, pdfwidth=100%,
 image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Item Sequenzdiagramm", align=center]
 
 === Service
-image::./models/Runtime View Catalog.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
+image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
