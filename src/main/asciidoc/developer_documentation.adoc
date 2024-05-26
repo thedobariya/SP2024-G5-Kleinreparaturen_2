@@ -162,12 +162,6 @@ NOTE: Die gelben Kästchen innerhalb der Vorlagen stellen Schaltflächen dar, di
 * Package-Diagramm
 * Entwurfsklassendiagramme der einzelnen Packages
 
-[options="header"]
-|=== 
-|Klasse/Enumeration |Description
-|... |...
-|===
-
 === User
 image::./models/BlockViewUser.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "User Block-View-Diagramm", align=center]
 
