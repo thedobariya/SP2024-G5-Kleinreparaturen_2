@@ -5,10 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
-    <style>
-
-    </style>
+    <link th:href="@{resources/css/style.css}" rel="stylesheet" />
 </head>
 
 <body>
@@ -17,15 +14,15 @@
 </div>
 
 <div id="navbar">
-    <a href="servicecatalog.html">Service Katalog</a>
-    <a href="#">Neuer Kunde</a>
-    <a href="#">Neues Angebot</a>
-    <a href="#">Neuer Auftrag</a>
-    <a href="depot.html">Lager</a>
-    <a href="resources.html">Ressourcen</a>
-    <a href="management.html">Management</a>
-    <a href="cart.html">Cart</a>
-    <a href="#">Logout</a>
+    <a th:href="@{/servicecatalog}">Service Katalog</a>
+    <a th:href="@{/customers}">Neuer Kunde</a>
+    <a th:href="@{/offer}">Neues Angebot</a>
+    <a th:href="@{/order}">Neuer Auftrag</a>
+    <a th:href="@{/depot}">Lager</a>
+    <a th:href="@{/resources}">Ressourcen</a>
+    <a th:href="@{/management}">Management</a>
+    <a th:href="@{/cart}">Cart</a>
+    <a th:href="@{/logout}">Logout</a>
 </div>
 
 <div class="container">
@@ -50,7 +47,17 @@
         Total: <span th:text="${total}"></span>
     </div>
 
-    <button class="button">Proceed to Checkout</button>
+    <form method="post" th:action="@{/checkout}">
+        <div>
+            <label for="customerId">Customer ID:</label>
+            <input type="text" id="customerId" name="customerId" required/>
+        </div>
+        <button type="submit" class="button" th:text="#{cart.buy}">Proceed to Checkout</button>
+    </form>
+
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
 </div>
 </body>
 
