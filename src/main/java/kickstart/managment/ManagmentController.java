@@ -22,5 +22,5 @@ public class ManagmentController {
 	public String cart() { return "cart"; }
 
 	@GetMapping("servicecatalog.html")
-	public String servicecatalog() {return "servicecatalog";}
+	public String servicecatalog() { return "servicecatalog";}
 }

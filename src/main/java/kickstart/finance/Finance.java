@@ -1,4 +1,4 @@
-package kickstart.managment;
+package kickstart.finance;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
