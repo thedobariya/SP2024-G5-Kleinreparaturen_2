@@ -196,6 +196,9 @@ image::./models/Komponentendiagramm-Item.png[UI Diagram, 100%, 100%, pdfwidth=10
 === Service
 image::./models/DeveloperDocumentation_Catalog-BuildingblockView.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
 
+=== Customer
+image::./models/BuildingBlockView_Customer.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
+
 == Laufzeitsicht
 * Darstellung der Komponenteninteraktion anhand eines Sequenzdiagramms, welches die relevantesten Interaktionen darstellt.
 
@@ -213,3 +216,6 @@ image::./models/SequenzdiagrammItem.png[UI Diagram, 100%, 100%, pdfwidth=100%, t
 
 === Service
 image::./models/Runtime View Catalog.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
+
+=== Customer
+image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
