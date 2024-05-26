@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Form</title>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+</head>
+
+<body>
+<div id="banner">
+    <h1>Customer Form</h1>
+</div>
+
+<div id="navbar">
+    <a th:href="@{/servicecatalog}">Service Katalog</a>
+    <a th:href="@{/customers}">Neuer Kunde</a>
+    <a th:href="@{/offer}">Neues Angebot</a>
+    <a th:href="@{/order}">Neuer Auftrag</a>
+    <a th:href="@{/depot}">Lager</a>
+    <a th:href="@{/resources}">Ressourcen</a>
+    <a th:href="@{/management}">Management</a>
+    <a th:href="@{/cart}">Cart</a>
+    <a th:href="@{/logout}">Logout</a>
+</div>
+
+<div class="container">
+    <h2>Customer Details</h2>
+    <form th:action="@{/customers/create}" method="post" class="form-container">
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required/>
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required/>
+        </div>
+        <div>
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" required/>
+        </div>
+        <div>
+            <button type="submit" formaction="/customers/search" class="button">Search</button>
+            <button type="submit" formaction="/customers/create" class="button">Create</button>
+        </div>
+    </form>
+
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
+</div>
+</body>
+
+</html>
