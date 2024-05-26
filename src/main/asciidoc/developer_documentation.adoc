@@ -167,6 +167,7 @@ image::./models/BlockViewUser.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= 
 
 [options="header"]
 |===
+|Class/Enumeration |Description
 |User| Klasse erweiter Salespoint-UserAccount mit zusätzlichen Eigenschaften
 |UserController| Ein Spring MVC Controller behandeln von Aktionen die User betreffen 
 |UserDatainitializer| Ein Datainitializer der Dummy User beim Application start erstellt
@@ -180,6 +181,12 @@ image::./models/DepotController.drawio.png[UI Diagram, 100%, 100%, pdfwidth=100%
 
 === Order
 image::./models/OrderController.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Order Block-View-Diagramm", align=center]
+
+[options="header"]
+|===
+|Class/Enumeration |Beschreibung
+|OrderController|Ein Spring MVC Controller für den Warenkorb
+|===
 
 === Item
 image::./models/Komponentendiagramm-Item.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Item Block-View-Diagramm", align=center]
