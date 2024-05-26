@@ -11,7 +11,7 @@
 |1.0	|11.05.2024| Pritkumar Dobariya
 |1.1  |12.05.2024| Vihar Kheni
 |1.2  |20.05.2024| Pascal 
-|1.3  |21.05.2024| Philipp Danzmann
+|1.4  |26.05.2024| Philipp Danzmann
 |===
 
 
@@ -66,13 +66,24 @@ Eine Liste der notwendigen Software, um die Anwendung auszuführen und zu verwen
 Die folgende (oder neuere) Java-Version ist erforderlich, um die Anwendung auszuführen:
 
 * Java 17
+* Apache Maven (mindestens Version 3.6.3)
+* Spring Boot (mindestens Version 2.5.0)
 
 Die folgenden (oder neuere) Browser-Versionen sind erforderlich, um die Anwendung zu verwenden:
 
-* Internet Explorer / Edge 10.0
-* Firefox 4.0
-* Google Chrome 4.0
-* Opera 9.6
+* Edge 90
+* Firefox 88
+* Google Chrome 90
+* Opera 75
+
+=== Hardware-Anforderungen
+Um das Projekt lokal ausführen und entwickeln zu können, sollten die folgenden Mindestanforderungen an die Hardware erfüllt werden:
+
+* Prozessor: Quad-Core CPU, mindestens 2.5 GHz (z.B. Intel Core i5 oder AMD Ryzen 5)
+* Arbeitsspeicher (RAM): Mindestens 8 GB RAM
+* Festplattenspeicher: Mindestens 20 GB verfügbarer Speicherplatz
+* Bildschirm: Mindestens 15 Zoll, 1920 x 1080 Pixel Auflösung
+
 
 === Vorgaben zum Betrieb des Software
 Dieser Abschnitt gibt einen Überblick darüber, wie das Produkt nach Abschluss verwendet werden soll und unter welchen Umständen.
@@ -167,6 +178,15 @@ image::./models/OrderController.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title
 
 === Item
 image::./models/Komponentendiagramm-Item.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Item Block-View-Diagramm", align=center]
+
+[options="header"]
+|===
+|Class/Enumeration |Description
+|ItemController|Diese Klasse ist für die Verwaltung der Artikel zuständig und enthält Methoden zur Initialisierung der Artikelliste, zum Hinzufügen, Löschen und Auflisten von Artikeln sowie zur Verwaltung von Artikelbedingungen, -mengen und zur Berechnung von Artikeln.
+|Items|Eine Sammlung von Artikeln, die im ItemController verwendet wird.
+|Order|Eine Komponente, die Bestellungen verwaltet und mit Artikeln in Beziehung steht.
+|Item DB|Eine Datenbankkomponente, die Artikel speichert und vom ItemController verwendet wird.
+|===
 
 === Service
 image::./models/DeveloperDocumentation_Catalog-BuildingblockView.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
