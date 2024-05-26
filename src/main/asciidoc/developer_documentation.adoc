@@ -10,7 +10,7 @@
 |Version | Bearbeitungsdatum   | Autor 
 |1.0	|11.05.2024| Pritkumar Dobariya
 |1.1  |12.05.2024| Vihar Kheni
-|1.2  |20.05.2024| Pascal 
+|1.3  |20.05.2024| Pascal Jahn
 |1.4  |26.05.2024| Philipp Danzmann
 |===
 
@@ -71,10 +71,10 @@ Die folgende (oder neuere) Java-Version ist erforderlich, um die Anwendung auszu
 
 Die folgenden (oder neuere) Browser-Versionen sind erforderlich, um die Anwendung zu verwenden:
 
-* Edge 90
-* Firefox 88
-* Google Chrome 90
-* Opera 75
+* Edge 9.0
+* Firefox 8.8
+* Google Chrome 9.0
+* Opera 7.5
 
 === Hardware-Anforderungen
 Um das Projekt lokal ausführen und entwickeln zu können, sollten die folgenden Mindestanforderungen an die Hardware erfüllt werden:
@@ -154,6 +154,7 @@ NOTE: Die gelben Kästchen innerhalb der Vorlagen stellen Schaltflächen dar, di
 |Spring Data JPA|Persistence|…
 |Spring Security|Security|…
 |Semantic UI|UI|…
+|Thymeleaf|UI|…
 |jQuery|UI|…
 |===
 
@@ -161,14 +162,18 @@ NOTE: Die gelben Kästchen innerhalb der Vorlagen stellen Schaltflächen dar, di
 * Package-Diagramm
 * Entwurfsklassendiagramme der einzelnen Packages
 
-[options="header"]
-|=== 
-|Klasse/Enumeration |Description
-|... |...
-|===
-
 === User
 image::./models/BlockViewUser.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "User Block-View-Diagramm", align=center]
+
+[options="header"]
+|===
+|User| Klasse erweiter Salespoint-UserAccount mit zusätzlichen Eigenschaften
+|UserController| Ein Spring MVC Controller behandeln von Aktionen die User betreffen 
+|UserDatainitializer| Ein Datainitializer der Dummy User beim Application start erstellt
+|UserManagement| Eine Klasse für das Verwalten von User
+|UserRepository| Ein Repository-Interface um einzelne  User Interfaces zu behandeln und speichern
+|RegistrationFrom| ein Interface um die Eingaben bei Registriegung von einem User zu prüfen
+|===
 
 === Depot
 image::./models/DepotController.drawio.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Depot Block-View-Diagramm", align=center]
@@ -191,6 +196,9 @@ image::./models/Komponentendiagramm-Item.png[UI Diagram, 100%, 100%, pdfwidth=10
 === Service
 image::./models/DeveloperDocumentation_Catalog-BuildingblockView.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
 
+=== Customer
+image::./models/BuildingBlockView_Customer.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
+
 == Laufzeitsicht
 * Darstellung der Komponenteninteraktion anhand eines Sequenzdiagramms, welches die relevantesten Interaktionen darstellt.
 
@@ -208,3 +216,6 @@ image::./models/SequenzdiagrammItem.png[UI Diagram, 100%, 100%, pdfwidth=100%, t
 
 === Service
 image::./models/Runtime View Catalog.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
+
+=== Customer
+image::./models/placeholder[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
