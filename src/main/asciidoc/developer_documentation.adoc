@@ -225,4 +225,4 @@ image::./models/SequenzdiagrammItem.png[UI Diagram, 100%, 100%, pdfwidth=100%, t
 image::./models/Runtime View Catalog.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
 
 === Customer
-image::./models/RunTimeView_Customer.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
+image::./models/design/RunTimeView_Customer.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
