@@ -17,7 +17,7 @@
 
 == Einführung und Ziele
 === Einführung
-Mit {company_name} drängt eine neue Kette von Kleinreparaturbetrieben auf den Markt, die sich nach dem Slogan: "Alles aus einer Hand" durch ein besonders umfassendes Dienstleistungsangebot etablieren möchte. Jeder Miss-Mint-Reparaturbetrieb umfasst:
+Mit Miss Mint Mending Points drängt eine neue Kette von Kleinreparaturbetrieben auf den Markt, die sich nach dem Slogan: "Alles aus einer Hand" durch ein besonders umfassendes Dienstleistungsangebot etablieren möchte. Jeder Miss-Mint-Reparaturbetrieb umfasst:
 
 * eine Flickschusterei (Absätze, Sohlen, Nähte)
 * einen Nähservice (Knöpfe, Nähte, Flicken)
@@ -26,7 +26,7 @@ Mit {company_name} drängt eine neue Kette von Kleinreparaturbetrieben auf den M
 * eine Elektrowerkstatt (Kabel ersetzen, löten)
 * eine Scherenschleiferei (Scheren, Messer schärfen)
 
-Laut Geschäftsordnung der {company_name} wird an den Annahmeschaltern der Preis einer gewünschten Dienstleistung sofort ermittelt und vom Kunden im Voraus bezahlt. Der Kunde erhält einen Auftragszettel mit einer eindeutigen Auftragsnummer und dem Fertigstellungstermin. Ab dem Fertigstellungstermin kann die Ware eine Woche lang unter Vorlage des Auftragszettels abgeholt werden. Danach wandert die Ware für drei Monate in eine Aufbewahrungsstelle, wo sie unter Vorlage des Auftragszettels durch Zahlung der Aufbewahrungsgebühr von 1,50 € pro Woche ausgelöst werden kann. Waren, die auch in diesem Zeitraum nicht abgeholt werden, fallen an eine karitative Organisation. Umgekehrt erstattet Miss Mint für jeden vollen Tag, um den sich die Erbringung der Dienstleistung verspätet, 10 Prozent der Reparaturkosten zurück.
+Laut Geschäftsordnung der Miss Mint Mending Points wird an den Annahmeschaltern der Preis einer gewünschten Dienstleistung sofort ermittelt und vom Kunden im Voraus bezahlt. Der Kunde erhält einen Auftragszettel mit einer eindeutigen Auftragsnummer und dem Fertigstellungstermin. Ab dem Fertigstellungstermin kann die Ware eine Woche lang unter Vorlage des Auftragszettels abgeholt werden. Danach wandert die Ware für drei Monate in eine Aufbewahrungsstelle, wo sie unter Vorlage des Auftragszettels durch Zahlung der Aufbewahrungsgebühr von 1,50 € pro Woche ausgelöst werden kann. Waren, die auch in diesem Zeitraum nicht abgeholt werden, fallen an eine karitative Organisation. Umgekehrt erstattet Miss Mint für jeden vollen Tag, um den sich die Erbringung der Dienstleistung verspätet, 10 Prozent der Reparaturkosten zurück.
 Das Miss-Mint-Filialmanagement kümmert sich um die Bereitstellung der Ressourcen (Personal, Arbeitsgerät, Material, Räume) und führt monatlich den Reingewinn (nach Abzug der laufenden Kosten) an die Zentrale ab.
 Die Miss-Mint-Kette ist an Software interessiert, welche die Annahme, Reparaturplanung, Ausgabe und Lagerung der Waren sowie die Verwaltung der Ressourcen unterstützt und außerdem dem Filialmanagement laufende und akkumulierte Bilanzen zur Verfügung stellt.
 
@@ -88,13 +88,13 @@ Um das Projekt lokal ausführen und entwickeln zu können, sollten die folgenden
 === Vorgaben zum Betrieb des Software
 Dieser Abschnitt gibt einen Überblick darüber, wie das Produkt nach Abschluss verwendet werden soll und unter welchen Umständen.
 
-Das System wird von der {company_name} als Webshop verwendet, um Dienstleistungsangebot (Service) an Kunden zu verkaufen.
+Das System wird von der Miss Mint Mending Points als Webshop verwendet, um Dienstleistungsangebot (Service) an Kunden zu verkaufen.
 Die Software soll auf einem Server ausgeführt und über das Internet (über einen Browser) für interessierte Kunden rund um die Uhr verfügbar sein.
 
-Die Hauptbenutzer der Software sind Mitarberiter (Worker), die angeblich typische Website-Navigationsmuster kennen, sowie Administratoren (Managemaent), die nicht unbedingt über technische Kenntnisse verfügen.
+Die Hauptbenutzer der Software sind Mitarbeiter (Coworker), die angeblich typische Website-Navigationsmuster kennen, sowie Administratoren (Management), die nicht unbedingt über technische Kenntnisse verfügen.
 
-Das System soll keine technische Wartung benötigen, da das Personal der {company_name} bereits ausgelastet ist.
-Alle Daten sollen dauerhaft in einer Datenbank gespeichert und über die Anwendung zugänglich sein (z. B. sollte für einen Boss kein SQL-Wissen erforderlich sein).
+Das System soll keine technische Wartung benötigen, da das Personal der Miss Mint Mending Points bereits ausgelastet ist.
+Alle Daten sollen dauerhaft in einer Datenbank gespeichert und über die Anwendung zugänglich sein (z. B. sollte für das Management kein SQL-Wissen erforderlich sein).
 
 == Kontextabgrenzung
 === Kontextdiagramm
