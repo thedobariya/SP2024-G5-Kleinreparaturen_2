@@ -184,7 +184,7 @@ image::./models/OrderController.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title
 
 [options="header"]
 |===
-|Class/Enumeration |Beschreibung
+|Class/Enumeration |Description
 |OrderController|Ein Spring MVC Controller für den Warenkorb
 |===
 
