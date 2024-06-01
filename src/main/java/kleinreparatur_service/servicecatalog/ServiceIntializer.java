@@ -1,4 +1,4 @@
-package kickstart.servicecatalog;
+package kleinreparatur_service.servicecatalog;
 
 
 import org.springframework.stereotype.Component;

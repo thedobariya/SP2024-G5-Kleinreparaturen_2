@@ -1,4 +1,4 @@
-package kickstart.finance;
+package kleinreparatur_service.finance;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

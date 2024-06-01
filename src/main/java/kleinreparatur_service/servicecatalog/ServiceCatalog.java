@@ -1,4 +1,4 @@
-package kickstart.servicecatalog;
+package kleinreparatur_service.servicecatalog;
 
 import org.salespointframework.catalog.Catalog;
 import org.springframework.data.domain.Sort;

@@ -1,4 +1,4 @@
-package kickstart.resources;
+package kleinreparatur_service.resources;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

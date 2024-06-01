@@ -1,4 +1,4 @@
-package kickstart.finance;
+package kleinreparatur_service.finance;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

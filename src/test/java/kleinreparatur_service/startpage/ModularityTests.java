@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package kickstart.welcome;
+package kleinreparatur_service.startpage;
 
-import kickstart.Application;
+import kleinreparatur_service.Application;
 
 import java.io.IOException;
 

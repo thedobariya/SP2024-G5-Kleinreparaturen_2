@@ -1,9 +1,6 @@
-package kickstart.customer;
+package kleinreparatur_service.customer;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package kickstart.servicecatalog;
+package kleinreparatur_service.servicecatalog;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

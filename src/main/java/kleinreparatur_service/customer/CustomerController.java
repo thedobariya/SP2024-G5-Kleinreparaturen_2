@@ -1,4 +1,4 @@
-package kickstart.customer;
+package kleinreparatur_service.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

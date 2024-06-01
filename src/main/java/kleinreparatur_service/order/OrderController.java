@@ -1,4 +1,4 @@
-package kickstart.order;
+package kleinreparatur_service.order;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

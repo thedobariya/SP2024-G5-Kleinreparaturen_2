@@ -1,4 +1,4 @@
-package kickstart.customer;
+package kleinreparatur_service.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
