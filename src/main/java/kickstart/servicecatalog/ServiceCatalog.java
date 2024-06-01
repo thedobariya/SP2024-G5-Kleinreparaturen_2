@@ -1,4 +1,4 @@
-package kickstart.service;
+package kickstart.servicecatalog;
 
 import org.salespointframework.catalog.Catalog;
 import org.springframework.data.domain.Sort;

@@ -1,4 +1,4 @@
-package kickstart.service;
+package kickstart.servicecatalog;
 
 
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package kickstart.depot;
+package kickstart.resources;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
