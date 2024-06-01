@@ -147,15 +147,15 @@ NOTE: Die gelben Kästchen innerhalb der Vorlagen stellen Schaltflächen dar, di
 
 * Verwendung externer Frameworks
 
-[options="header", cols="1,2,3"]
+[options="header", cols="1,2"]
 |===
-|Externes Package |Verwendet von |Warum
-|Spring Boot|General purpose|…
-|Spring Data JPA|Persistence|…
-|Spring Security|Security|…
-|Semantic UI|UI|…
-|Thymeleaf|UI|…
-|jQuery|UI|…
+|Externes Package |Verwendet von 
+|Spring Boot|General purpose 
+|Spring Data JPA|Persistence
+|Spring Security|Security
+|Semantic UI|UI
+|Thymeleaf|UI
+|jQuery|UI
 |===
 
 == Bausteinsicht
