@@ -16,34 +16,35 @@
 | 1.2    | abgeschlossen| 29.04.2024            | Philipp Danzmann     | Feinschliff
 | 1.3    | abgeschlossen| 28.04.2024            | Pascal Jahn     | Englische Version updated
 | 1.4    | abgeschlossen| 30.04.2024            | Vihar Kheni     | GUI V2 , Englisch Systemkontextdiagramm
+| 2.0    | In Bearbeitung | 10.06.2024          | Jannes Schöttke | Überarbeitung und Vereinheitlichung der Dokumentation
 |===
 
 toc::[]
 
-== 1. Zusammenfassung
+== Zusammenfassung
 [[Zusammenfassung]]
 
-Das vorliegende Pflichtenheft definiert die Anforderungen und Ziele für die Entwicklung der geplanten Software. Es legt den Umfang der geplanten Software fest, einschließlich ihrer Funktionalitäten, Leistungen und Schnittstellen. Darüber hinaus werden die Anforderungen an die Benutzerinteraktion sowie die technischen Spezifikationen detailliert beschrieben. Das Pflichtenheft dient als Grundlage für das gesamte Softwareentwicklungsprojekt, indem es ein klares Verständnis der Anforderungen schafft und als Referenzpunkt für die Entwicklung, Qualitätssicherung und Abnahme dient.
+Das vorliegende Pflichtenheft definiert die Anforderungen und Ziele für die Entwicklung der geplanten Software. Es legt den Umfang der geplanten Software fest. Darüber hinaus werden die Anforderungen an die Benutzerinteraktion sowie die technischen Spezifikationen detailliert beschrieben. Das Pflichtenheft dient als Grundlage für das gesamte Softwareentwicklungsprojekt und dient als Referenzpunkt für die Entwicklung, Qualitätssicherung und Abnahme.
 
-== 2. Aufgabenstellung
+== Aufgabenstellung
 [[Aufgabenstellung]]
 
-Der Auftraggeber, die Miss-Mint-Kette, ist an einen Softwaresystem interessiert, welches die Annahme, Reparaturplanung, Ausgabe und Lagerung von Waren sowie die Verwaltung von Ressourcen (Personal, Arbeitsgerät, Material, Räume) unterstützt und außerdem dem Filialmanagement laufende und akkumulierte Bilanzen zur Verfügung stellt.
+Der Auftraggeber, die Miss-Mint-Kette, ist an einen Softwaresystem interessiert, welches die Annahme, Reparaturplanung, Ausgabe und Lagerung von Waren sowie die Verwaltung von Ressourcen (Personal, Material, Arbeitsplätzen) unterstützt und außerdem dem Filialmanagement laufende und akkumulierte Bilanzen zur Verfügung stellt.
 
 Das Ziel dieses Projekts ist die Entwicklung einer umfassenden Softwarelösung für die Verwaltung von Kleinreparaturbetrieben im Rahmen der Miss Mint Mending Points Kette.
-Die Software soll alle Aspekte des Betriebs unterstützen, angefangen von der Erstellung von Angeboten sowie der Annahme der Aufträge über die Reparaturplanung bis hin zur Ausgabe und Lagerung. Darüber hinaus soll sie das Filialmanagement bei der Ressourcenverwaltung unterstützen und Bilanzen liefern können.
+Die Software soll alle Aspekte des Betriebs unterstützen, angefangen von der Erstellung und Annahme von Aufträgen über die Reparaturplanung bis hin zur Ausgabe und Lagerung. Darüber hinaus soll sie das Filialmanagement bei der Ressourcenverwaltung unterstützen und Bilanzen liefern können.
 
 Konkret sollen folgende Funktionen umgesetzt werden:
 
-1. **Annahme und Abwicklung von Aufträgen:** Die Software soll es ermöglichen, Kundenanfragen entgegenzunehmen, den gewünschten Service zu erfassen und den Preis sofort zu ermitteln. Nach Zahlungseingang erhält der Kunde einen Auftragszettel mit einer eindeutigen Auftragsnummer und dem Fertigstellungstermin.
-2. **Reparaturplanung und -ausführung:** Die Software soll die Ressourcenplanung für die verschiedenen Services unterstützen und eine effiziente Zuweisung von Personal und Arbeitsgeräten ermöglichen. Sie soll auch den Fortschritt der Reparaturen verfolgen und eventuelle Verzögerungen dokumentieren.
-3. **Lagerverwaltung:** Die Software soll die Lagerung der Waren und die Verwaltung von Aufbewahrungszeiträumen sowie Gebühren unterstützen. Nicht abgeholte Waren sollen automatisch an eine karitative Organisation gespendet werden.
-4. **Ressourcenmanagement:** Die Software soll dem Filialmanagement bei der Verwaltung von Personal, Arbeitsgeräten, Material und Räumen helfen. Sie soll außerdem monatliche Reingewinne berechnen und an die Zentrale weiterleiten.
+1. **Annahme und Abwicklung von Aufträgen:** Die Software soll es ermöglichen, Kundenanfragen entgegenzunehmen, den gewünschten Service zu erfassen und den Preis sofort zu ermitteln. Nach Zahlungseingang erhält der Kunde eine Auftragsbestätigung mit einer eindeutigen Auftragsnummer und dem Fertigstellungstermin.
+2. **Reparaturplanung und -ausführung:** Die Software soll die Ressourcenplanung für die verschiedenen Services unterstützen und die Zuweisung von Personal und Arbeitsplätzen ermöglichen.
+3. **Lagerverwaltung:** Die Software soll die Lagerung der Waren und die Verwaltung von Aufbewahrungszeiträumen sowie Gebühren unterstützen. Nicht abgeholte Waren sollen automatisch als "Zum Spenden bereit" gekennzeichnet werden und dann in Verantwortlichkeit des Filialmanagements an eine karitative Organisation gespendet werden.
+4. **Ressourcenmanagement:** Die Software soll dem Filialmanagement bei der Verwaltung von Personal, Arbeitsplätzen und Material helfen.
 5. **Berichterstattung und Bilanzierung:** Die Software soll dem Filialmanagement laufende und akkumulierte Bilanzen zur Verfügung stellen, um eine effektive Geschäftsplanung und -analyse zu ermöglichen.
 
-Die entwickelte Softwarelösung soll eine effiziente Betriebsführung ermöglichen, die Arbeitsabläufe optimieren und die Kundenzufriedenheit steigern.
+Zusammenfassend soll die zu entwickelnde Softwarelösung  eine effiziente Betriebsführung ermöglichen, Arbeitsabläufe optimieren und die Kundenzufriedenheit steigern.
 
-== 3. Produktverwendung
+== Produktverwendung
 [[Produktverwendung]]
 
 Die Softwarelösung, die im Rahmen dieses Projekts entwickelt werden soll, wird in Kleinreparaturbetrieben innerhalb der Miss Mint Mending Points Kette eingesetzt werden.
@@ -51,16 +52,18 @@ Diese Betriebe bieten eine Vielzahl von Services an, von der Schuhreparatur bis 
 
 **Kontext und Rahmenbedingungen:**
 
-- **Nutzungskontext:** Die Software wird von Mitarbeitern in den Miss Mint Mending Points-Filialen genutzt, um alle Aspekte des operativen Betriebs zu verwalten, angefangen bei der Angebotserstellung bis zur Ausgabe und Lagerung der reparierten Artikel. Das Filialmanagement wird die Software auch zur Ressourcenverwaltung und Geschäftsanalyse nutzen.
+- **Nutzungskontext:** Die Software wird von den Mitarbeitern der Miss Mint Mending Points-Filialen in allen Aspekte des operativen Betriebs genutzt werden. Zudem sind exklusive Funktionen für das Filialmanagement vorgesehen, wie bspw. die Ressourcenverwaltung (anlegen, ändern, löschen) und Geschäftsanalyse (Kosten-Leistungsrechnung).
 - **Rahmenbedingungen:** Die Nutzung der Software erfolgt in einer typischen Kleinreparaturbetriebsumgebung, in der Mitarbeiter täglich mit Kundeninteraktionen, Reparaturaufträgen und Lagerverwaltungsaufgaben konfrontiert sind. Die Software muss daher benutzerfreundlich, schnell und zuverlässig sein, um den reibungslosen Ablauf der Geschäftsprozesse sicherzustellen.
 
-Die entwickelte Softwarelösung wird integraler Bestandteil des täglichen Betriebs der Miss Mint Mending Points-Filialen sein und dazu beitragen, die Effizienz zu steigern und die Qualität der Services für die Kunden zu verbessern.
+Die entwickelte Softwarelösung wird integraler Bestandteil des täglichen Betriebs der Miss Mint Mending Points-Filialen sein und soll dazu beitragen, die Effizienz zu steigern und die Qualität der Services für die Kunden zu verbessern.
 
-== 4. Stakeholders
+== Stakeholders
 [[Stakeholders]]
-*Verantwortlichkeit: Jannes Schöttke*
 
-Hier wird jede Gruppe oder Person (real oder juristisch) aufgelistet, die einen Einfluss auf die Anforderungen des Systems hat. In der folgenden Tabelle werden diese Interessengruppen aufgelistet, eine Priorität zugewiesen (falls Anforderungen kollidieren sollten, ermöglicht dies eine einfachere Entscheidung) und ihre übergeordneten Ziele beschrieben. Die zugewiesenen Prioritäten reichen von 1 (niedrigste Priorität) bis 5 (höchste Priorität).
+Im diesem Abschnitt erfolgt eine Auflistung aller von dem Projekt betroffene Interessengruppen sowie deren Einfluss auf die Anforderungen des Systems.
+Die folgende Tabelle stellt neben den Namen der Gruppen und einer groben Beschreibung dieser, auch deren Priorisierung und mit dem Projekt verbundenen Zielen dar.
+Die Priorisierung erfolgt auf einer Skala von 1 - niedrigste Priorität - bis 5 - höchste Priorität.
+
 
 [options="header", cols="1,1,1,1"]
 |===
@@ -70,8 +73,8 @@ Hier wird jede Gruppe oder Person (real oder juristisch) aufgelistet, die einen 
 | Ziele
 
 | Headquarter
-| 4
-| Der Hauptauftraggeber - formaler Vertragspartner
+| 3
+| Der Hauptauftraggeber - formaler Vertragspartner - gibt grundlegende Anforderungen (im Rahmen des Projektauftrags) vor
 a|
 - Digitalisierung der Geschäftsprozesse
 - Vereinheitlichung verwendeter SW
@@ -79,62 +82,76 @@ a|
 - Erfüllung gesetzl. Vorschriften
 - Kostenreduzierung bei Fillialverwaltung
 
-| Branch Management
-| 5
-| Mitanwender des Softwaresystems - nehmen außerdem teilweise die Rolle des Administrators ein
+| Filial Management
+| 4
+| Mitanwender des Softwaresystems - führt geschäftlich-administrative Aufgaben durch
 a|
-- Digitale/Einfache Verwaltung der Filiale 
+- Digitale Verwaltung der Filiale
 - Vereinfachung der Geschäftsprozesse 
-- Übersichtszugewinn
+- Verbesserung von Transparenz und Übersichtlichkeit
 
-| Worker
+| Coworker
 | 5
-| Hauptanwender des Softwaresystems
-a| - Reduzierter Arbeitsaufwand für Officetätigkeiten
-- Vereinheitlichte GP
-- Einfacherere GP
-- UX-freundliches System
+a| Hauptanwender des Softwaresystems - wenig IT-Kenntnisse anzunehmen
+a| - Reduzierung Dokumentationstätigkeiten
+- Vereinheitlichung der Geschäftsprozesse
+- UX-freundliches und intuitives System
 
 | Customer
 | 2
-| Kunde der Miss Mint Mending Points Filliale
+| Kunden der Miss Mint Mending Points Fillialen - kein Kontakt zum System an sich vorgesehen
 a|
-- Schneller & zufriedenstellender Service
-- Keine wahrnehmbaren Vorfälle während des Auftrags
-- Ganzheitlicher Service
-- Gute Service Experience
+- Schneller & befriedigender Service
+- Keine negativen Vorfälle während der Auftragsabwicklung
+- Ganzheitlicher Service (Beratung, Durchführung, Wartung)
+- Zuvorkommende Service-Erfahrung
 
 |===
 
-== 5. Systemgrenzen und Komponentenstruktur
-[[Systemgrenzen und Komponentenstruktur]]
+== Systemgrenzen und Komponentenstruktur
+[[SystemgrenzenundKomponentenstruktur]]
 
-=== 5.1 Systemkontextdiagramm
+=== Systemkontextdiagramm
 [[Systemkontextdiagramm]]
-*Verantwortlichkeit: Vihar Kheni*
 
-image::models/Systemkontext.png[]
+image::models/analysis/Systemkontext.jpg[]
 Figure 1.  Systekontextdiagramm des Kleinreparaturen-Systems in UML
 
-Neben der in der Darstellung aufgeführten User sind als Nachbarsysteme eine Datenbank zur persistenten Speicherung der Daten als auch eine Schnittstelle zum Softwaresystem der Zentrale angedacht.
+_Legende:_
 
-=== 5.2 Top-Level-Architektur
+* Personas mit Bezug zum System inkl. Rollendifferenzierung
+* Quadrate zur Darstellung von Umsystemen
+
+Die Darstellung des Headquarters im Diagramm stellt die Verbindung zum Übertragen der Geschäftszahlen dar.
+Da im Projektauftrag die Art der Verbindung nicht weiter thematisiert bzw. konkretisiert ist, wird dieses Umsystem hier nur der Vollständigkeit halber mit aufgeführt.
+Die Database ist ebenfalls kein Umsystem im eigentlichen Sinne, da diese für den Betrieb des Systems benötigt wird und somit integraler Bestandteil ist.
+Sie wurde ebenfalls aus Gründen der Vollständigkeit mit aufgeführt um eine genrelle Übersicht auf Systemebene zu geben.
+
+
+=== Top-Level-Architektur
 [[Top-Level-Architektur]]
-*Verantwortlichkeit: Philipp Danzmann*
 
-image::models/Top-Level-Architektur.png[]
+image::models/analysis/TopLevelArchitektur.png[]
 Figure 2.  Top-Level-Architektur-Diagramm des Kleinreparaturen-Systems in UML
 
-== 6. Use-Cases
+_Legende:_
+
+* Personas als direkte Darstellung der Rollendifferenzierung
+** die im Umfeld der Personas zu findenden Quadrate kennzeichnen diese gesondert als Komponenten, da diese explizit mit der Serviceerbringung in Zusammenhang stehen.
+* Die abgerundeten Rechtecke stellen all jene Komponenten dar, die zur Strukturierung des Systems eingesetzt werden sollen
+* Die Pfeile zwischen den jeweiligen Komponenten stellen deren Beziehungen, Richtungen und Abhängkeiten dar.
+
+== Use-Cases
 [[Use-Cases]]
 
-Im folgenden Abschnitt werden die notwendigen Anwendungsfälle, die das System zu unterstützen hat, dokumentiert. Die Anwendungsfälle definieren alle essentiellen Funktionen, die das System den Nutzern zu Verfügung stellen können soll.
+Im folgenden Abschnitt werden die grundlegenden Anwendungsfälle (Use Cases) genauer beschrieben, die das System unterstützen muss.
+Diese Anwendungsfälle definieren alle wichtigen Funktionen, die das System den Nutzern bieten soll.
 
-=== 6.1 Akteure
+=== Akteure
 [[Akteure]]
-*Verantwortlichkeit: Pascal Jahn, Pritkumar Dobariya*
 
-Jeder Actor, d.h. die Personen, die direkt oder indirekt über andere Services mit dem System interagieren, wird in tabellarischer Form aufgelistet. Jedem Actor ist eine Beschreibung beigefügt. Wenn ein Actor keine spezifische Person, sondern eine Gruppe von Personen oder eine Verallgemeinerung anderer Actors beschreibt, werden diese _abstract Actors_ durch _kursive_ Schrift hervorgehoben.
+In diesem Abschnitt werden alle Akteure aufgelistet, also die Personen, die direkt oder indirekt über andere Web-Services mit dem System interagieren.
+Wenn ein Akteur keine bestimmte Person, sondern eine Gruppe oder eine Verallgemeinerung anderer Akteure darstellt, wird dieser abstrakte Akteur kursiv hervorgehoben.
 
 [comment]
 --
@@ -147,68 +164,65 @@ In Form einer Tabelle ist jeder Actor, also Personen, die mit dem System direkt 
 | Name 
 | Description
 
-| _User_
-|  Beschreibt jede authentifizierte und unauthentifizierte Person , welche mit dem System interagiert
+| _Registered User_
+| Alle _User_, die im System registriert wurden und sich authentifiziert haben um mit dem System zu interagieren
 
-| _Registered Worker_
-| Alle _User_, die im System registriert sind und sich authentifiziert haben und mit dem System interagieren
-
-| _Unregistered Worker_
-| Alle _User_, die nicht authentifiziert sind oder nicht im System registriert sind und mit dem System interagieren
+| _Unregistered User_
+|  _User_, die nicht authentifiziert sind oder nicht im System registriert sind und mit dem System interagieren
 
 | _Customer_
-| Alle _User_, die unauthentifiziert sind und per QR-Code des Bestelltickets auf das System zugreifen. Können Bestellfortschritt einsehen
+|  _User_, die unauthentifiziert sind und über eine Bestellung verfügen, die im System unter der jeweiligen Bestellnummer gelistet ist
 
-| _Worker_
-| Alle _User_ die als Filialmitarbeiter registriert sind und Bestellungen von Kunden annehmen, bearbeiten und abschließen können
+| _Coworker_
+|  _User_ die als Filialmitarbeiter registriert sind und Bestellungen von Kunden annehmen, bearbeiten und abschließen können
 
-| _Management_
-| Ein *User* welchen als Filialleiter registriert ist und administratorrechte über das System hat
+| _Filial Management_
+| *User* welcher als Filialleiter registriert ist und im System administratorrechte besitzt
 |===
 
 
-=== 6.2 Use-Case-Diagramm
+=== Use-Case-Diagramm
 [[Use-Case-Diagramm]]
-*Verantwortlichkeit: Pritkumar Dobariya*
+
 
 image::models/Use-Case-Diagram.jpg[]
 Figure 3. Use-Case-Diagramm des Kleinreparaturen-Systems in UML
 
-=== 6.3 Sequenzdiagramm
+=== Sequenzdiagramm
 [[Sequenzdiagramm]]
-*Verantwortlichkeit: Jannes Schöttke*
+
 
 image::models/Sequenzdiagramm_V1.0.PNG[]
 Figure 4. Sequenzdiagramm des Geschäftsprozesses aus User-Perspektive. Auf eine Abbildung rein technischer und somit nicht direkt sichtbarer Funktion wurde zum jetzigen Zeitpunkt verzichtet.
 
 
-=== 6.4 Use-Case-Beschreibung
+=== Use-Case-Beschreibung
 [[Use-Case-Beschreibung]]
-*Verantwortlichkeit: Pascal Jahn, Vihar Kheni*
+
 
 In Form einer Tabelle ist jeder Use-Case aus dem oben aufgezeigten Use-Case Diagramm detailliert aufgelistet und definiert.
 
 |===
-| ID | ID000
-| Name | Business process
-| Description | Der Benutzer kann das System öffnen und somit jeglichen beschriebenen Prozess starten
+| ID | ID001
+| Name | Programminitialisierung
+| Description | Der Benutzer kann die Systemdatei öffnen, das System starten und somit alle weiteren beschriebenen Prozesse ausführen
 | Actors | User
-| Trigger | .exe des Systems wird auf individuellem Client gestartet
-| Precondition(s) | das System muss auf dem Server online und durch das Netzwerk erreichbar sein
-| Essential Steps | User ist mit seiner Client Maschine in einem Netzwerk, was das System erreichen kann und startet mit einem Doppelklick die .exe Anwendung
-| Functional Requirements | User ist in lokalen Netzwerk des Systems und hat eine aktuelle Version der Anwendung auf dem Client-System
+| Trigger | Ausführbare Datei des Systems wird auf individuellem Client gestartet
+| Precondition(s) | Das System muss auf dem Server online und durch das Netzwerk erreichbar sein
+| Essential Steps | User ist mit seiner Client Maschine in einem Netzwerk, was das System erreichen kann und startet mit einem Doppelklick die ausführbare Anwendung
+| Functional Requirements | User ist im lokalen Netzwerk des Systems und hat eine aktuelle Version der Anwendung auf dem Client-System
 |===
 
 |===
-| ID | ID001
+| ID | ID002
 | Name | Login / Logout
 | Description | Der Benutzer kann sich authentifizieren, anmelden und abmelden.
 | Actors | User
 | Trigger a| 
-Login : Ein Benutzer kann auf Funktionen zugreifen, indem er sich anmeldet 
-Logout : Nach Nutzung der Funktionen kann der Benutzer die Webseite verlassen indem er sich abmeldet
+Login : Ein Benutzer kann auf Systemfunktionen zugreifen, indem er sich anmeldet +
+Logout : Nach Nutzung der Funktionen kann der Benutzer die Webseite verlassen, indem er sich abmeldet
 | Precondition(s) a| 
-Login : Noch nicht authentifiziert 
+Login : Noch nicht authentifiziert +
 Logout : Der Benutzer ist authentifiziert
 | Essential Steps a| 
 1. Login:  
@@ -223,32 +237,32 @@ Logout : Der Benutzer ist authentifiziert
 |===
 
 |===
-| ID | ID002
-| Name | Password recovery
-| Description | kann ein neues Passwort für einen spezifischen User, der im System bereits Registriert ist, anfordern
-| Actors | registered User
-| Trigger | auf dem Anmeldebildschirm wird auf den Button "Passwortwiederherstellung geklickt"
-| Precondition(s) | das Passwort wurde vergessen und der User ist bereits im System registriert
+| ID | ID003
+| Name | Password wiederherstellen
+| Description | Anfordern eines neuen Passwort für einen authentifizierten User, der im System bereits registriert ist
+| Actors | Registered User
+| Trigger | Klick auf die Schaltfläche "Passwort wiederherstellen" der Startseite
+| Precondition(s) | User ist bereits im System registriert, kann kein mit der Registrierung übereinstimmendes Passwort eingeben
 | Essential Steps a| 
-1. Auf das Fenster Passwortwiederherstellung" Doppelklick machen 
-2. Username eingeben und für diesem User ein neues Passwort beim Systemanfordern (Anfrage an das Filialmanagement zu Autorisierung)
-| Extentions | bei vorhandener E-Mail kann einer Mail zur Autorisierung versendet werden und darüber das Passwort zurückgesetzt werden
+1. Doppelklick auf die Schaltfläche "Passwort wiederherstellen"
+2. Username oder E-Mail eingeben, um für den zugeordneten User ein neues Passwort anzufordern
+| Extentions | Wenn E-Mail vorhanden kann ein Mail zur Autorisierung versendet werden
+und darüber das Passwort zurückgesetzt werden
 | Functional Requirements | User ist ein Registered User und kann auf den Login/Logout Bildschirm zugreifen
 |===
 
 |===
 | ID | ID002
-| Name | register Worker
-| Description | Ein Management muss in der Lage sein, ein Konto für neue Mitarbeiter zu erstellen
-| Actors | Management
-| Trigger | Ein Filialleiter möchte ein Konto für einen neuen Mitarbeiter erstellen, indem er auf „Registrierung“ klickt
-| Precondition(s) | Der Benutzer ist noch nicht angemeldet
+| Name | Mitarbeiter registrieren
+| Description | Das Filial-Management muss in der Lage sein, ein Konto für neue Mitarbeiter anzulegen
+| Actors | Management| Trigger | Die Filialleitung möchte ein Konto für einen neuen Mitarbeiter erstellen, indem es auf die Schaltfläche „Neuen MI“ klickt
+| Precondition(s) | Der Mitarbeiter ist noch nicht angelegt
 | Essential Steps a| 
-1. Die Filialleitung drückt auf Registrierung 
+1. Die Filialleitung klickt auf die Schaltfläche "Mitarbeiter anlegen"
 2. Es fügt Rolle, Username und Passwort hinzu 
 3. Systemprüfung auf eindeutigen Benutzernamen bei Generierung eines neuen Kontos 
-4. im Fall von Duplikaten wird eine Fehlermeldung ausgegeben
-| Functional Requirements | User mit der Rolle "Filialmanagement" muss authenticated sein und Daten für einen neuen User haben
+4. Im Fall von Duplikaten wird eine Fehlermeldung ausgegeben
+| Functional Requirements | User mit der Rolle "Filialmanagement" muss authentifiziert worden sein und die Daten für den neuen User haben
 |===
 
 |===
@@ -374,9 +388,8 @@ Dem Benutzer werden alle Dienste der ausgewählten Kategorie angezeigt
 | Functional Requirements | Ressourcen müssen im System angelegt sein, Manager muss authentifiziert sein
 |===
 
-== 7. Funktionale Anforderungen
+== Funktionale Anforderungen
 [[Funktionale Anforderungen]]
-*Verantwortlichkeit: Jannes Schöttke*
 
 Dieser Abschnitt stellt die Version 1 der “Funktionalen Anforderungstabelle” dar.
 Diese Tabelle enthält folgende Informationen zu den jeweiligen funktionalen Anforderungen:
@@ -395,41 +408,35 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 |===
 | Kategorie | Zuordnung | ID | Version | Name | Eingabedaten | Verhalten (Verarbeitung) | Ausgabe | Beschreibung
 
-| Muss | Ressourcen management | F0010 | 1.0 | Benutzerverwaltung | Name, User-ID, Postition, Studensatz | Erstellt ein Objekt der Klasse User | User-Objekt bzw. ID | User müssen angelegt, bearbeitet und gelöscht werden können
+| Muss | Ressourcen Management | F0010 | 1.0 | Benutzerverwaltung | Name, User-ID, Postition, Studensatz | Erstellt ein Objekt der Klasse User | User-Objekt bzw. ID | User müssen angelegt, bearbeitet und gelöscht werden können
 
-| Muss | Annahme | F0020 | 1.0 | Customer anlegen | Adresse, Name, Emailadresse | Erstellen eines Customer-Objektes | Erstellte CustomerID | Customer muss zur Auftragserstellung im System anlegt sein/werden - damit ID Zuordnung gewährleistet werden kann
+| Muss | Annahme | F0020 | 1.0 | Customer anlegen | Adresse, Name, Emailadresse | Erstellen eines Customer-Objektes | | Customer muss zur Auftragserstellung im System anlegt sein/werden - damit ID Zuordnung gewährleistet werden kann
 
-| Kann | Reparatur-planung | F0040 | 1.0 | Statustracking | Zeitstempel, User-ID, Checkpoints | Status wird von bearbeitender Abteilung bzw. durch Geschäftslogik geändert | new, open, stored, in repair, complete, expired, donated | Auswahlfeld für den aktuellen Status des Reparaturauftrags (new, Open, stored, in repair, complete, expired, donated)
+| Kann | Reparaturplanung | F0040 | 1.0 | Statustracking | Zeitstempel, User-ID, Checkpoints | Status wird von bearbeitender Abteilung bzw. durch Geschäftslogik geändert | new, open, stored, in repair, complete, expired, donated | Auswahlfeld für den aktuellen Status des Reparaturauftrags (new, Open, stored, in repair, complete, expired, donated)
 
 | Muss | Annahme | F0050 | 1.0 | Preisermittlung | Gegenstand (Kategorie), Zustand, Service, | Berechnet aus den Inputdaten einen Preis | Preisvorschlag | Zur Angebotserstellung muss ein Preis ermittelt werden - Grundlage: zu erbringender Service
 
 | Kann | Annahme | F0051 | 1.0 | Mengenrabatt | CustomerID, Preis | Abrufen kummulierter Kundenumsatz, Ableitung Mengenrabatt, Preisanpassung | Reduzierter Preis |
 
-| Muss | Reparatur planung | F0051 | 1.0 | Berechnung Abholdatum | Service, Zustand, ItemID, Material, UserID |  | Abholdatum | Berechnet aus dem Service + zugeordneten Worker, dessen Verfügbarkeit, dem Arbeits-/Materialbedarf (in Abhängigkeit der Verfügbarkeit) und der Gegenstandskategorie ein vrsl. Abholdatum
+| Muss | Reparaturplanung | F0051 | 1.0 | Festlegung Abholdatum | Service, Zustand, ItemID, Material, UserID |  | Abholdatum | Festlegen des Abholdatums
 
-| Muss | Annahme | F0060 | 1.0 | Zeitermittlung | Service, Zustand, Gegenstand | Ermittelt benötigte Zeit | Abholdatum | Zeitschätzung bis zur Fertigstellung
+| Muss | Annahme | F0070 | 1.0 | Auftrag anlegen | Auftrag mit allen benötigten Informationen erstellen | CustomerID, ItemID, ServiceID | OrderID | Anlegen des Auftrags inkl. persistenter Speicherung im System
 
-| Muss | Annahme | F0070 | 1.0 | Auftrag anlegen | Übernahme der Angebotsdaten | Erstellen (CustomerID), ItemID - Checkbox: Preis bezahlt | OrderID | Bestätigung des erstellten Angebots mit eventuell geänderten Daten
-
-| Muss | Annahme | F0080 | 1.0 | Abholschein ausgeben | ItemID | Erstellung QR Code | QR-Code | Es muss in einer beliebigen Form ein Abholschein mit einer ein-indeutigen ID erstellt und ausgegeben werden
-
-| Muss | Annahme | F0090 | 1.0 | Angebot erstellen | Gegenstand (Kategorie), Zustand, Service, Preis, Abholdatum, Zeitstempel | Erstellt ein Objekt der Klasse Angebot | AngebotsID | Setzt sich mind. aus Preis, Zeit und ID zusammen
-
-| Kann | Annahme | F0091 | 1.0 | Angebot erstellen | Gegenstandskategorie, Zustand, Service, Preis, Zeitstempel, | Erstellung eines Angebotsobjekts aus den Inputdaten | Angebotsobjekt + visuelle Darstellung dessen | Weitere optionale Felder für die Angebotserstellung (Bevorzugtes Material, Kommentare, etc.)
+| Muss | Annahme | F0080 | 1.0 | Bestellnummer ausgeben | OrderID | OrderID wird autom. durch Auftragserstellung verwendet um Bestellnummer bzw. Abholschein auszugeben | Nummer oder QR-Code| Es muss in einer beliebigen Form ein Abholschein mit einer ein-eindeutigen ID erstellt und ausgegeben werden
 
 | Muss | Architektur | F0110 | 1.0 | Eingabedatenvalidierung | Beliebige Inputdaten | Überprüfung der eingegebenen Daten auf Zweckgebundenheit | Eine bzw. keine Fehlermeldung | Prüfung der Eingabedaten auf Zweckgebundenheit -> Sicherheitsaspekt
 
-| Muss | Lager | F0120 | 1.0 | Lagerverwaltung | ItemID, Zeitstempel | Erstellt aus ItemObject ein DepotObjekt bzw. Eintrag in DB | Erfassung des Gegegenstandes +  Zustände im Lager | Erfassung von Zu- und Abgängen des Lagers (Sowohl Ressourcen als auch Auftragsgegenstände)
+| Muss | Lager | F0120 | 1.0 | Item-Verwaltung | ItemID, Zeitstempel | Item wird bei anlegen mit Zeitstempel versehen und persistent in der DB abgelegt |  | Erfassung von Items und deren Lagerdauer
 
-| Kann | Ressourcen management | F0121 | 1.0 | Bestellfunktion Material | Art, Menge, Kommentar, Service | Erstellt einen Bestellung aus den Inputdaten (wird an Fillialmanagement gepusht) | Bestellungsformular | Bestellfunktion für Arbeitsgerät; wird in Form eines Bestellformulars an Fillialleitung weiter gegeben
+| Kann | Ressourcen Management | F0121 | 1.0 | Bestellfunktion Material | Art, Menge, Einheit | Erstellen einer Bestellung, wenn zusätzlicher Materialbedarf besteht | Bestellformular |
 
-| Kann | Ressourcen management | F0122 | 1.0 | Bestellfunktion Arbeitsgerät | Art, Menge, Kommentar, verwendbarer Service? | Erstellt einen Bestellung aus den Inputdaten (wird an Fillialmanagement gepusht) | Bestellungsformular | Bestellfunktion für Material; wird in Form eines Bestellformulars an Fillialleitung weiter gegeben
+| Kann | Ressourcen Management | F0122 | 1.0 | Hinzufügen weiterer Arbeitsplätze | Art, Menge, Kommentar, verwendbarer Service | Erstellen einer Bestellung aus den Inputdaten (wird an Fillialmanagement gepusht) | Bestellungsformular | Bestellfunktion für Material; wird in Form eines Bestellformulars an Fillialleitung weiter gegeben
 
 | Muss | Architektur | F0130 | 1.0 | Login/Logout-Funktion |  |  |  | inkl. Passwortreset
 
 | Muss | Architektur | F0131 | 1.0 | Benutzervalidierung | Anmeldename + dazugehöriges Passwort | Abgleich der eingegeben Daten mit UserTable (DB) | Check bzw. uncheck zur Weiterverarbeitung der Oberfläche | Abgleich, ob Benutzer mit diesen Daten im System
 
-| Muss | Bilanzierung | F0170 | 1.0 | Kostenerfassung für KLR | per Auftrag: Umsatz, Material- und Personalkosten; pro Filliale/Monat: Betriebskosten Arbeitsgerät, Räume und Anschaffungskosten Arbeitsgerät/12 |  | Gewinn/Verlust pro Monat | Erfassung von Personal-, Material- und Nebenkosten
+| Muss | Bilanzierung | F0170 | 1.0 | Kostenerfassung für KLR | per Auftrag: Umsatz - (Material + Arbeitsplatznutzung + Personalkosten) |  || Erfassung von Personal-, Materialkosten
 
 | Muss | Bilanzierung | F0171 | 1.0 | Erfassung Materialkosten | Materialart,-qualität,-menge |  |  | Ermittelt die Materialkosten einer Filiale/Monat
 
@@ -437,59 +444,35 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | Bilanzierung | F0173 | 1.0 | Erfassung Personalkosten | WorkerID, Zeitaufwand | für jede WorkerID (WorkerID.Stundensatz * kummulierter Zeitaufwand/Monat) | Personalkosten/Monat | Ermittelt die Personalkosten für eine Filiale - benötigt Stundenzähler in WorkerID
 
-| Muss | GUI | F0200 | 1.0 | Login Page |  |  |  | MIN: Username, Passwort, Passwortreset
+| Muss | Ressourcen Management | F0270 | 1.0 | Serviceverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Services
 
-| Muss | GUI | F0201 | 1.0 | Startpage |  |  |  | MIN: New Offer, New Order, Services, Depot, Filiale (MA, Ressourcen, Finanzen)
+| Muss | Ressourcen Management | F0280 | 1.0 | Personalverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Mitarbeitern (nur durch Filial Management)
 
-| Muss | GUI | F0202 | 1.0 | New Order |  |  |  | MIN: CustomerID, ItemID, Payed?, Comment
+| Muss | Ressourcen Mmanagement | F0290 | 1.0 | Arbeitsplatzverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Arbeitsplätzen (nur durch Filial Management)
 
-| Muss | GUI | F0203 | 1.0 | New Offer |  |  |  | MIN: Itemcategorie, condition, service, quote, estimated time, time stamp
+| Kann | Ressourcen Management | F0310 | 1.0 | Zuweisung freier Coworker | Datum, Dauer (Abgeleitet von Service + Zustand), Prio? |  | Setzt Worker für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 
-| Muss | GUI | F0204 | 1.0 | Depot |  |  |  | MIN: Database table which stores the different items
+| Muss | Ressourcen Management | F0291 | 1.0 | Belegung der Arbeitsplätze | Kategorie, ArbeitsgerätID, Dauer |  | Setzt Arbeitsgerät für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 
-| Muss | GUI | F0205 | 1.0 | New Customer |  |  |  | MIN: Name, email, turnover, agreement
+| Kann | Ressourcen Management | F0311 | 1.0 | Neuzuweisung freier Coworker |  |  |  | Für den Fall, dass zugewiesener Worker nicht verfügbar ist
 
-| Muss | GUI | F0206 | 1.0 | Ressources |  |  |  | MIN: Arbeitsgerät, Material, Räume
+| Muss | Ressourcen Management | F0312 | 1.0 | Reduzierung Materialbedarf | Art, Menge, Kommentar |  | Reduziert Materialart um Menge | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 
-| Muss | GUI | F0207 | 1.0 | Finance |  |  |  | MIN: Listview monthly + yearly (costs + revenue) + Darta
-
-| Muss | GUI | F0208 | 1.0 | Management |  |  |  | Links zu Ressourcen, Finanzen, Mitarbeiter + Diagramm im Inhaltsbereich
-
-| Muss | GUI | F0209 | 1.0 | Object check out |  |  |  | ?
-
-| Muss | GUI | F0210 | 1.0 | Landingpage |  |  |  | Eingeschränkte View; nur Optionen ServiceCatalog einzusehen + Login/Register
-
-| Muss | GUI | F0211 | 1.0 | Register User |  |  |  | MIN: First & Last name, username, Password, Terms&Conditions
-
-| Muss | Ressourcen management | F0270 | 1.0 | Serviceverwaltung |  |  |  | Bearbeiten von Services
-
-| Muss | Ressourcen management | F0280 | 1.0 | Personalverwaltung |  |  |  | Erstellen, bearbeiten und löschen von MA-Objekten (nur durch BranchManagement)
-
-| Muss | Ressourcen management | F0290 | 1.0 | Geschäftsraumverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Geschäftsräumen (nur durch BranchManagement)
-
-| Muss | Ressourcen management | F0300 | 1.0 | Arbeitsgeräteverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Geschäftsräumen (durch autorisierte MA)
-
-| Muss | Ressourcen management | F0310 | 1.0 | Zuweisung freier Worker | Datum, Dauer (Abgeleitet von Service + Zustand), Prio? |  | Setzt Worker für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
-
-| Muss | Ressourcen management | F0311 | 1.0 | Buchung Arbeitsgerät | Kategorie, ArbeitsgerätID, Dauer |  | Setzt Arbeitsgerät für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
-
-| Kann | Ressourcen management | F0311 | 1.0 | Neuzuweisung freier Worker |  |  |  | Für den Fall, dass zugewiesener Worker nicht verfügbar ist
-
-| Muss | Ressourcen management | F0312 | 1.0 | Buchung Materialbedarf | Art, Menge, Kommentar |  | Reduziert Materialart um Menge | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
-
-| Muss | Ressourcen management | F0313 | 1.0 | Buchung Raum/Arbeitsplatz | Dauer, Kommentar/Hinweise |  | Setzt Raum/Arbeitsplatz für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
+| Muss | Ressourcen Management | F0313 | 1.0 | Belegung Arbeitsplatz | Dauer, Kommentar/Hinweise |  | Setzt Raum/Arbeitsplatz für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 |===
 
-== 8. nicht-funktionale Anforderungen
-[[nicht-funktionale Anforderungen]]
-*Verantwortlichkeit: Pascal Jahn*
+== Nicht-funktionale Anforderungen
+[[nicht-funktionaleAnforderungen]]
+
 
 Die nicht-funktionalen Anforderungen des Managementsystems beschreiben Anforderungen, welche das System in **Stabilität**, **Arbeitsweise** und unter verschiedenen Szenarien definieren.
 
-=== 8.1 Qualitätsanforderungen
+=== Qualitätsanforderungen
 [[Qualitätsanforderungen]]
 
-Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt. Dabei wird jede nicht funktionalen Anforderung gewichtet, was die spätere Formulierung konkreter NF Anforderungen beeinflussen muss.
+Folgenden sind die qualitativen Anforderungen an das System  in Form einer Tabelle aufgeführt.
+Dabei wird jede nicht funktionalen Anforderung gewichtet, was die spätere Formulierung konkreter NF Anforderungen beeinflussen muss.
+
 
 1 = unimportend ... 5 = importend
 
@@ -497,18 +480,18 @@ Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt.
 |===
 | quality demands | importance | description
 
-| useabillity | 4 | das Managementsystem muss sowohl für ältere Mitarbeiter, die nicht viel Erfahren mit Informationssystemen haben, als auch für alle Kunden intuitiv zu verstehen und bedienen sein
+| useabillity | 5 | Das System muss sowohl für ältere Mitarbeiter, die nicht viel Erfahren mit Informationssystemen haben, als auch für alle anderen Mitarbeiter und z.T. auch Kunden intuitiv zu verstehen und zu bedienen sein
 
-| efficency/ automation | 3 | Zeitbasierte Datenverwaltung von Bestellung und Nutzerdaten
+| efficency/ automation | 4 | Zeitbasierte Datenverwaltung von Bestellung und Nutzerdaten
 
 | security | 3 | Datenschutz und somit die Sicherheit persönlicher Daten von Kunden ist sehr wichtig, jedoch sind interne Daten von Prozessen der Dienstleistungen nicht kritisch
 
 | scaleabillity | 4 | Das System muss auf eine wachsende Anzahl kleiner Filialen unterstützen und muss somit primär für interne Finanzen und Ressourcenverwaltung gut skalierbar sein
 
-| uptime | 4 | da Kunden online Bestellungen aufgeben können sollen und Kunden jederzeit ihren Auftragsfortschritt einsehen sollen ist uptime dieses Systems zu maximieren
+| uptime | 4 | Da viele Prozessfunktionen an einen sich aktualisierenden Zeitstempel gekoppelt sind, ist uptime dieses Systems zu maximieren
 |===
 
-== 8.2 konkrete NF Anforderungen
+== Konkrete nicht-funktionale Anforderungen
 [[konkreteNFAnforderungen]]
 
 [options="header", cols="1,1,1,1"]
@@ -519,63 +502,78 @@ Die folgenden qualitativen Anforderungen sind in Form einer Tabelle aufgeführt.
 
 | [NF0020] | v 0.1 | user data management | Nutzerdaten können nur mit Einverständnis des Kunden und nur für eine bestimmte Zeit in einer Datenbank gespeichert werden
 
-| [NF0030] | v 0.1 | effecient data management | abgeschlossene oder abgelaufene Bestellungen sollten nach Bestimmter Zeit aus dem System entfernt werden oder archiviert werden, manuelle Inventarverwaltung zu erleichtern
+| [NF0030] | v 0.1 | effecient data management | Abgeschlossene oder abgelaufene Bestellungen sollten nach Bestimmter Zeit aus dem System entfernt werden werden, um manuelle Inventarverwaltung zu erleichtern
 
 | [NF0040] | v 0.1 | password security | Passwörter sollen zur Systemsicherheit und gegen Identitätsdiebstahl nur in Hash-Werten gespeichert werden
 
 | [NF0050] | v 0.1 | GUI useabillity | das Anlegen einer Bestellung mit dem Kunden Vorort soll während der Kundeninteraktion die wenigste Zeit in Anspruch nehmen
 |===
 
-== 9. GUI-Prototypen
+== GUI-Prototypen
 [[GUIPrototypen]]
-*Verantwortlichkeit: Vihar Kheni, Jannes Schöttke*
 
-image::models/pages/langingpage.png[]
+image::models/analysis/GUI-Prototypen/home.png[]
 Figure 4. Abbildung eines Gui-Prototyps der Landing-Page
 
-image::models/pages/registeruser.png[]
+image::models/analysis/GUI-Prototypen/new-customer.png[]
 Figure 5. Abbildung eines Gui-Prototyps der User-Registrierungs-Page
 
-image::models/pages/servicecatalog.png[]
+image::models/analysis/GUI-Prototypen/catalog.png[]
 Figure 6. Abbildung eines Gui-Prototyps der Startseite und dem Service-Katalog-Page
 
-image::models/pages/newoffer.png[]
-Figure 7. Abbildung eines Gui-Prototyps der Angebotserstellungs-Page
+image::models/analysis/GUI-Prototypen/add-item.png[]
+Figure 7.
 
-image::models/pages/neworder.png[]
-Figure 8. Abbildung eines Gui-Prototyps der Bestellungsverwaltungs-Page
+image::models/analysis/GUI-Prototypen/customer-details.png[]
+Figure 8.
 
-image::models/pages/depot.png[]
-Figure 9. Abbildung eines Gui-Prototyps der Lagerverwaltungs-Page
+image::models/analysis/GUI-Prototypen/depot-customer.png[]
+Figure 9.
 
-image::models/pages/ressources.png[]
-Figure 10. Abbildung eines Gui-Prototyps der Ressourcenverwaltungs-Page
+image::models/analysis/GUI-Prototypen/detail.png[]
+Figure 10
 
-image::models/pages/add_customer.png[]
-Figure 11. Abbildung eines Gui-Prototyps des Add-customer-Page
+image::models/analysis/GUI-Prototypen/finances.png[]
+Figure 11.
 
-image::models/pages/management.png[]
-Figure 12. Abbildung eines Gui-Prototyps der Management-Page
+image::models/analysis/GUI-Prototypen/login.png[]
+Figure 12.
 
-image::models/pages/finance.png[]
-Figure 14. Abbildung eines Gui-Prototyps der Finance-Page
+image::models/analysis/GUI-Prototypen/new_customer.png[]
+Figure 13.
 
-image::models/pages/data.png[]
-Figure 15. Abbildung eines Gui-Prototyps der Data-Page
+image::models/analysis/GUI-Prototypen/resources-coworkers.png[]
+Figure 14.
 
-== 10. Datenmodell
+image::models/analysis/GUI-Prototypen/resources-materials.png[]
+Figure 15.
+
+image::models/analysis/GUI-Prototypen/resources-workingstation.png[]
+Figure 16.
+
+image::models/analysis/GUI-Prototypen/view-of-items.png[]
+Figure 17.
+
+image::models/analysis/GUI-Prototypen/view-of-materials.png[]
+Figure 18.
+
+image::models/analysis/GUI-Prototypen/view-of-orders.png[]
+Figure 19.
+
+image::models/analysis/GUI-Prototypen/view-of-workingstations.png[]
+Figure 19.
+
+== Datenmodell
 [[Datenmodell]]
 
-=== 10.1 Klassendiagram
+=== Klassendiagram
 [[Klassendiagramm]]
-*Verantwortlichkeit: Philipp Danzmann, Jannes Schöttke*
 
 image::models/Datenmodell V2.3.png[]
 Figure 2. Klassenmodell des Kleinreparaturen-Systems in UML
 
-=== 10.2 Klassen und Enumerationen
-[[Klassen und Enumerationen]]
-*Verantwortlichkeit: Pascal Jahn*
+=== Klassen und Enumerationen
+[[KlassenUndEnumerationen]]
 
 Die folgende Tabelle gibt einen übersichtlichen Überblick über alle Klassen/Enums, die im Domänenmodell verwendet werden. Die Tabelle ist Teil der Dokumentation und dient der Information der Stakeholder über die zentralen Begriffe und Konzepte der Systemarchitektur.
 
@@ -609,7 +607,7 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | Repräsentation einer Zuordnung zu nötigen Services
 
 | → Conditions
-| Einschätzung der Reparierbarkeit in einen originalzustand
+| Bewertung des Reparaturaufwands eines Items im übergebenen Zustand
 
 | → Image
 | Repräsentation eines Fotos des physischen Gegenstandes nach der Abgabe
@@ -626,17 +624,8 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | → Price
 | pauschaler Grundpreis eines im System vermerkten Services
 
-| Order Overview
-| Repräsentation der Verwaltung und Erstellung von Offer und Order
-
 | → Comment
 | Repräsentation von Vermerkungen und Kommentaren einer Angebote und Bestellungen
-
-| Offer
-| Repräsentation eines eingegangenen Angebots
-
-| → OfferID
-| Repräsentation einer Kennnummer des Angebots
 
 | → Price
 | Repräsentation einer für den Bestellabschluss zu vorauszahlenden Summe
@@ -662,14 +651,11 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | Ressources
 | Repräsentation von realen betriebseigenen Arbeitsmitteln
 
-| Tools
-| Repräsentation von Werkzeugen und anderen betriebseigenen Gerätschaften, die in einer Filiale vorhanden sind
+| Workingstation
+| Repräsentation von Arbeitsplätzen inkl. der für die Serviceerstellung benötigten Werkzeuge,
 
 | Material
 | Repräsentation von physischen betriebseigenen Material, was betrieblichen Zwecken dient
-
-| Rooms
-| Repräsentation von physischen Orten einer Filiale, die unter betrieblicher Verwendung stehen
 
 | User
 | Repräsentation einer realen Person
@@ -686,7 +672,7 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | → Adress
 | Repräsentation der Rolle und Rechten eines spezifischen Users
 
-| Worker
+| Coworker
 | Repräsentation eines realen Mitarbeiters
 
 | → ID
@@ -699,9 +685,9 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | Repräsentation einer Kennnummer eines spezifischen Filialmanagements im System
 |===
 
-== 11. Akzeptanztesten
+== Akzeptanztesten
 [[Akzeptanztesten]]
-*Verantwortlichkeit: Pritkumar Dobariya*
+
 
 Auf eine detaillierte Ausführung der Abnahmetestfälle wird an dieser Stelle verzichtet, da diese bereits in den Use Cases in groben Zügen beschrieben sind. Eine detaillierte Beschreibung erfolgt jedoch im Rahmen der zu erstellenden technischen Dokumentation. 
 
@@ -711,12 +697,5 @@ alte Version:
 An dieser Stelle wird von einer detaillierten Ausführung der Akzeptanztestfälle abgesehen, da diese in Grundzügen bereits in den Use Cases beschrieben sind. Eine detaillierte Beschreibung wird jedoch im Rahmen der zu erstellenden technischen Dokumentation angefertigt werden. 
 --
 
-== 12. Kommentare
+== Kommentare
 [[Kommentare]]
-
-- Eine unterschiedliche Verwendung der Begriffe Management, Filialleitung und Filialmanagement in den Diagrammen ist aufgrund der unterschiedlichen Perspektive möglich. Sie sind jedoch als Synonyme zu verstehen und beziehen sich auf die gleiche Gruppe von Akteuren.
-
-[comment]
---
-- Eine abweichende Verwendung der Begriffe Management, Filialleitung und Filialmanagement in den Diagrammen ist aufgrund der unterschiedlichen Perspektive möglich. Diese sind jedoch als synonym zu betrachten und weisen auf die gleiche Stakeholder-Gruppe hin.
---
