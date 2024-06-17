@@ -1,25 +1,158 @@
-// Bogen, den Sie für das Cross-Testing verwenden können
-
 = Cross-Testing Feedback
 
-__Durchführende Gruppe:__
-__Anwendung von Gruppe:__
+**Durchführende Gruppe:**
+Kleinreparatur Service
+
+**Anwendung von Gruppe:**
+Autohaus Kracher
 
 == Getestetes System
-Welche Aufgabe/Problemstellung löst die Anwendung.
+Die Anwendung löst folgende Hauptaufgaben:
 
+* Rechnungsstellung und Kundenverwaltung: 
+einfache und effiziente Rechnungsstellung sowie zentrale Kundenverwaltung
+
+* Geschäftsüberwachung und Berichterstellung: 
+Unterstützt das Management bei der Überwachung des Geschäftserfolgs durch Umsatzstatistiken und Abschlüssen
+
+* Platz- und Ressourcenverwaltung: 
+Gewährleistet eine effektive Verwaltung von Platz und Ressourcen, z.B. für Abschleppfahrzeuge und Mechaniker
+
+* Lager- und Bestellwesen: Bietet eine systematische und automatisierte Lager- und Bestellverwaltung für einen reibungslosen Betrieb
+
+Generell ist die Anwendung für die Verwaltung eines Autohauses (umfassende Verwaltung und Steuerung seiner Geschäftsbereiche) konzipiert.
+
+== Muss-Kriterien
+
+* [*] FA0010 : Einloggen ermöglichen
+* [*] FA0011 : Ausloggen ermöglichen
+* [*] FA0020 : Benutzer hinzufügen
+* [*] FA0021 : Benutzer entfernen
+* [*] FA0030 : Warenbestand anzeigen
+* [ ] FA0040 : Warendetails anzeigen
+
+ Erklärung:
+ Das System muss in der Lage sein ein Bild dem Produkt, Verkaufspreis, [.line-through]#Lieferant#, [.line-through]#Gewicht#, [.line-through]#Maße#, Name des Produkts und [.line-through]#Produktnummer# anzuzeigen. Auch sind die Kriterien im "Item Form" nicht vorhanden.
+
+* [ ] FA0050 : Waren hinzufügen#
+
+  Leider kommt ein Whitelabel-Error, weshalb ich diese Funktion nicht testen konnte.
+
+* [*] FA0051 : Waren aktualisieren
+* [*] FA0052 : Waren entfernen
+* [ ] FA0053 : Waren verkaufen
+
+ Leider kommt ein Whitelabel-Error, weshalb ich diese Funktion nicht testen konnte.
+
+* [*] FA0060 : Serviceauftrag
+
+ Tippfehler: "Serviceauftrag der Wekrstatt" statt "Serviceauftrag der Werkstatt"
+ 
+* [*] FA0080 : Bestellungen erstellen
+* [ ] FA0081 : Bestellungen löschen
+
+ Nicht vorhanden.
+
+* [ ] FA0082 : Bestellungen bearbeiten
+
+ Kriterium uneindeutig. Was genau soll bearbeitet werden? Man kann Stand jetzt nur die vorgefertigte Kette an Zuständen durchlaufen: Pay -> Complete -> View
+
+* [*] FA0090 : Kalendereintrag erstellen
+* [*] FA0091 : Kalendereintrag löschen
+* [*] FA0092 : Kalendereintrag anzeigen
+
+ Wirklich gut übersichtlich und schön anschaulich gelöst.
+
+* [*] FA0100 : Suchfunktion
+
+ Etwas unverständlich geschrieben, aber die Funktion ist vorhanden.
+ "bei vorraussichtlicher Erstellung von größeren Datenmengen" lässt auf eine gewisse Dynamik schließen, die ich nicht feststellen konnte.
+
+* [ ] FA0110 : Gebrauchtwagen kategorisieren
+
+ Das System sollte im Begriff sein einen gekauften Gebrauchtwagen zu Katalogisieren mit den Daten: Fahrzeugdaten, [.line-through]#Kilometerstand#, Preis
+
+* [ ] FA0120 : Kostenvoranschlag erstellen
+
+ Nicht gefunden diese Funktion.
+
+* [ ] FA0130 : Leistungsübersicht erstellen
+
+ Unsicher, ob die Funktion vollständig vorhanden ist. Es gibt eine Übersicht, aber keine erbrachten Leistungen und durchgeführten Arbeiten. Vielleicht habe ich sie auch einfach nicht gefunden.
+
+* [ ] FA0140 : Buchhaltungsübersicht
+
+ Nicht vollstängig. Keine Lohngruppen, keine abzuführenden Abgaben, keine elektronische Lohnübersicht. Aber dafür laufende Zahlungseingänge und Zahlungsausgaben
+
+* [ ] FA0150 : Kundendaten anlegen
+
+ Das System sollte in der Lage sein eine Kundenkartei anzulegen mit Name, [.line-through]#Ansprechpartner#, Adresse, [.line-through]#Telefonnummer#, [.line-through]#E-Mail#, Ort und Postleizahl anzugeben
+
+* [ ] FA0151 : Kundendaten bearbeiten
+
+ Kann ich leider nicht akzeptieren, da die Kudendaten nicht vollständig implementiert sind.
+
+* [ ] FA0152 : Kundendaten löschen
+
+ Kann ich leider nicht akzeptieren, da die Kudendaten nicht vollständig implementiert sind.
+
+* [ ] FA0160 : Kundenrechnungen einsehen
+
+ Nicht vorhanden.
+
+* [ ] FA0170 : Reparaturauftrag anlegen
+
+ Leider nicht gefunden. Auch im "Turotial" nicht vorhanden.
+
+* [ ] FA0180 : Termine anlegen
+
+ Es kann zwar ein Termin angelegt werden, aber es fehlen die Parameter. 
+
+* [*] FA0181 : Termine löschen
+* [*] FA0190 : Terminübersicht anzeigen
+
+
+ 
 == Fehler-Report
-// See http://asciidoctor.org/docs/user-manual/#tables
 [options="header"]
 |===
 |Pfad |Parameter |Beschreibung |Rückgabe
-| … | … | … | … |
+| /orders/ | none | Bei leerer Tabelle wird unten 1 of 0 angezeigt | … |
+root | none | Bei erneutem Aufrufen von localhost:8080 wird kein Login-Button angezeigt | … |
+/stock/ und /employees/ | none | Als Mitarbeiter kommt ein Whitelabelerror | Whitelabel-Error |
+/cart/ | none | Neuer Customer wird nicht angezeigt | … |
+/appointments/ | 123 bei Title und sonst nichts bei Starttime und Endtime | Whitelabel-Error | Whitelabel-Error | 
+/save/ | none | Whitelabel-Error | … |
+alle Inputfelder | none | Felder sind weder Clientseitig, noch serverseitig abgesichter | Whitelabel-Error |
 |===
 
-== Sonstiges
-* Optik der Anwendung
-* Fehlende Features
-* Interaktion mit der Anwendung (Usability)
+== Optik der Anwendung
+Sehr schöne Benutzeroberfläche, die eine einfache und verständliche Bedienung ermöglicht.
+Positiv aufgefallen ist sind mir folgende Punkte:
 
-== Verbesserungsvorschläge
-* Was kann noch weiter verbessert werden?
+* schöne Buttons, intuitive Beschriftungen
+* gut, dass die Bilder anklickbar sind
+* schöne Kalenderansicht
+
+
+Einige Verbesserungsvorschläge (keine Kritikpunkte):
+
+* eine Errormessage bei falscher Login-Eingaben
+* generell Meldungen der Anwendung (bsp. "Order mit Namen nicht gefunden")
+* Warum steht nach den Placeholdern ein Doppelpunkt? (bsp. Username: und Password:)
+* Es könnte alles schöner in Container verpackt werden, damit es nicht so leer aussieht
+* Einheitliche Sprache verwenden (z.B. "Vorrat" bei catalog und sonst Englisch)
+* Headertitle verbessern (bsp. "catalog.car.title" statt "Car Catalog")
+
+== Sonstiges
+* Optik der Anwendung ist schön und meistens intuitiv
+* leider designtechnisch wenig einheitlich (bsp: "/addService" mit blauem Text bei sonst weißem Text und sonst mit Placeholder bei Inputcontainern)
+
+== Verbesserungsvorschläge nochmal allgemein
+* Inputfelder absichern
+* Fehlermeldungen einbauen
+* Einheitliche Sprache verwenden
+* Headertitle verbessern (Tabtitel)
+* Container für bessere Übersichtlichkeit
+* Fehlerbehebung bei Whitelabel-Error
+* kleiner UI Overhaul für verbesserte Einheitlichkeit
