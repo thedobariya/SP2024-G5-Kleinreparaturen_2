@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Completed Orders</title>
+    <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
+
+    <div th:insert="~{navigation :: nav}"></div>
+
+<div class="depot-container">
+    <div>
+        <h2>Bestellungsübersicht</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Bestellung ID</th>
+                <th>Bestellung Datum</th>
+                <th>Fertiggestellte Datum</th>
+                <th>Abholung Datum</th>
+                <th>Item ID</th>
+                <th>Item Zustand</th>
+                <th>Kunden ID</th>
+                <th>Bestellung Lines</th>
+                <th>Preis</th>
+                <th>Rückerstattung</th>
+                <th>Lagergebühr</th>
+                <th>Aktueller Status</th>
+                <th>Status ändern</th>
+                <th>Mitarbeiter</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="order : ${ordersCompleted}">
+                <td th:text="${order.getId()}"></td>
+                <td th:text="${#temporals.format(order.getOrderDate(), 'dd.MM.yyyy')}"></td>
+                <td th:text="${#temporals.format(order.getCompletionDate(), 'dd.MM.yyyy')}"></td>
+                <td th:text="${#temporals.format(order.getPickUpDate(), 'dd.MM.yyyy')}"></td>
+                <td th:text="${order.getItem().getId()}"></td>
+                <td th:text="${order.getItem().getCondition()}"></td>
+                <td th:text="${order.getCustomer().getId()}"></td>
+                <td>
+                    <ul>
+                        <li th:each="line : ${order.getOrderLines()}" th:text="${line.getProductName() + ' - ' + line.getQuantity() + ' @ ' + line.getPrice()}"></li>
+                    </ul>
+                </td>
+                <td th:text="${order.getCustomTotal()}"></td>
+                <td th:text="${order.getRefundAmount()}"></td>
+                <td th:text="${order.getStorageFee()}"></td>
+                <td th:text="${order.getStatus()}"></td>
+                <td>
+                    <form th:action="@{/orders/{id}/status(id=${order.getId()})}" method="post">
+                        <select name="status">
+                            <option value="IN_WORKING" th:selected="${order.getStatus() == T(kleinreparatur_service.order.CustomOrder.OrderStatus).IN_WORKING}">In Bearbeitung</option>
+                            <option value="COMPLETED" th:selected="${order.getStatus() == T(kleinreparatur_service.order.CustomOrder.OrderStatus).COMPLETED}">Fertiggestellt</option>
+                            <option value="ABGEHOLT" th:selected="${order.getStatus() == T(kleinreparatur_service.order.CustomOrder.OrderStatus).ABGEHOLT}">Abgeholt</option>
+                        </select>
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <span th:if="${order.assignedCoworker != null}" th:text="${order.assignedCoworker.name}"></span>
+                    <form th:if="${order.assignedCoworker == null}" th:action="@{/orders/{id}/assignCoworker(id=${order.getId()})}" method="post">
+                        <select name="coworkerId">
+                            <option value="">Select Coworker</option>
+                            <option th:each="coworker : ${availableCoworkers}" th:value="${coworker.id}" th:text="${coworker.name}"></option>
+                        </select>
+                        <button type="submit">Assign</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

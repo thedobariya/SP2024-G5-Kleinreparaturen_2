@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginView</title>
+    <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
+
+    <div th:insert="~{navigation :: nav}"></div>
+
+    <div class="container">
+        <section fragment="content">
+            <form class="ui form" role="form" th:action="@{/login}" method="post">
+
+                <div class="field">
+                    <label th:text="#{login.username}" for="username">Username</label>
+                    <input type="text" id="username" name="username" autofocus="autofocus"/> <br/>
+                </div>
+
+                <div class="field">
+                    <label th:text="#{login.password}" for="password">Password</label>
+                    <input type="password" id="password" name="password"/> <br/>
+                </div>
+
+                <button type="submit" th:text="#{login.login}" class="ui button">Log in</button>
+                <div class="block-footer">If you are having issues with your account, please turn to your local management.</div>
+            </form>
+        </section>
+    </div>
+</body>
+<footer>
+    <div th:insert="~{footer :: footer}"></div>
+</footer>
+</html>

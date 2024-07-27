@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UserMainPage</title>
+  <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+  <div id="banner">
+    <h1>Kleinreparatur Service</h1>
+  </div>
+
+  <div th:insert="~{navigation :: nav}"></div>
+
+  <div class="depot-container">
+    <a class="button" href="register.html" th:href="@{/register}"
+       sec:authorize="hasRole('MANAGEMENTLEAD')"
+       th:text="#{button.label.register}">Registrierung </a>
+    <a class="button" href="userlisting.html" th:href="@{/userlisting}"
+       sec:authorize="hasRole('MANAGEMENTLEAD')"
+       th:text="#{button.label.userlisting}">User-Auflistung</a>
+  </div>
+</body>
+</html>

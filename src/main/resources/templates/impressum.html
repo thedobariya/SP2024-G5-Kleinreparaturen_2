@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - Kleinreparaturservice</title>
+    <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
+
+    <div th:insert="~{navigation :: nav}"></div>
+
+    <div class="impress-container">
+        <h1>Impressum</h1>
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <p>
+            Kleinreparaturservice GbR<br>
+            Schrauberstraße 42<br>
+            12345 Werkstadthausen
+        </p>
+        <h3>Vertreten durch:</h3>
+        <p>
+            Max Mustermann<br>
+            Lisa Beispiel
+        </p>
+        <h3>Kontakt:</h3>
+        <p>
+            Telefon: +49 (0) 123 456789<br>
+            E-Mail: info@kleinreparatur-service.de
+        </p>
+        <h3>Registereintrag:</h3>
+        <p>
+            Eintragung im Handelsregister.<br>
+            Registergericht: Amtsgericht Werkstadthausen<br>
+            Registernummer: HRA 98765
+        </p>
+        <h3>Umsatzsteuer-ID:</h3>
+        <p>
+            Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>
+            DE 987 654 321
+        </p>
+        <h2>Haftungsausschluss:</h2>
+        <h3>Haftung für Inhalte</h3>
+        <p>
+            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+        </p>
+        <h3>Haftung für Links</h3>
+        <p>
+            Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+        </p>
+        <h3>Urheberrecht</h3>
+        <p>
+            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
+        </p>
+        <p>
+            <em>Quelle: Disclaimer von eRecht24, dem Portal zum Internetrecht von Rechtsanwalt Sören Siebert.</em>
+        </p>
+    </div>
+
+</body>
+<footer>
+    <div th:insert="~{footer :: footer}"></div>
+</footer>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock</title>
+    <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
+
+    <div th:insert="~{navigation :: nav}"></div>
+
+    <div class="container">
+        <h2>Lagerbestand</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Services</th>
+                <th>Bestand</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${stock}">
+                <td th:text="${item.product.name}">Service Name</td>
+                <td th:text="${item.quantity}">Bestand</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunden Liste</title>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<div id="banner">
+    <h1>Kleinreparatur Service</h1>
+</div>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="depot-container">
+
+    <div class="btn-group my-3" role="group">
+        <a th:href="@{/management}" class="btn btn-primary">Zurück zum Management</a>
+    </div>
+    <h2>Kunden Liste</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Geburtsdatum</th>
+            <th>Aktionen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.id}">1</td>
+            <td th:text="${customer.firstName}">Max</td>
+            <td th:text="${customer.lastName}">Mustermann</td>
+            <td th:text="${#dates.format(customer.dateOfBirth, 'dd.MM.yyyy')}">01.01.1980</td>
+            <td>
+                <div>
+                    <form th:action="@{/customers/delete}" method="post" onsubmit="return confirm('Sind Sie sicher, dass Sie diesen Kunden löschen möchten?');">
+                        <input type="hidden" name="id" th:value="${customer.id}" />
+                        <input type="hidden" name="location" value="2" />
+                        <button type="submit" class="button">Löschen</button>
+                    </form>
+                </div>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:if="${message}" class="alert alert-info" th:text="${message}"></div>
+</body>
+</html>

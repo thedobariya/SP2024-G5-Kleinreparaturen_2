@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding new Item</title>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
+
+    <div th:insert="~{navigation :: nav}"></div>
+
+    <div class="input-container">
+        <h2>Neues Item erstellen</h2>
+        <br>
+        <form th:action="@{/items/add}" th:object="${item}" method="post">
+            <div class="input-group">
+                <input type="text" th:field="*{name}" pattern="[A-Za-z\s]+" title="Please enter a valid name (letters and spaces only)" required/>
+                <span class="supporting-text">Name | Supporting text</span>
+            </div>
+            <div class="input-group">
+                <input type="text" th:field="*{description}" maxlength="50" pattern="[A-Za-z\s]*" title="Please enter a description between 1 and 50 characters" required/>
+                <span class="supporting-text">Beschreibung | Supporting text</span>
+            </div>
+            <div class="input-group">
+                <select type="number" th:field="*{condition}" min="1" max="3" required>
+                <div class="supporting-text">Arbeitsaufwand | Supporting 1 to 3</div>
+                    <option value="1">gering</option>
+                    <option value="2">mittel</option>
+                    <option value="3">hoch</option>
+                </select>
+            </div>
+            <button class="button" type="submit">Erstellen</button>
+        </form>
+    </div>
+
+
+</body>
+</html>

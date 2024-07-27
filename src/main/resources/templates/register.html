@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegisterView</title>
+    <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
+
+    <div th:insert="~{navigation :: nav}"></div>
+
+    <div class="input-container">
+        <form method="post" role="form" class="ui form" id="form" th:action="@{/register}" th:object="${registrationForm}">
+
+            <h2>Neuer Benutzer</h2>
+<br>
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                <p>Einige Angaben sind nicht korrekt.</p>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="name" name="name" th:field="*{name}" placeholder="" pattern="[A-Za-z\s]+" title="Please enter a valid name (letters and spaces only)" required/>
+                <span class="supporting-text">Name | Supporting text</span>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" name="password" th:field="*{password}" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="" required/>
+                <span class="supporting-text">Passwort | Supporting text</span>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="address" name="address" th:field="*{address}" placeholder="" pattern="[A-Za-z0-9\s,.-]+" title="Please enter a valid address" required/>
+                <span class="supporting-text">Straße | Supporting text</span>
+            </div>
+
+            <button type="submit" class="ui button" th:text="#{register.submit}">Registrieren</button>
+        </form>
+    </div>
+
+</body>
+</html>

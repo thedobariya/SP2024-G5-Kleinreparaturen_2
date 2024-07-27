@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>workingstations</title>
+    <link th:href="@{resources/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="banner">
+    <h1>Kleinreparatur Service</h1>
+</div>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="depot-container">
+    <h2>Ressourcenmanagement</h2>
+    <div th:if="${error}" class="error-message" th:text="${error}"></div>
+    <div th:if="${message}" class="success-message" th:text="${message}"></div>
+
+    <table>
+        <div class="btn-group my-3" role="group">
+            <a th:href="@{/materials}" class="btn btn-primary">Zu den Materialien</a>
+            <a th:href="@{/coworkers}" class="btn btn-primary">Zu den Mitarbeitern</a>
+            <a th:href="@{/workingstations}" class="btn btn-primary">Zu den Arbeitsplätzen</a>
+        </div>
+    </table>
+
+    <div sec:authorize="!hasRole('WORKER')">
+        <!-- Create new workstation form -->
+        <div class="input-container">
+            <h2>Neuen Arbeitsplatz hinzufügen</h2>
+            <form th:action="@{/workingstations/create}" method="post">
+                <div class="input-group">
+                    <input type="text" id="workingstationsname" name="name" placeholder="" required pattern="[A-Za-z0-9\s]+" title="Please enter a valid name (letters, numbers, and spaces only)"/>
+                    <span class="supporting-text">Arbeitsplatznamen | Supporting text</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="price" name="price" step="0.01" min="0" placeholder="" required pattern="[0-9]+(\.[0-9]{1,2})?" title="Please enter a valid positive number with up to two decimal places"/>
+                    <span class="supporting-text">Preis | Supporting number</span>
+                </div>
+                <button class="button" type="submit">Erstellen</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    <h2>Arbeitsplätze</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Preis</th>
+            <th>Aktionen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterate over all working stations -->
+        <tr th:each="station : ${workingstations}">
+            <td th:text="${station.id}"></td>
+            <td th:text="${station.name}"></td>
+            <td th:text="${station.price}"></td>
+            <td>
+                <div sec:authorize="!hasRole('WORKER')">
+                    <!-- Edit and Delete buttons for non-WORKER roles -->
+                    <div class="input-container">
+                        <form th:action="@{/workingstations/update}" method="post">
+                            <input type="hidden" th:value="${station.id}" name="id"/>
+                            <input type="number" name="price" step="1" min="0" placeholder="Preis | Euro " required/>
+                            <button class="button" type="submit">Preis aktualisieren</button>
+                            <button class="button" type="submit"><a th:href="@{/workingstations/delete/{id}(id=${station.id})}" onclick="return confirm('Bist du Sicher?')">Löschen</a></button>
+                        </form>
+                    </div>
+                </div>
+                <div sec:authorize="hasRole('WORKER')">
+                    <!-- Message for WORKER role -->
+                    <span>Funktion nicht verfügbar (Rolle: Mitarbeiter)</span>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

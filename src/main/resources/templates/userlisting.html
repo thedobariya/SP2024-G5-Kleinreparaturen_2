@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coworkers</title>
+    <link th:href="@{resources/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="banner">
+    <h1>Kleinreparatur Service</h1>
+</div>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="depot-container">
+
+    <h2>User Auflistung</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Nutzername</th>
+            <th>Adresse</th>
+            <th>Rolle</th>
+            <th>Aktionen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterate over all coworkers -->
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getUserAccount().username}"></td>
+            <td th:text="${user.address}"></td>
+            <td th:text="Worker"></td>
+            <td>
+                <form th:action="@{/deleteUser}" method="post">
+                    <input type="hidden" name="username" th:value="${user.getUserAccount().username}"/>
+                    <button type="submit" class="button" onclick="return confirm('Bist du Sicher?')">Löschen</button>
+                </form>
+                <form th:action="@{/changePassword/{username}(username=${user.getUserAccount().username})}" method="post">
+                    <div class="input-container">
+                        <div class="input-group">
+                            <input type="password" name="newpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title=""/>
+                            <span class="supporting-text">Neues Passwort</span>
+                        </div>
+                    </div>
+                    <button class="button" type="submit" onclick="return confirm('Bist du Sicher?')">Passwort ändern</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

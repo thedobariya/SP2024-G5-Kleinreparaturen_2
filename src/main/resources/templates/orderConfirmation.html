@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auftragsbestätigung</title>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<div id="banner">
+    <h1>Kleinreparatur Service</h1>
+</div>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="container">
+    <h2>Auftragsbestätigung</h2>
+    <div class="confirmation-message">
+        <p>Vielen Dank für Ihren Auftrag! Ihr Auftrag wurde erfolgreich aufgegeben.</p>
+        <p>Auftragsnummer: <span th:text="${order.id}">12345</span></p>
+    </div>
+
+    <div class="order-details" th:if="${order != null}">
+        <h3>Auftragsdetails:</h3>
+        <table>
+            <tr>
+                <th>Dienstleistung</th>
+                <th>Menge</th>
+                <th>Preis</th>
+            </tr>
+            <tr th:each="item : ${order.getOrderLines()}">
+                <td th:text="${item.productName}">Dienstleistungsname</td>
+                <td th:text="${item.quantity.amount}">1</td>
+                <td th:text="${item.price}">10,00 €</td>
+            </tr>
+        </table>
+
+        <div class="total">
+            <strong>Gesamtbetrag: </strong>
+            <span th:text="${order.customTotal}">10,00 €</span>
+        </div>
+
+        <div class="customer-info">
+            <h3>Kundeninformationen:</h3>
+            <p>Kunden-ID: <span th:text="${order.customer.id}">1</span></p>
+            <p>Name: <span th:text="${order.customer.firstName +' '+order.customer.lastName }">Max Mustermann</span></p>
+        </div>
+
+        <div class="item-info">
+            <h3>Artikelinformationen:</h3>
+            <p>Artikelname: <span th:text="${order.getItem().getName()}">Artikelname</span></p>
+            <p>Beschreibung: <span th:text="${order.getItem().getDescription()}">Artikelbeschreibung</span></p>
+            <p>Zustand: <span th:text="${order.getItem().getCondition()}">Artikelzustand</span></p>
+        </div>
+    </div>
+
+    <div class="next-steps">
+        <h3>Nächste Schritte:</h3>
+        <p>Ihr Auftrag wird nun bearbeitet. Ihre Bestellung wird ab Abholdatum abholbereit.</p>
+        <p>Abholdatum: <span th:text="${#temporals.format(order.getCompletionDate(), 'dd.MM.yyyy')}"></span></p>
+    </div>
+    <div>
+        <a href="/catalog" class="button">Weiter einkaufen</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Kleinreparatur Service. Alle Rechte vorbehalten.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buchhaltung</title>
+    <link th:href="@{resources/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="banner">
+    <h1>Buchhaltung</h1>
+</div>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="container">
+    <div class="second-nav">
+        <form th:action="@{/accountancy}" method="get">
+            <button type="submit" class="button" name="period" value="monthly" th:classappend="${viewPeriod == 'monthly'} ? 'active'">Monatliche Ansicht</button>
+            <button type="submit" class="button" name="period" value="yearly" th:classappend="${viewPeriod == 'yearly'} ? 'active'">Jährliche Ansicht</button>
+        </form>
+    </div>
+
+    <div th:if="${error}" class="error-message">
+        <p th:text="${error}"></p>
+    </div>
+
+    <div th:unless="${showButtons}">
+        <form th:action="@{/accountancy}" method="get" id="accountancyForm">
+            <input type="hidden" name="period" th:value="${viewPeriod}">
+
+            <div th:if="${viewPeriod == 'monthly'}">
+                <input type="month" name="yearMonth" th:value="${yearMonth != null ? yearMonth : ''}" min="2020-01" th:max="${#temporals.format(#temporals.createNow(), 'yyyy-MM')}">
+                <button type="submit" class="button">Anzeigen</button>
+            </div>
+
+            <div th:if="${viewPeriod == 'yearly'}">
+                <select name="year">
+                    <option th:each="y : ${#numbers.sequence(2020, currentYear)}"
+                            th:value="${y}"
+                            th:text="${y}"
+                            th:selected="${y == year}">
+                    </option>
+                </select>
+                <button type="submit" class="button">Anzeigen</button>
+            </div>
+        </form>
+
+        <div th:if="${viewPeriod == 'yearly' && entriesByMonth != null}">
+            <h2 th:text="'Gesamtbetrag für ' + ${year} + ': ' + ${#numbers.formatDecimal(totalAmount, 1, 2)} + ' €'"></h2>
+            <div th:each="monthEntry : ${entriesByMonth}">
+                <h3 th:text="${monthEntry.key}">Month Year</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Beschreibung</th>
+                        <th>Betrag</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="entry : ${monthEntry.value}">
+                        <td th:text="${#temporals.format(entry.date, 'dd-MM-yyyy')}"></td>
+                        <td th:text="${entry.description}"></td>
+                        <td th:text="${#numbers.formatDecimal(entry.amount, 1, 2)} + ' €'"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div th:if="${viewPeriod == 'monthly' && entries != null}">
+            <h2 th:text="'Gesamtbetrag für ' + ${yearMonth} + ': ' + ${#numbers.formatDecimal(totalAmount, 1, 2)} + ' €'"></h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Beschreibung</th>
+                    <th>Betrag</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="entry : ${entries}">
+                    <td th:text="${#temporals.format(entry.date, 'dd-MM-yyyy')}"></td>
+                    <td th:text="${entry.description}"></td>
+                    <td th:text="${#numbers.formatDecimal(entry.amount, 1, 2)} + ' €'"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${entries != null and entries.isEmpty()}">
+            <p>Keine Einträge für den ausgewählten Zeitraum gefunden.</p>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{footer :: footer}"></div>
+
+<script>
+    document.querySelector('#accountancyForm').addEventListener('submit', function(e) {
+        var dateInput = document.querySelector('input[name="yearMonth"]');
+        if (dateInput) {
+            var selectedDate = new Date(dateInput.value);
+            var minDate = new Date('2020-01');
+            var maxDate = new Date();
+
+            if (selectedDate < minDate || selectedDate > maxDate) {
+                e.preventDefault();
+                alert('Bitte wählen Sie ein Datum zwischen Januar 2020 und dem aktuellen Monat.');
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

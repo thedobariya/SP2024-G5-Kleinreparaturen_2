@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials</title>
+    <link th:href="@{resources/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="banner">
+    <h1>Kleinreparatur Service</h1>
+</div>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+
+<div class="depot-container">
+
+    <h2>Ressourcenmanagement</h2>
+    <table>
+            <!-- Add buttons here -->
+            <div class="btn-group my-3" role="group">
+
+                <a th:href="@{/materials}" class="btn btn-primary">Zu den Materialien</a>
+                <a th:href="@{/coworkers}" class="btn btn-primary">Zu den Mitarbeitern</a>
+                <a th:href="@{/workingstations}" class="btn btn-primary">Zu den Arbeitsplätzen</a>
+
+            </div>
+        </table>
+    <span sec:authorize="!hasRole('WORKER')"> <!-- Only show the following content if the user is not a worker -->
+        <div class="input-container">
+            <h2>Neues Material erstellen</h2>
+            <form th:action="@{/materials/create}" method="post">
+                <div class="input-group">
+                    <input type="text" id="name" name="name" placeholder="" required pattern="[A-Za-z0-9\s]+" title="Please enter a valid name (letters, numbers, and spaces only)"/>
+                    <span class="supporting-text">Name | Supporting text</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="price" placeholder="" name="price" step="0.01" required pattern="[0-9]+(\.[0-9]{1,2})?" title="Please enter a valid positive number with up to two decimal places"/>
+                    <span class="supporting-text">Preis | Supporting number</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="stock" placeholder="" name="stock" required pattern="[0-9]+" title="Please enter a valid non-negative integer"/>
+                    <span class="supporting-text">Lagerbestand | Supporting number</span>
+                </div>
+                <div class="input-group">
+                    <select id="unit" name="unit" required>
+                        <option value="" disabled selected>Einheit wählen</option>
+                        <option value="Stück">Stück</option>
+                        <option value="Meter">Meter</option>
+                        <option value="Kilogramm">Kilogramm</option>
+                        <option value="Liter">Liter</option>
+                    </select>
+                </div>
+                <button class="button" type="submit">Erstellen</button>
+            </form>
+        </div>
+    </span>
+        <br>
+        <hr>
+        <h2>Materials</h2>
+
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Preis</th>
+                <th>Lagerbestand</th>
+                <th>Einheit</th>
+                <th>Aktionen</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="material : ${materials}">
+                <td th:text="${material.id}"></td>
+                <td th:text="${material.name}"></td>
+                <td th:text="${material.price}"></td>
+                <td th:text="${material.stock}"></td>
+                <td th:text="${material.unit}"></td>
+                <td>
+                    <div class="input-container">
+                        <form th:action="@{/materials/updateStock}" method="post">
+                            <input type="hidden" th:value="${material.id}" name="id"/>
+                            <span sec:authorize="!hasRole('WORKER')">
+                                <input type="number" name="price" step="0.01" min="0" placeholder="Preis | Euro" />
+                            </span>
+                            <input type="number" name="stock" step="1" min="0" placeholder="Lagerbestand | Nummer" />
+
+                            <button class="button" type="submit">Aktualisieren</button>
+                            <span sec:authorize="!hasRole('WORKER')">
+                                <button class="button" type="button"><a th:href="@{/materials/delete/{id}(id=${material.id})}" onclick="return confirm('Bist du Sicher?')">Löschen</a></button>
+                            </span>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+</div>
+
+
+</body>
+</html>

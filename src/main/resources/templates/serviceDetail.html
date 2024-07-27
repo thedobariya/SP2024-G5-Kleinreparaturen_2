@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Detail</title>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div id="banner">
+    <h1>Kleinreparatur Service</h1>
+</div>
+  
+  <div th:insert="~{navigation :: nav}"></div>
+
+<div class="container">
+    <h2 th:text="${service.name}"></h2>
+    <!--<p th:text="${service.description}"></p>-->
+    <p><strong>Typ:</strong> <span th:text="${service.type}"></span></p>
+    <p><strong>Preis:</strong> <span th:text="${service.price}"></span></p>
+    <form method="post" th:action="@{/cart}" >
+        <input type="hidden" name="pid" th:value="${service.id}">
+        <input type="hidden" name="number" value="1"> <!-- Assuming the default quantity is 1 #-->
+        <button type="submit" class="button">Zum Warenkorb hinzufügen</button>
+    </form>
+</div>
+<div th:insert="~{footer :: footer}"></div>
+</body>
+</html>

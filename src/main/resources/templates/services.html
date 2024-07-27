@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link th:href="@{resources/css/style.css}" rel="stylesheet"/>
+    <script>
+        function toggleQuantityInput(checkbox) {
+            var quantityInput = document.getElementById('quantity-' + checkbox.value);
+            if (checkbox.checked) {
+                quantityInput.style.display = 'inline-block';
+            } else {
+                quantityInput.style.display = 'none';
+                quantityInput.value = ''; // Clear the value when the checkbox is unchecked
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
+
+    <div th:insert="~{navigation :: nav}"></div>
+
+
+    <div class="depot-container">
+
+        <h2>Service Verwaltung</h2>
+        <table>
+
+
+        <!-- Add buttons here -->
+        <div class="btn-group my-3" role="group">
+
+            <a th:href="@{/materials}" class="btn btn-primary">Zu den Materialien</a>
+            <a th:href="@{/coworkers}" class="btn btn-primary">Zu den Mitarbeitern</a>
+            <a th:href="@{/workingstations}" class="btn btn-primary">Zu den Arbeitsplätzen</a>
+
+        </div>
+        </table>
+
+        <div th:if="${error}" class="error-message">
+            <p th:text="${error}"></p>
+        </div>
+
+        <div class="input-container">
+            <h2>Neuen Service erstellen</h2>
+            <form th:action="@{/services/create}" method="post">
+
+                <p style ="text-decoration: underline;">Wähle das zugehörige Service Offering aus </p>
+                <div th:each="type : ${T(kleinreparatur_service.servicecatalog.Service.ServiceType).values()}">
+                    <input type="radio" th:value="${type}" th:id="${{type}}" name="ServiceType" required>
+                    <label th:for="${{type}}"> <span th:text="${type}"></span> </label>
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <input type="text" id="name" name="name" required/>
+                    <span class="supporting-text">Name</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="description" name="description" required/>
+                    <span class="supporting-text">Beschreibung</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="price" name="price" step="0.01" required/>
+                    <span class="supporting-text">Festpreis</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="workload" name="workload" step="0.01" required/>
+                    <span class="supporting-text">Arbeitsaufwand in Stunden</span>
+                </div>
+
+                <div class="input-group">
+                    <fieldset>
+                        <legend>Wähle die zuzuordnenden Arbeitsplätze aus:</legend>
+                        <div th:each="workingstation : ${workingstations}">
+                            <input type="checkbox" th:id="${'station-' + workingstation.id}" th:name="workingstation" th:value="${workingstation.id}">
+                            <label th:for="${'station-' + workingstation.id}" th:text="${workingstation.name}"></label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="input-group">
+                    <fieldset>
+                        <legend>Gebe das benötigte Material und die jeweilige Menge an:</legend>
+                        <div th:each="material : ${materials}">
+                            <input type="checkbox" th:id="${'material-' + material.id}" th:name="materials" th:value="${material.id}">
+                            <label th:for="${'material-' + material.id}" th:text="${material.name}"></label>
+                            <input type="number" th:name="${'quantities[' + material.id + ']'}" min="1" placeholder="Anzahl">
+                        </div>
+                    </fieldset>
+                </div>
+                <button class="button" type="submit">Hinzufügen</button>
+            </form>
+        </div>
+        <br>
+        <hr>
+        <h2>Services</h2>
+
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Service Offering</th>
+                <th>Beschreibung</th>
+                <th>Preis</th>
+                <th>Arbeitsaufwand</th>
+                <th>Arbeitsplatz</th>
+                <th>Materialien</th>
+                <th>Aktionen</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="service : ${services}">
+                <td th:text="${service.id}"></td>
+                <td th:text="${service.name}"></td>
+                <td th:text="${service.type}"></td>
+                <td th:text="${service.description}"></td>
+                <td th:text="${service.price}"></td>
+                <td th:text="${service.workload}"></td>
+                <td>
+                    <span th:each="station : ${service.workingstations}">
+                        [<span th:text="${station.name}"></span>]<br>
+                    </span>
+                </td>
+                <td>
+                    <span th:each="entry : ${service.materialQuantities}">
+                        [<span th:text="${entry.key.name}"></span> : <span th:text="${entry.value}"></span>]<br>
+                    </span>
+                </td>
+                <td>
+                    <a th:href="@{/services/delete/{id}(id=${service.id})}">Service löschen</a>
+
+                    <form th:action="@{/service/updateDescription}" method="post">
+                        <input type="hidden" th:value="${service.id}" name="id"/>
+                        <div class="input-container">
+                            <div class="input-group">
+                                <input type="text" name="description" required/>
+                                <span class="supporting-text">Neue Beschreibung | Supporting number</span>
+                            </div>
+                        </div>
+                        <button class="button" type="submit">Beschreibung aktualisieren</button>
+                    </form>
+
+                    <form th:action="@{/service/updatePrice}" method="post">
+                        <input type="hidden" th:value="${service.id}" name="id"/>
+                        <div class="input-container">
+                            <div class="input-group">
+                                <input type="number" name="fixedPrice" required/>
+                                <span class="supporting-text">Neuer Preis | Supporting number</span>
+                            </div>
+                        </div>
+                        <button class="button" type="submit">Preis aktualisieren</button>
+                    </form>
+
+                    <form th:action="@{/service/updateWorkload}" method="post">
+                        <input type="hidden" th:value="${service.id}" name="id"/>
+                        <div class="input-container">
+                            <div class="input-group">
+                                <input type="number" name="workload" required/>
+                                <span class="supporting-text">Neuer Arbeitsaufwand in Stunden| Supporting number</span>
+                            </div>
+                        </div>
+                        <button class="button" type="submit">Arbeitsaufwand aktualisieren</button>
+                    </form>
+
+                    <form th:action="@{/service/updateWorkingStations}" method="post">
+                        <input type="hidden" th:value="${service.id}" name="id"/>
+                        <div class="input-container">
+                            <div class="input-group">
+                                <input type="number" name="workingstations" required/>
+                                <span class="supporting-text">Neuer Festpreis | Supporting number</span>
+                            </div>
+                        </div>
+                        <button class="button" type="submit">Preis aktualisieren</button>
+                    </form>
+
+                    <form th:action="@{/service/updateMaterials}" method="post">
+                        <input type="hidden" th:value="${service.id}" name="id"/>
+                        <div class="input-container">
+                            <div class="input-group">
+                                <input type="number" name="materials" required/>
+                                <span class="supporting-text">Neue Materialien | Supporting number</span>
+                            </div>
+                        </div>
+                        <button class="button" type="submit">Materialen aktualisieren</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+</body>
+</html>

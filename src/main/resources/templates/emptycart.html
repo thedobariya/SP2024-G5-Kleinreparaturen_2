@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Catalog</title>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
+
+    <div th:insert="~{navigation :: nav}"></div>
+
+    <div class="depot-container">
+        <h2>Ihr Warenkorb ist leer</h2>
+        <a class="button" th:href="@{/catalog}">
+            <i class="material-icons" style="padding-bottom: 3px">send</i> Zum Katalog
+        </a>
+
+    </div>
+</body>
+</html>

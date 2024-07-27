@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coworkers</title>
+    <link th:href="@{resources/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="banner">
+    <h1>Kleinreparatur Service</h1>
+</div>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="depot-container">
+    <div th:if="${error}" class="error-message" th:text="${error}"></div>
+    <div th:if="${message}" class="success-message" th:text="${message}"></div>
+    <h2>Ressourcenmanagement</h2>
+    <table>
+        <div class="btn-group my-3" role="group">
+            <a th:href="@{/materials}" class="btn btn-primary">Zu den Materialien</a>
+            <a th:href="@{/coworkers}" class="btn btn-primary">Zu den Mitarbeitern</a>
+            <a th:href="@{/workingstations}" class="btn btn-primary">Zu den Arbeitsplätzen</a>
+        </div>
+    </table>
+
+    <!-- Create new coworker form -->
+    <div sec:authorize="!hasRole('WORKER')">
+        <div class="input-container">
+            <h2>Neuen Mitarbeiter hinzufügen</h2>
+            <form th:action="@{/coworkers/create}" method="post">
+                <div class="input-group">
+                    <input type="text" id="name" name="name" placeholder="" required pattern="[A-Za-z\s]+" title="Please enter a valid name (letters and spaces only)"/>
+                    <span class="supporting-text">Name | Supporting text</span>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="hourlyRate" name="hourlyRate" step="0.01" min="0" placeholder="" required pattern="[0-9]+(\.[0-9]{1,2})?" title="Please enter a valid positive number with up to two decimal places"/>
+                    <span class="supporting-text">Stundenlohn | Supporting number</span>
+                </div>
+                <button class="button" type="submit">Erstellen</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <h2>Mitarbeiter</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Stundenlohn</th>
+            <th>Aktionen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterate over all coworkers -->
+        <tr th:each="coworker : ${coworker}">
+            <td th:text="${coworker.id}"></td>
+            <td th:text="${coworker.name}"></td>
+            <td th:text="${coworker.hourlyRate}"></td>
+            <td>
+                <div sec:authorize="!hasRole('WORKER')">
+                    <!-- Edit and Delete buttons for non-WORKER roles -->
+                    <div class="input-container">
+                        <form th:action="@{/coworkers/edit/{id}(id=${coworker.id})}" method="post">
+                            <input type="hidden" name="name" th:value="${coworker.name}"  required>
+                            <input type="number" name="hourlyRate"  step="1" min="0" placeholder="Stundenlohn | Euro " required>
+                            <button class="button" type="submit">aktualisieren</button>
+                            <button class="button" type="submit"><a th:href="@{/coworkers/delete/{id}(id=${coworker.id})}" onclick="return confirm('Bist du Sicher?')">Löschen</a></button>
+                        </form>
+                    </div>
+                </div>
+                <div sec:authorize="hasRole('WORKER')">
+                    <!-- Message for WORKER role -->
+                    <span>Funktion nicht verfügbar (Rolle: Mitarbeiter)</span>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
