@@ -180,7 +180,7 @@ image::./models/BlockViewUser.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= 
 image::./models/DepotController.drawio.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Depot Block-View-Diagramm", align=center]
 
 === Order
-image::./models/OrderController.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Order Block-View-Diagramm", align=center]
+image::./models/CustomOrder.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Order Block-View-Diagramm", align=center]
 
 [options="header"]
 |===
