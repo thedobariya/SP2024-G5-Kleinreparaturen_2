@@ -1,106 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Depot</title>
     <link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 </head>
 <body>
-<div id="banner">
-    <h1>kleinreparatur_service Service</h1>
-</div>
-
-<div id="navbar">
-    <a href="servicecatalog.html">Service Katalog</a>
-    <a href="#">Neuer Kunde</a>
-    <a href="#">Neues Angebot</a>
-    <a href="#">Neuer Auftrag</a>
-    <a href="depot.html">Lager</a>
-    <a href="resources.html">Ressourcen</a>
-    <a href="management.html">Management</a>
-    <a href="cart.html">Cart</a>
-    <a href="#">Logout</a>
-</div>
-
-<div class="depot">
-    <h2>Items in Your Depot</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>New Items</th>
-            <th>Days</th>
-            <th>Additional Storage Fees</th>
-            <th>Repairing Cost</th>
-            <th>Total Costs</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Add New Items dynamically here -->
-        <tr th:each="item, iterStat : ${newItems}">
-            <td>
-                <input type="checkbox" th:id="'checkbox_' + ${iterStat.index}" />
-                <label th:for="'checkbox_' + ${iterStat.index}" th:text="${item.name}"></label>
-            </td>
-            <td th:text="${item.days}"></td>
-            <td th:text="${item.storageFee}"></td>
-            <td th:text="${item.cost}"></td>
-            <td th:text="${item.calculateFinalCost()}"></td> <!-- Display final cost -->
-        </tr>
-        </tbody>
-
-        <!-- Add Finished Items dynamically here -->
-        <thead>
-        <tr>
-            <th>Finished Items</th>
-            <th>Days</th>
-            <th>Additional Storage Fees</th>
-            <th>Repairing Cost</th>
-            <th>Total Costs</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="item, iterStat : ${finishedItems}">
-            <td>
-                <input type="checkbox" th:id="'checkbox_' + ${iterStat.index}" />
-                <label th:for="'checkbox_' + ${iterStat.index}" th:text="${item.name}"></label>
-            </td>
-            <td th:text="${item.days}"></td>
-            <td th:text="${item.storageFee}"></td>
-            <td th:text="${item.cost}"></td>
-            <td th:text="${item.calculateFinalCost()}"></td> <!-- Display final cost -->
-        </tr>
-        </tbody>
-
-        <!-- Add Donation Items dynamically here -->
-        <thead>
-        <tr>
-            <th>Donation Items</th>
-            <th>Days</th>
-            <th>Additional Storage Fees</th>
-            <th>Repairing Cost</th>
-            <th>Total Costs</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="item, iterStat : ${donationItems}">
-            <td>
-                <input type="checkbox" th:id="'checkbox_' + ${iterStat.index}" />
-                <label th:for="'checkbox_' + ${iterStat.index}" th:text="${item.name}"></label>
-            </td>
-            <td th:text="${item.days}"></td>
-            <td th:text="${item.storageFee}"></td>
-            <td th:text="${item.cost}"></td>
-            <td th:text="${item.calculateFinalCost()}"></td> <!-- Display final cost -->
-        </tr>
-        </tbody>
-    </table>
-
-    <div class="total-container">
-        Total Items: <span th:text="${totalItems}"></span>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
     </div>
 
-    <button class="button">Do Something</button>
-</div>
+    <div th:insert="~{navigation :: nav}"></div>
+
+    <div class="depot-container">
+        <h2>Lager</h2>
+        <!-- Navigation Buttons -->
+        <div class="btn-group my-3" role="group">
+            <a href="/depot/workingstations" class="btn btn-primary">Arbeitsplatz</a>
+            <a href="/depot/coworkers" class="btn btn-primary">Mitarbeiter</a>
+            <a href="/depot/materials" class="btn btn-primary">Materialien</a>
+            <a href="/depot/items" class="btn btn-primary">Artikel</a>
+        </div>
+        <hr>
+
+        <!-- Content -->
+        <div th:if="${workingstations}">
+            <h2>Arbeitsplatz</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Preis</th>
+                    <th>Verfügbarkeit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="workingstation : ${workingstations}">
+                    <td th:text="${workingstation.id}">1</td>
+                    <td th:text="${workingstation.name}">Station 1</td>
+                    <td th:text="${workingstation.price}">100.0</td>
+                    <td th:text="${workingstation.available ? 'Verfügbar' : 'Nicht verfügbar'}"
+                        th:class="${workingstation.available ? 'text-success' : 'text-danger'}">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${coworkers}">
+            <h2>Mitarbeiter</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Stundenlohn</th>
+                    <th>Verfügbarkeit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="coworker : ${coworkers}">
+                    <td th:text="${coworker.id}">1</td>
+                    <td th:text="${coworker.name}">Alice</td>
+                    <td th:text="${coworker.hourlyRate}">50.0</td>
+                    <td th:text="${coworker.available ? 'Verfügbar' : 'NA'}">Verfügbar</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${materials}">
+            <h2>Materialien</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Preis</th>
+                    <th>Lagerbestand</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="material : ${materials}">
+                    <td th:text="${material.id}">1</td>
+                    <td th:text="${material.name}">Material 1</td>
+                    <td th:text="${material.price}">20.0</td>
+                    <td th:text="${material.stock}">100</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${items}">
+            <div>
+                <h2>Artikel im Lager</h2>
+                <div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="openOnlyCheckbox" th:checked="${openOnly}"/>
+                        <span class="slider"></span>
+                        <span>Nur offene Items anzeigen</span>
+                    </label>
+                </div>
+                <div class="item">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Beschreibung</th>
+                            <th>Arbeitsaufwand</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="item : ${items}">
+                            <td th:text="${item.id}"></td>
+                            <td th:text="${item.name}"></td>
+                            <td th:text="${item.description}"></td>
+                            <td th:text="${item.condition == 1 ? 'Niedrig' : (item.condition == 2 ? 'Mittel' : 'Hoch')}"></td>
+                            <td th:text="${item.status == 1 ? 'In Bearbeitung' : (item.status == 2 ? 'Fertig bearbeitet' : (item.status == 3 ? 'Zum Spenden freigegeben' : 'Gespendet'))}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="total-container">
+                    <span th:text="${totalItems}"></span>&nbsp;Artikel insgesamt
+                </div>
+
+                <div class="button-container">
+                    <button class="button" onclick="updateItems()">
+                        <i class="material-icons" style="padding-bottom: 3px">refresh</i>
+                        <a>Update</a>
+                    </button>
+
+                    <form th:action="@{/items/prefill}" method="post">
+                        <input type="submit" class="button" value="Prefill Data">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('openOnlyCheckbox').addEventListener('change', function() {
+            const isChecked = this.checked;
+            window.location.href = '/items?openOnly=' + isChecked;
+        });
+
+        function updateItems() {
+            if (window.location.pathname === '/depot.html') {
+                window.location.href = '/items';
+            } else {
+                window.location.reload();
+            }
+        }
+
+        document.querySelectorAll('table tbody tr').forEach(function(row) {
+            row.addEventListener('click', function() {
+                const itemId = this.cells[0].textContent;
+                showQRCodePopup(itemId);
+            });
+        });
+
+        function showQRCodePopup(itemId) {
+            const popup = document.createElement('div');
+            popup.style.position = 'fixed';
+            popup.style.top = '50%';
+            popup.style.left = '50%';
+            popup.style.transform = 'translate(-50%, -50%)';
+            popup.style.backgroundColor = 'white';
+            popup.style.padding = '20px';
+            popup.style.zIndex = '9999';
+            popup.style.borderRadius = '10px';
+            popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Close';
+            closeButton.classList.add('button');
+            closeButton.style.display = 'block';
+            closeButton.style.margin = '10px auto 0 auto';
+            closeButton.addEventListener('click', function() {
+                document.body.removeChild(popup);
+            });
+
+            const qr = new QRious({
+                element: document.createElement('canvas'),
+                value: itemId,
+                size: 200
+            });
+
+            const qrContainer = document.createElement('div');
+            qrContainer.style.textAlign = 'center';
+            qrContainer.appendChild(qr.canvas);
+
+            popup.appendChild(qrContainer);
+            popup.appendChild(closeButton);
+            document.body.appendChild(popup);
+        }
+    </script>
 </body>
 </html>

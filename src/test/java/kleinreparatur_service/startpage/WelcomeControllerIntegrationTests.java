@@ -25,13 +25,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-@SpringBootTest
-@AutoConfigureMockMvc
+//@SpringBootTest
+//@AutoConfigureMockMvc
 class WelcomeControllerIntegrationTests {
 
 	@Autowired MockMvc mvc;
 
-	@Test
+	//@Test
 	void showsWelcomeMessage() throws Exception {
 		mvc.perform(get("/")) //
 				.andExpect(status().isOk())

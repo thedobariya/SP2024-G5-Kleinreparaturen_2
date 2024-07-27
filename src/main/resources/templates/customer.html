@@ -1,54 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Form</title>
     <link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-<div id="banner">
-    <h1>Customer Form</h1>
-</div>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
+    </div>
 
-<div id="navbar">
-    <a th:href="@{/servicecatalog}">Service Katalog</a>
-    <a th:href="@{/customers}">Neuer Kunde</a>
-    <a th:href="@{/offer}">Neues Angebot</a>
-    <a th:href="@{/order}">Neuer Auftrag</a>
-    <a th:href="@{/depot}">Lager</a>
-    <a th:href="@{/resources}">Ressourcen</a>
-    <a th:href="@{/management}">Management</a>
-    <a th:href="@{/kleinreparatur_service/cart}">Cart</a>
-    <a th:href="@{/logout}">Logout</a>
-</div>
+    <div th:insert="~{navigation :: nav}"></div>
 
-<div class="container">
-    <h2>Customer Details</h2>
-    <form th:action="@{/customers/create}" method="post" class="form-container">
-        <div>
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" required/>
+    <div class="input-container">
+        <h2>Kundendetails</h2>
+        <br>
+        <form th:action="@{/customers/create}" method="post" class="form-container">
+            <div class="input-group">
+                <input type="text" id="firstName" name="firstName" required pattern="[A-Za-z\s]+" title="Please enter a valid first name (letters and spaces only)"/>
+                <span class="supporting-text">Vorname | Supporting text</span>
+            </div>
+            <div class="input-group">
+                <input type="text" id="lastName" name="lastName" required pattern="[A-Za-z\s]+" title="Please enter a valid last name (letters and spaces only)"/>
+                <span class="supporting-text">Nachname | Supporting text</span>
+            </div>
+            <div class="input-group">
+                <input type="date" id="dateOfBirth" name="dateOfBirth" required max="2023-12-31" min="1900-01-01"/>
+                <span class="supporting-text">Geburtsdatum | Supporting text</span>
+            </div>
+            <div class="input-group">
+                <button type="submit" formaction="/customers/search" class="button">
+                    <i class="material-icons" style="padding-bottom: 3px">search</i>
+                    <a>Suchen</a>
+                </button>
+                <button type="submit" formaction="/customers/create" class="button">
+                    <i class="material-icons" style="padding-bottom: 3px">send</i>
+                    <a>Erstellen</a>
+                </button>
+            </div>
+    </form>
+
+    <br>
+    <hr>
+    <!--<form th:action="@{/customers/searchCustomerWithId}" method="post">-->
+    <form method="post">
+        <h2 for="id">Kunde-ID suchen</h2>
+        <br>
+        <div class="input-group">
+            <input type="number" id="id" name="id" required pattern="[1-9][0-9]*" title="Please enter a valid positive integer"/>
+            <span class="supporting-text">Kunden-ID | Supporting text</span>
+
         </div>
+            <button class="button" type="submit" formaction="/customers/searchCustomerWithId">
+                <i class="material-icons" style="padding-bottom: 3px">search</i>
+                <a>Suchen</a>
+            </button>
         <div>
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" required/>
-        </div>
-        <div>
-            <label for="dateOfBirth">Date of Birth:</label>
-            <input type="date" id="dateOfBirth" name="dateOfBirth" required/>
-        </div>
-        <div>
-            <button type="submit" formaction="/customers/search" class="button">Search</button>
-            <button type="submit" formaction="/customers/create" class="button">Create</button>
+            <input type="hidden" name="location" th:value="1" />
+            <button class="button" type="submit" formaction="/customers/delete">
+                <i class="material-icons" style="padding-bottom: 3px">delete</i>
+                <a>Löchen</a>
+            </button>
         </div>
     </form>
 
-    <div th:if="${message}">
-        <p th:text="${message}"></p>
+    <div class="total-container" th:if="${message}">
+        <p th:utext="${message}"></p>
     </div>
+
 </div>
 </body>
 

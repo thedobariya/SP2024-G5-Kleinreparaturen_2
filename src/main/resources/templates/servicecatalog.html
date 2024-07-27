@@ -1,83 +1,43 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang ="en">
-
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
-    <style>
-
-    </style>
+    <title>Service Catalog</title>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet" />
 </head>
-
 <body>
-
-<div id="banner">
-    <h1>kleinreparatur_service Service</h1>
-</div>
-
-<div id="navbar">
-    <a href="servicecatalog.html">Service Katalog</a>
-    <a href="#">Neuer Kunde</a>
-    <a href="#">Neues Angebot</a>
-    <a href="#">Neuer Auftrag</a>
-    <a href="depot.html">Lager</a>
-    <a href="resources.html">Ressourcen</a>
-    <a href="management.html">Management</a>
-    <a href="cart.html">Cart</a>
-    <a href="#">Logout</a>
-</div>
-
-<div id="servicecatalog">
-    <div class="service">
-        <h2 class="service">Flickschusterei</h2>
-        <p>Willkommen bei unserem Flickschusterei-Service!
-            Wir sind Ihre zuverlässigen Partner für alle Arten von Reparaturen, sei es das Ausbessern Ihrer Lieblingskleidung oder die Reparatur Ihrer alten Lederschuhe.
-            Unsere erfahrenen Handwerker kümmern sich liebevoll um jedes Detail, um sicherzustellen, dass Ihre Lieblingsstücke wieder in neuem Glanz erstrahlen.
-            Vertrauen Sie auf unsere Expertise und lassen Sie uns Ihre Kleidungsstücke wieder wie neu machen!</p>
+    <div id="banner">
+        <h1>Kleinreparatur Service</h1>
     </div>
 
-    <div class="service">
-        <h2 class="service">Näharbeiten</h2>
-        <p>Entdecken Sie unsere erstklassigen Näharbeiten für alle Ihre Schneiderbedürfnisse!
-            Egal, ob es sich um das Kürzen von Hosen, das Anpassen von Kleidern oder das Reparieren von Stoffen handelt, unsere talentierten Schneider stehen bereit, um Ihnen dabei zu helfen, die perfekte Passform zu erzielen.
-            Mit Liebe zum Detail und handwerklichem Geschick bringen wir Ihre Kleidung zum Leben und lassen sie so aussehen, als wären sie maßgeschneidert!</p>
+    <div th:insert="~{navigation :: nav}"></div>
+
+    <div class="container">
+        <div th:each="service : ${catalog}">
+            <div class="service-item">
+                <h3 th:text="${service.name}"></h3>
+                <p><strong>Typ:</strong> <span th:text="${service.type}"></span></p>
+                <p><strong>Preis:</strong> <span th:text="${service.price}"></span></p>
+                <a th:href="@{/catalog/service/{service}(service=${service.id})}">Details anzeigen</a>
+
+    <!--
+                <a th:href="@{/serviceDetail}">Show details</a>
+    -->
+
+                <!--<form th:action="@{/cart}" method="post">
+                    <input type="hidden" name="pid" th:value="${service.id}" />
+                    <input type="hidden" name="number" value="1">
+                    <button type="submit" class="button">Add to Cart</button>
+                </form>-->
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="service">
-        <h2 class="service">Schlüsseldienst</h2>
-        <p>Unser Schlüsseldienst ist rund um die Uhr für Sie da, wenn Sie sich ausgesperrt haben oder einen Schlüssel nachmachen müssen.
-            Wir bieten schnelle und zuverlässige Lösungen für alle Ihre Schlossprobleme, egal ob Sie sich zu Hause, im Büro oder unterwegs befinden.
-            Mit unserem professionellen Service und unserer schnellen Reaktionszeit können Sie sich darauf verlassen, dass Sie schnell wieder Zugang zu Ihrem Eigentum erhalten.</p>
-    </div>
-
-    <div class="service">
-        <h2 class="service">Wäscherei</h2>
-        <p>Genießen Sie die Bequemlichkeit und den Komfort unserer Wäscherei-Services!
-            Wir kümmern uns um Ihre Wäsche mit der gleichen Sorgfalt und Aufmerksamkeit wie Sie es tun würden.
-            Ob es sich um Ihre tägliche Kleidung, Bettwäsche oder empfindliche Stoffe handelt, unsere modernen Einrichtungen und erfahrenen Mitarbeiter stellen sicher, dass Ihre Wäsche sauber, frisch und faltenfrei ist.
-            Vertrauen Sie uns Ihre Wäsche an und genießen Sie mehr Zeit für die schönen Dinge im Leben!</p>
-    </div>
-
-    <div class="service">
-        <h2 class="service">Elektrowerkstatt</h2>
-        <p>Willkommen in unserer Elektrowerkstatt, wo wir Ihre elektronischen Geräte zum Leben erwecken!
-            Unsere erfahrenen Techniker sind darauf spezialisiert, eine Vielzahl von elektronischen Reparaturen durchzuführen, sei es die Reparatur von Haushaltsgeräten, Unterhaltungselektronik oder Bürogeräten.
-            Mit unserem Fachwissen und unseren hochmodernen Werkzeugen können wir schnell und effizient Lösungen für Ihre elektronischen Probleme finden.
-            Verlassen Sie sich auf uns, um Ihre Geräte wieder in Betrieb zu bringen!</p>
-    </div>
-
-    <div class="service">
-        <h2 class="service">Scherenschleiferei</h2>
-        <p>Entdecken Sie unsere professionelle Scherenschleiferei, die Ihren Werkzeugen neuen Glanz verleiht!
-            Ob Scheren, Messer oder andere Schneidwerkzeuge, unsere erfahrenen Handwerker bringen Ihre Werkzeuge wieder auf Höchstleistung.
-            Mit Präzision und Sorgfalt sorgen wir dafür, dass Ihre Werkzeuge scharf, stabil und einsatzbereit sind, damit Sie Ihre Arbeit mit Leichtigkeit erledigen können.
-            Vertrauen Sie uns, um Ihre Werkzeuge wieder in Bestform zu bringen!</p>
-    </div>
-
-</div>
-
+    <div th:insert="~{footer :: footer}"></div>
 </body>
-
 </html>

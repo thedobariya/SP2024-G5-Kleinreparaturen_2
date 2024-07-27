@@ -1,6 +1,10 @@
 package kleinreparatur_service.customer;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 import java.util.Date;
 
@@ -11,39 +15,29 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Generate ID automatically by the database
 	private Long id;
 
-//	@NotNull
-//	@Size(min = 2, max = 50)
+	@NotNull
+	@Size(min = 2, max = 50)
+	@Pattern(regexp = "[A-Za-z\\s]*")
 	private String firstName;
 
-//	@NotNull
-//	@Size(min = 2, max = 50)
+	@NotNull
+	@Size(min = 2, max = 50)
+	@Pattern(regexp = "[A-Za-z\\s]*")
 	private String lastName;
 
-//	@NotNull
-//	@Past
-//	@Temporal(TemporalType.DATE)
+	@NotNull
+	@Past
 	private Date dateOfBirth;
 
-//	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	private List<Item> items;
+	public Customer() {
+	}
 
-	// Constructors, getters, and setters
 	public Customer(String firstName, String lastName, Date dateOfBirth, Object o) {}
 
 	public Customer(String firstName, String lastName, Date dateOfBirth/*, List<Item> items*/) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
-//		this.items = items;
-//		if (items != null) {
-//			for (Item item : items) {
-//				item.setCustomer(this);
-//			}
-//		}
-	}
-
-	public Customer() {
-
 	}
 
 	public Long getId() {
@@ -77,5 +71,4 @@ public class Customer {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-
 }

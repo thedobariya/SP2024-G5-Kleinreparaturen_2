@@ -1,64 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link th:href="@{resources/css/style.css}" rel="stylesheet" />
+    <script th:inline="javascript">
+        function calculateNewPrice() {
+            // Get the service price from the input field
+            const servicePrice = parseFloat(document.getElementById('servicePrice').innerText);
+            // Get the item condition from the Thymeleaf variable
+            const itemCondition = /*[[${session.newItem.condition}]]*/ 'default';
+            // Check if the parsed values are valid
+            if (isNaN(servicePrice) || isNaN(itemCondition) || itemCondition <= 0) {
+                alert('Error: Invalid input values. Please enter valid numbers.');
+                return;
+            }
+            // Calculate the new price
+            const newPrice = servicePrice * itemCondition;
+            // Replace the cart total with the new price
+            document.getElementById('cartTotal').innerText = newPrice.toFixed(2);
+        }
+        // Call calculateNewPrice immediately when the page loads
+        window.onload = calculateNewPrice;
+    </script>
 </head>
 
 <body>
 <div id="banner">
-    <h1>Your Cart</h1>
+    <h1>Kleinreparatur Service</h1>
 </div>
 
-<div id="navbar">
-    <a th:href="@{/servicecatalog}">Service Katalog</a>
-    <a th:href="@{/customers}">Neuer Kunde</a>
-    <a th:href="@{/offer}">Neues Angebot</a>
-    <a th:href="@{/order}">Neuer Auftrag</a>
-    <a th:href="@{/depot}">Lager</a>
-    <a th:href="@{/resources}">Ressourcen</a>
-    <a th:href="@{/management}">Management</a>
-    <a th:href="@{/kleinreparatur_service/cart}">Cart</a>
-    <a th:href="@{/logout}">Logout</a>
-</div>
+<div th:insert="~{navigation :: nav}"></div>
 
-<div class="container">
-    <h2>Services in Your Cart</h2>
+<div class="container" th:unless="${cart.empty}">
+    <h2>Warenkorb</h2>
     <table>
         <thead>
         <tr>
             <th>Service</th>
-            <th>Price</th>
+            <th>Anzahl</th>
+            <th>Preis</th>
+            <th th:if="${session.newItem != null}">Artikeldetails</th>
+            <th>Aktionen</th>
         </tr>
         </thead>
         <tbody>
-        <!-- Add Services dynamically here -->
-        <tr th:each="service, iterStat : ${services}">
-            <td th:text="${service.name}"></td>
-            <td th:text="${service.price}"></td>
+        <tr th:each="service : ${cart}">
+            <td th:text="${service.productName}">Dienstleistung</td>
+            <td th:text="${service.quantity}">10</td>
+            <td>EUR <span id="servicePrice" th:text="${service.price.number.doubleValue}"></span></td>
+            <td th:if="${session.newItem != null}">
+                <!-- Retrieve the item details from the session and display them -->
+                Name: <span th:text="${session.newItem.name}"></span> <br>
+                Beschreibung:<span th:text="${session.newItem.description}"></span> <br>
+                Zustand:<span th:text="${session.newItem.condition}"></span>
+            </td>
+            <td>
+                <form method="post" th:action="@{/cart/remove}">
+                    <input type="hidden" name="pid" th:value="${service.product.id}" />
+                    <button type="submit" class="button" th:text="#{cart.remove}">Entfernen</button>
+                </form>
         </tr>
         </tbody>
     </table>
 
     <div class="total">
-        Total: <span th:text="${total}"></span>
+        <div class="label" th:text="#{cart.total}">Summe</div>
+        <div class="value">EUR <span id="cartTotal" th:text="${cart.price.number.doubleValue()}">1337</span></div>
     </div>
 
     <form method="post" th:action="@{/checkout}">
         <div>
-            <label for="customerId">Customer ID:</label>
-            <input type="text" id="customerId" name="customerId" required/>
+            <label for="customerId">Kunden-ID:</label>
+            <input type="number" id="customerId" name="customerId" required pattern="[1-9][0-9]*" title="Please enter a valid positive integer"/>
         </div>
-        <button type="submit" class="button" th:text="#{cart.buy}">Proceed to Checkout</button>
+        <div>
+            <label for="workingstationId">Arbeitsplatz:</label>
+            <select id="workingstationId" name="workingstationId" required>
+                <option value="">Wähle einen Arbeitsplatz</option>
+                <option th:each="workingstation : ${availableWorkingstations}"
+                        th:value="${workingstation.id}"
+                        th:text="${workingstation.name}">
+                </option>
+            </select>
+        </div>
+        <input type="hidden" name="itemId" th:value="${session.newItem.getId()}" />
+        <button type="submit" class="button" th:text="#{cart.buy}">Weiter zum Checkout</button>
     </form>
 
-    <div th:if="${message}">
-        <p th:text="${message}"></p>
+    <div th:if="${cart.isEmpty}">
+        <p th:text="#{cart.empty}">Leer</p>
     </div>
 </div>
-</body>
 
+</body>
 </html>

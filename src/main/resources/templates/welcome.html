@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +9,19 @@
     <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
 </head>
 <body>
+
     <div id="banner">
-        <h1>kleinreparatur_service Service</h1>
+        <h1>Kleinreparatur Service</h1>
     </div>
 
-    <div id="navbar">
-        <a href="servicecatalog.html">Service Katalog</a>
-        <a href="#">Neuer Kunde</a>
-        <a href="#">Neues Angebot</a>
-        <a href="#">Neuer Auftrag</a>
-        <a href="depot.html">Lager</a>
-        <a href="resources.html">Ressourcen</a>
-        <a href="management.html">Management</a>
-        <a href="cart.html">Cart</a>
-        <a href="#">Logout</a>
-    </div>
+    <div th:insert="~{navigation :: nav}"></div>
 
     <div class="main">
         <h1>Willkommen auf unserer Website</h1>
         <p>Dies ist unsere Startseite. Hier finden Sie Informationen über unser Unternehmen und unsere Dienstleistungen.</p>
+        <p th:text="${'Ihre Rolle: ' + role}"></p>
     </div>
+
+    <div th:insert="~{footer :: footer}"></div>
 </body>
 </html>

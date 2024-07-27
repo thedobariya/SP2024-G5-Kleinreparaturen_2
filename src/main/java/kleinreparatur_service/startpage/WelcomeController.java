@@ -15,15 +15,44 @@
  */
 package kleinreparatur_service.startpage;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WelcomeController {
 
 	@GetMapping("/")
-	public String index() {
+	public String index(Model model, Authentication authentication) {
+		String role;
+		if (authentication != null) {
+			role = authentication.getAuthorities().stream()
+				.map(GrantedAuthority::getAuthority)
+				.findFirst()
+				.orElse("ROLE_USER"); // default to ROLE_USER if no roles are found
+		} else {
+			role = "ROLE_GUEST"; // default to ROLE_GUEST if no user is logged in
+		}
+
+		model.addAttribute("role", role);
 		return "welcome";
+	}
+
+	@GetMapping("/impressum")
+	public String impressum() {
+		return "impressum";
+	}
+
+	@GetMapping("/datenschutz")
+	public String datenschutz() {
+		return "datenschutz";
+	}
+
+	@GetMapping("/agb")
+	public String agb() {
+		return "agb";
 	}
 }
 

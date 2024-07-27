@@ -1,12 +1,35 @@
 /* CSS RESET */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/*
+    *  Globale Regeln:
+    * abgeleitet von https://m3.material.io/components
+    *  - Schriftart: Roboto
+    *  - Hintergrund: animierter Farbverlauf
+    *  - Textfarbe: #00331b
+    *
+    * Elemente:
+    * - toggle-switch: Schieberegler für Checkboxen
+    * Beispiel: "Nur offene Items anzeigen" in depot.html
+    *
+    * - total-container: Box für das Anzeigen von Werten oder Hervorhebungen
+    * Beispiel: Anzeige der Gesamtsummen in depot.html
+    *
+    * - button: Button-Elemente
+    * Beispiel: "Update Site" in depot.html
+ */
+
+
 * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
 	margin: 0 auto;
-	font: 13px/22px Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 
     /* Set the animated gradient background */
     background: linear-gradient(
@@ -18,58 +41,58 @@ body {
     );
     background-size: 200% 200%;
     animation: gradient 3s ease infinite;
+    min-height: 100vh;
+}
+
+.footer {
+    margin-top: auto;
 }
 
 h1 {
+    color: #00331b;
 	font-size: 3em;
 	line-height: 3.2em;
-	text-align:center;
-}
-
-/*  new code  */
-
-body {
-    font-family: Arial, sans-serif;
+	text-align: center;
+    user-select: none;
+    pointer-events: none;
 }
 
 #banner {
-    background-color: lightblue;
+    background-color: #1ded83;
     text-align: center;
     padding: 20px 0;
 }
 
 #navbar {
-    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #333333;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
-#navbar a {
+#navbar a, #sub-navbar a {
     float: left;
     display: block;
     color: white;
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
-    transition-duration: 0.4s;
+    transition: background-color 0.4s;
 }
 
-#navbar a:hover {
+#navbar a:hover, #sub-navbar a:hover {
     background-color: #ddd;
     color: black;
-}
-
-.depot {
-    margin: 20px auto;
-    padding: 50px;
-    border: 1px solid #ccc;
-    max-width: 800px;
 }
 
 .container {
     margin: 4rem auto;
     padding: 3rem 2rem;
     border: 1px solid #d1d5db;
-    max-width: 80rem;
+    /*max-width: 80rem;*/
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -79,51 +102,523 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.impress-container {
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    border: 1px solid #d1d5db;
+    max-width: 80rem;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.depot-container {
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    border: 1px solid #d1d5db;
+    /*max-width: 80rem;*/
+    gap: 2rem;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.depot-container h2 {
+    margin-bottom: 1rem;
     text-align: center;
+}
+
+.service-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #fafafa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    border-collapse: separate;
+    margin: 10px auto 20px auto;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    border-spacing: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 8px;
+th, td {
+    padding: 8px; /* Abstand innerhalb der Zellen */
     text-align: left;
+    border-bottom: 1px solid #ddd; /* Horizontale Linien zwischen den Zeilen */
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #b4fed7; /* Hintergrundfarbe für Überschriftenzellen */
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1); /* Schatten für die Überschriftenzellen */
 }
 
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Hintergrundfarbe für gerade Zeilen */
+}
+
+tr:hover {
+    background-color: #e6e6e6; /* Hervorhebung bei Hover */
+}
+
+.service-item h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Rounded border */
+hr.rounded {
+    border-top: 3px solid #bbb;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
 .button {
     display: inline-block;
-    width: 200px;
     padding: 10px 20px;
-    margin: 20px auto;
-    text-align: center;
-    background-color: lightgray;
+    margin: 10px 10px;
+    background-color: #0fd872;
+    color: #00331b;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-decoration: none;
-    transition-duration: 0.6s;
-    color: #fff;
     font-size: 16px;
-    font-weight: bold;
+    transition: all 0.3s ease;
+    user-select: none;
 }
 
 .button:hover {
-    background-color: #87ceeb;
-    color: #333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #06b35c;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.button:active {
+    background-color: #0d6e3e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.managment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: #fff;
+    margin: 0 auto;
+    max-width: 50%;
+}
+
+/**
+    * Material Icons
+    * abgeleitet von https://fonts.google.com/icons?hl=de&icon.size=24&icon.color=%23e8eaed
+ */
+.material-icons {
+    font-family: 'Material Icons', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px !important;  /* Preferred icon size */
+    vertical-align: middle;
+    display: inline-block;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+/** total-container
+ *  Boxen für die Anzeige der Gesamtsummen
+ */
+.total-container {
+    animation: fadeInUp 0.6s normal forwards ease-in-out;
+    animation-delay: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border-color: #098c4a;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+    background-color: #d8ffeb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Styles für die Symbole */
+.total-container img {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Zustände der Boxen */
+.total-container.enabled {
+    background-color: #e0e0e0;
+    color: #333333;
+}
+
+.total-container.disabled {
+    background-color: #f2f2f2;
+    color: #999999;
+}
+
+.total-container.error {
+    background-color: #f8d7da;
+    color: #721c24;
 }
 
 .total {
     text-align: right;
     font-weight: bold;
+}
+
+/* Slider als Checkbox
+* BSP: "Nur offene Items anzeigen" in depot.html
+*/
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Verstecke das standardmäßige Checkbox-Element */
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Gestalte den Schieberegler */
+.slider {
+    position: relative;
+    cursor: pointer;
+    width: 30px;
+    height: 17px;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 17px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* Styles für die angewählte Checkbox */
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(13px);
+}
+
+.toggle-switch span {
+    margin-left: 8px;
+}
+
+/* Segmented Buttons - still in progress */
+.segmented-control {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 200px;
+}
+
+.segment {
+    flex: 1;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.segment.active {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.segment i {
+    margin-right: 8px;
+}
+
+.segment.active i {
+    color: #fff;
+}
+
+/** Textfelder */
+/* Allgemeine Styles */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.input-container label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.input-container .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.input-container input {
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-container .supporting-text {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* Normale Textboxen */
+.input-container.normal input {
+    background-color: #fff;
+}
+
+/** Error */
+/* Allgemeine Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Fehler-Container */
+.error {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.error h1 {
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.error-details {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.error-details h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.error-details p {
+    margin-bottom: 20px;
+}
+
+.error-details pre {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .error {
+        padding: 10px;
+    }
+}
+/* Button Group Styles */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.btn-group .btn {
+    background-color: #0fd872;
+    color: #00331b;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 4px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    user-select: none;
+}
+
+.btn-group .btn:hover {
+    background-color: #06b35c;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-group .btn:active {
+    background-color: #0d6e3e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+/* Additional Button States */
+.btn-group .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(15, 216, 114, 0.3);
+}
+
+.btn-group .btn[disabled] {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+}
+
+.supporting-text {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+.input-group input:focus + .supporting-text,
+.input-group input:not(:placeholder-shown) + .supporting-text,
+.input-group select:focus + .supporting-text,
+.input-group select:not(:invalid) + .supporting-text
+{
+    top: -8px;
+    font-size: 12px;
+    background-color: white;
+    padding: 0 5px;
+}
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+    margin-bottom: 1em;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+    background-color: #e0e0e0;
+}
+
+.input-group {
+    margin-bottom: 1em;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: .5em;
 }
