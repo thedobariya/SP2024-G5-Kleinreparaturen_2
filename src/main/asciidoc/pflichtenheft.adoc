@@ -16,7 +16,8 @@
 | 1.2    | abgeschlossen| 29.04.2024            | Philipp Danzmann     | Feinschliff
 | 1.3    | abgeschlossen| 28.04.2024            | Pascal Jahn     | Englische Version updated
 | 1.4    | abgeschlossen| 30.04.2024            | Vihar Kheni     | GUI V2 , Englisch Systemkontextdiagramm
-| 2.0    | In Bearbeitung | 10.06.2024          | Jannes Schöttke | Überarbeitung und Vereinheitlichung der Dokumentation
+| 2.0    | abgeschlossen | 10.06.2024          | Jannes Schöttke | Überarbeitung und Vereinheitlichung der Dokumentation
+| 3.0    | abgeschlossen | 27.07.2024          | Pascal Jahn | Finalisierung für Abgabe
 |===
 
 toc::[]
@@ -229,7 +230,6 @@ Logout : Der Benutzer ist authentifiziert
 - Der Benutzer kann sich über die Navigationsleiste anmelden 
 - Der Benutzer kann ein ID-Passwort eingeben 
 - Der Benutzer kann die Anmeldeschaltfläche drücken
-- Der Benutzer kann die Funktion „Passwort vergessen“ nutzen 
 2. Logout: 
 - Der Benutzer kann sich von der Navigationsleiste abmelden
 - Der Benutzer kann sich abmelden und zur Startseite wechseln
@@ -237,25 +237,10 @@ Logout : Der Benutzer ist authentifiziert
 |===
 
 |===
-| ID | ID003
-| Name | Password wiederherstellen
-| Description | Anfordern eines neuen Passwort für einen authentifizierten User, der im System bereits registriert ist
-| Actors | Registered User
-| Trigger | Klick auf die Schaltfläche "Passwort wiederherstellen" der Startseite
-| Precondition(s) | User ist bereits im System registriert, kann kein mit der Registrierung übereinstimmendes Passwort eingeben
-| Essential Steps a| 
-1. Doppelklick auf die Schaltfläche "Passwort wiederherstellen"
-2. Username oder E-Mail eingeben, um für den zugeordneten User ein neues Passwort anzufordern
-| Extentions | Wenn E-Mail vorhanden kann ein Mail zur Autorisierung versendet werden
-und darüber das Passwort zurückgesetzt werden
-| Functional Requirements | User ist ein Registered User und kann auf den Login/Logout Bildschirm zugreifen
-|===
-
-|===
-| ID | ID002
+| ID | ID012
 | Name | Mitarbeiter registrieren
 | Description | Das Filial-Management muss in der Lage sein, ein Konto für neue Mitarbeiter anzulegen
-| Actors | Management| Trigger | Die Filialleitung möchte ein Konto für einen neuen Mitarbeiter erstellen, indem es auf die Schaltfläche „Neuen MI“ klickt
+| Actors | Management| Trigger | Die Filialleitung möchte ein Konto für einen neuen Mitarbeiter erstellen, indem es auf die Schaltfläche „Neuer Mitarbeiter“ klickt
 | Precondition(s) | Der Mitarbeiter ist noch nicht angelegt
 | Essential Steps a| 
 1. Die Filialleitung klickt auf die Schaltfläche "Mitarbeiter anlegen"
@@ -397,7 +382,7 @@ Diese Tabelle enthält folgende Informationen zu den jeweiligen funktionalen Anf
 - Kategorie (Muss- bzw. Kann-Anforderung)
 - Komponentenzuordnung
 - ID
-- Version
+- Version (0.1: ist bei der Entwicklung aus der Implementierung in finale Version ausgeschlossen wurden; 1.0: Implementierung stattgefunden)
 - Name
 - Eingabe- und Ausgabe-Daten sowie gewünschtes Verhalten
 - Beschreibung
@@ -416,7 +401,7 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | Annahme | F0050 | 1.0 | Preisermittlung | Gegenstand (Kategorie), Zustand, Service, | Berechnet aus den Inputdaten einen Preis | Preisvorschlag | Zur Angebotserstellung muss ein Preis ermittelt werden - Grundlage: zu erbringender Service
 
-| Kann | Annahme | F0051 | 1.0 | Mengenrabatt | CustomerID, Preis | Abrufen kummulierter Kundenumsatz, Ableitung Mengenrabatt, Preisanpassung | Reduzierter Preis |
+| Kann | Annahme | F0051 | 0.1 | Mengenrabatt | CustomerID, Preis | Ableitung Mengenrabatt, Preisanpassung | Reduzierter Preis |
 
 | Muss | Reparaturplanung | F0051 | 1.0 | Festlegung Abholdatum | Service, Zustand, ItemID, Material, UserID |  | Abholdatum | Festlegen des Abholdatums
 
@@ -438,11 +423,11 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | Bilanzierung | F0170 | 1.0 | Kostenerfassung für KLR | per Auftrag: Umsatz - (Material + Arbeitsplatznutzung + Personalkosten) |  || Erfassung von Personal-, Materialkosten
 
-| Muss | Bilanzierung | F0171 | 1.0 | Erfassung Materialkosten | Materialart,-qualität,-menge |  |  | Ermittelt die Materialkosten einer Filiale/Monat
+| Muss | Bilanzierung | F0171 | 1.0 | Verrechnung Materialkosten | Materialart,-qualität,-menge |  |  | automatische ermittlung der Materialkosten und Verrechnung in Buchung eines Auftrags
 
-| Muss | Bilanzierung | F0172 | 1.0 | Erfassung Nebenkosten | aus Preiseigenschaft von RaumObjekt, ArbeitsgerätObjekt, |  |  | Ermittelt Nebenkosten einer Filiale/Monat
+| Muss | Bilanzierung | F0172 | 1.0 | Verrechnung Nebenkosten | aus Preiseigenschaft von RaumObjekt, ArbeitsgerätObjekt, |  |  | Ermittelt Nebenkosten einer Filiale in Pauschale pro Auftrag und Verrechnung in Buchung eines Auftrags
 
-| Muss | Bilanzierung | F0173 | 1.0 | Erfassung Personalkosten | WorkerID, Zeitaufwand | für jede WorkerID (WorkerID.Stundensatz * kummulierter Zeitaufwand/Monat) | Personalkosten/Monat | Ermittelt die Personalkosten für eine Filiale - benötigt Stundenzähler in WorkerID
+| Muss | Bilanzierung | F0173 | 1.0 | Verrechnung Personalkosten | WorkerID, Zeitaufwand | für jede WorkerID (Stundensatz * kummulierter Zeitaufwand) | Personalkosten | Ermittelt die Personalkosten für eine Filiale pro Stundenaufwand an Auftrag und Verrechnung in Buchung eines Auftrags
 
 | Muss | Ressourcen Management | F0270 | 1.0 | Serviceverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Services
 
@@ -450,13 +435,13 @@ Es ist zu beachten, dass aufgrund der Verschiedenheit der Anforderungen nicht je
 
 | Muss | Ressourcen Mmanagement | F0290 | 1.0 | Arbeitsplatzverwaltung |  |  |  | Erstellen, bearbeiten und löschen von Arbeitsplätzen (nur durch Filial Management)
 
-| Kann | Ressourcen Management | F0310 | 1.0 | Zuweisung freier Coworker | Datum, Dauer (Abgeleitet von Service + Zustand), Prio? |  | Setzt Worker für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
+| Kann | Ressourcen Management | F0310 | 1.0 | Zuweisung freier Coworker | Datum, Dauer (Abgeleitet von Service + Zustand) |  | Setzt Worker für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 
 | Muss | Ressourcen Management | F0291 | 1.0 | Belegung der Arbeitsplätze | Kategorie, ArbeitsgerätID, Dauer |  | Setzt Arbeitsgerät für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 
 | Kann | Ressourcen Management | F0311 | 1.0 | Neuzuweisung freier Coworker |  |  |  | Für den Fall, dass zugewiesener Worker nicht verfügbar ist
 
-| Muss | Ressourcen Management | F0312 | 1.0 | Reduzierung Materialbedarf | Art, Menge, Kommentar |  | Reduziert Materialart um Menge | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
+| Muss | Ressourcen Management | F0312 | 1.0 | Reduzierung Materialbedarf | Art, Menge |  | Reduziert Materialart um Menge | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 
 | Muss | Ressourcen Management | F0313 | 1.0 | Belegung Arbeitsplatz | Dauer, Kommentar/Hinweise |  | Setzt Raum/Arbeitsplatz für Dauer auf NA | Ermöglicht transparentes Ressourcenmanagement durch Ressourcenbuchung
 |===
@@ -480,11 +465,11 @@ Dabei wird jede nicht funktionalen Anforderung gewichtet, was die spätere Formu
 |===
 | quality demands | importance | description
 
-| useabillity | 5 | Das System muss sowohl für ältere Mitarbeiter, die nicht viel Erfahren mit Informationssystemen haben, als auch für alle anderen Mitarbeiter und z.T. auch Kunden intuitiv zu verstehen und zu bedienen sein
+| useabillity | 4 | Das System muss sowohl für ältere Mitarbeiter, die nicht viel Erfahren mit Informationssystemen haben, als auch für alle anderen Mitarbeiter nach kurzer Einarbeitung in das System intuitiv nutzbar sein
 
-| efficency/ automation | 4 | Zeitbasierte Datenverwaltung von Bestellung und Nutzerdaten
+| efficency/ automation | 4 | Zeitbasierte Datenverwaltung von Bestellungen und Nutzerdaten
 
-| security | 3 | Datenschutz und somit die Sicherheit persönlicher Daten von Kunden ist sehr wichtig, jedoch sind interne Daten von Prozessen der Dienstleistungen nicht kritisch
+| security | 3 | Datenschutz und somit die Sicherheit persönlicher Daten von Kunden ist sehr wichtig, jedoch sind Systemprozesse rein Intern und lokal und somit nicht kritisch
 
 | scaleabillity | 4 | Das System muss auf eine wachsende Anzahl kleiner Filialen unterstützen und muss somit primär für interne Finanzen und Ressourcenverwaltung gut skalierbar sein
 
@@ -609,9 +594,6 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | → Conditions
 | Bewertung des Reparaturaufwands eines Items im übergebenen Zustand
 
-| → Image
-| Repräsentation eines Fotos des physischen Gegenstandes nach der Abgabe
-
 | Service Catalog
 | Repräsentation eines Verzeichnisses an im System angelegten Services
 
@@ -669,7 +651,7 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 | → Password
 | Passwort das eine registrierte Person in Verbindung mit dem USERNAME im Login authentifiziert
 
-| → Adress
+| → Role
 | Repräsentation der Rolle und Rechten eines spezifischen Users
 
 | Coworker
@@ -689,13 +671,8 @@ Folgende Tabelle stellt eine eindeutige Übersicht aller Klassen/Enums auf, die 
 [[Akzeptanztesten]]
 
 
-Auf eine detaillierte Ausführung der Abnahmetestfälle wird an dieser Stelle verzichtet, da diese bereits in den Use Cases in groben Zügen beschrieben sind. Eine detaillierte Beschreibung erfolgt jedoch im Rahmen der zu erstellenden technischen Dokumentation. 
-
-[comment]
---
-alte Version:
-An dieser Stelle wird von einer detaillierten Ausführung der Akzeptanztestfälle abgesehen, da diese in Grundzügen bereits in den Use Cases beschrieben sind. Eine detaillierte Beschreibung wird jedoch im Rahmen der zu erstellenden technischen Dokumentation angefertigt werden. 
---
+Auf eine detaillierte Ausführung der Abnahmetestfälle wird an dieser Stelle verzichtet, da diese bereits in den Use Cases beschrieben sind. Eine detaillierte Beschreibung erfolgt jedoch im Rahmen der zu erstellenden technischen Dokumentation. 
+Die Use-Cases, siehe 6.4 "Use-Case-Beschreibung", beschreiben im Falle dieses Projekts gleichzeitig die zu testenden Akzeptanztests. Die finale version des Systems, "Kleinreparaturen-4.0.0", wurden auf die in den Use-Cases beschrieben Fälle getestet. Alle Use-Cases konnten in dem System produziert werden, somt hat das System die Akzeptanztests bestanden.
 
 == Kommentare
 [[Kommentare]]
