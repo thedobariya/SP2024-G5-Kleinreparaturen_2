@@ -305,4 +305,21 @@ Die grundlegende Struktur sowie die Anforderungen und Use-Cases des Analysemodel
 
 
 == Testvorgehen und -ergebnisse
+Im Rahmen des Softwareprojekts wurden Unit-Tests für zufällige Komponenten erstellt und die Komponenten soweit angepasst, dass diese ohne Fehler durchlaufen.
+Konkret wurden Unit-Tests für die folgenden Komponenten erstellt:
 
+* Customer
+* Item
+* Materials
+* Ressources
+* Startpage
+* User
+
+Da die Tests automatisiert sind, sind die Ergebnisse in einfachen Textdokumenten festgehalten und können bei Bedarf unter Documents eingesehen werden.
+
+Neben den Unit-Tests wurde im Rahmen des Crosstestings die gesamte Anwendung auf Funktionalität und Usability getestet.
+Da das System zum Zeitpunkt der Durchführung nicht stabil war, wurde eine Vielzahl von Fehlern und Mängeln festgestellt, die im weiteren Verlauf des Projekts behoben worden sind.
+Im Zusammenhang mit der Aufarbeitung der Ergebnisse des Crosstestings, wurde intern immer wieder die Kernfunktionalitäten der Anwendung durch UI-Tests überprüft
+und mithilfe der Ergebnisse weiter verbessert.
+
+Zum jetzigen Stand ist die Anwendung soweit stabil und funktional, dass sie die Geschäftsprozesse der Miss Mint Mending Points GmbH abbildet und unterstützt.
