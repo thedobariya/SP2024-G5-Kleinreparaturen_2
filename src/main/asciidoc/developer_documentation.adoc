@@ -12,46 +12,79 @@
 |1.1  |12.05.2024| Vihar Kheni
 |1.3  |20.05.2024| Pascal Jahn
 |1.4  |26.05.2024| Philipp Danzmann
+|2.0  |28.07.2024| Jannes Schöttke
 |===
 
 
-== Einführung und Ziele
-=== Einführung
-Mit Miss Mint Mending Points drängt eine neue Kette von Kleinreparaturbetrieben auf den Markt, die sich nach dem Slogan: "Alles aus einer Hand" durch ein besonders umfassendes Dienstleistungsangebot etablieren möchte. Jeder Miss-Mint-Reparaturbetrieb umfasst:
+== Einleitung
+Diese Dokumentation beschreibt die Anforderungen und Qualitätsstandards für die Entwicklung der Webanwendung für die Miss Mint Mending Points GmbH. Diese Dokumentation soll sowohl als Leitfaden für Entwickler als auch als Informationsquelle für andere Beteiligte wie Projektmanager und Tester dienen.
 
-* eine Flickschusterei (Absätze, Sohlen, Nähte)
-* einen Nähservice (Knöpfe, Nähte, Flicken)
-* einen Schlüsseldienst (Schlüssel kopieren, Schilder gravieren)
-* eine Schnellreinigung und Heißmangel (Wäsche, Anzüge, Leder)
-* eine Elektrowerkstatt (Kabel ersetzen, löten)
-* eine Scherenschleiferei (Scheren, Messer schärfen)
+== Auftragsbeschreibung
 
-Laut Geschäftsordnung der Miss Mint Mending Points wird an den Annahmeschaltern der Preis einer gewünschten Dienstleistung sofort ermittelt und vom Kunden im Voraus bezahlt. Der Kunde erhält einen Auftragszettel mit einer eindeutigen Auftragsnummer und dem Fertigstellungstermin. Ab dem Fertigstellungstermin kann die Ware eine Woche lang unter Vorlage des Auftragszettels abgeholt werden. Danach wandert die Ware für drei Monate in eine Aufbewahrungsstelle, wo sie unter Vorlage des Auftragszettels durch Zahlung der Aufbewahrungsgebühr von 1,50 € pro Woche ausgelöst werden kann. Waren, die auch in diesem Zeitraum nicht abgeholt werden, fallen an eine karitative Organisation. Umgekehrt erstattet Miss Mint für jeden vollen Tag, um den sich die Erbringung der Dienstleistung verspätet, 10 Prozent der Reparaturkosten zurück.
-Das Miss-Mint-Filialmanagement kümmert sich um die Bereitstellung der Ressourcen (Personal, Arbeitsgerät, Material, Räume) und führt monatlich den Reingewinn (nach Abzug der laufenden Kosten) an die Zentrale ab.
-Die Miss-Mint-Kette ist an Software interessiert, welche die Annahme, Reparaturplanung, Ausgabe und Lagerung der Waren sowie die Verwaltung der Ressourcen unterstützt und außerdem dem Filialmanagement laufende und akkumulierte Bilanzen zur Verfügung stellt.
+=== Hauptziel
+Das Ziel dieses Projekts ist die Entwicklung einer Webanwendung für die Miss Mint Mending Points GmbH. Diese Anwendung soll die Mitarbeiter bei den Prozessen Annahme, Ressourcen- und Filialverwaltung sowie Ausgabe und Warenlagerung unterstützen. Zusätzlich soll die Software dem Filialmanagement laufende und akkumulierte Bilanzen zur Verfügung stellen. Die Anwendung soll die Geschäftsprozesse digital abbilden und eine Datenbankverbindung integration, um Daten dauerhaft zu speichern
+
+=== Nebenziel und Hauptanwender
+Nebenziel ist die Informationsübermittlung von Bestellinformationen an den Kunden.
+
+Hauptnutzer des Systems sind die Mitarbeiter und Administratoren/Manager des Unternehmens, die zur Handhabung lediglich grundlegendes Prozesswissen, sowie einen aktiven UserAccount benötigen.
+
+=== Dienstleistungsangebot
+Jeder Miss-Mint-Reparaturbetrieb bietet die folgenden Basisdienstleistungen an:
+
+- Flickschusterei: Absätze, Sohlen, Nähte
+- Nähservice: Knöpfe, Nähte, Flicken
+- Schlüsseldienst: Schlüssel kopieren, Schilder gravieren
+- Reiningungsservice: Wäsche, Anzüge, Leder
+- Elektrowerkstatt: Kabel ersetzen, löten Scherenschleiferei: Scheren, Messer schärfen
+
+=== Prozessübersicht
+
+- **Annahme der Ware:**
+Der Preis der gewünschten Dienstleistung wird sofort ermittelt und vom Kunden im Voraus bezahlt. Der Kunde erhält einen Auftragszettel mit einer eindeutigen Auftragsnummer und dem Fertigstellungstermin. Fertigstellung und Abholung:
+
+- **Abholung:**
+Ab dem Fertigstellungstermin kann die Ware eine Woche lang unter Vorlage des Auftragszettels abgeholt werden. Nach einer Woche wird die Ware für drei Monate in einer Aufbewahrungsstelle gelagert. Die Abholung erfolgt gegen Zahlung einer Aufbewahrungsgebühr von 1,50 € pro Woche. Waren, die auch in diesem Zeitraum nicht abgeholt werden, fallen an eine karitative Organisation. Erstattung bei Verzögerung:
+
+- **Reparaturverzögerung:**
+Für jeden vollen Tag, um den sich die Erbringung der Dienstleistung verspätet, werden 10 Prozent der Reparaturkosten zurückerstattet. Verwaltung der Ressourcen:
+
+- **Ressourcenverwaltung:**
+Das Filialmanagement ist verantwortlich für die Bereitstellung der Ressourcen (Personal, Arbeitsgerät, Material, Räume).
+
+- **Buchhaltung:**
+Der monatliche Reingewinn (nach Abzug der laufenden Kosten) wird an die Zentrale abgeführt.
+
+== Anforderungen
+
+=== Qualitätsanforderungen
+
+==== Maintainability (Wartbarkeit)
+Die Software soll einfach zu warten und zu erweitern sein, um zukünftige Anforderungen und Änderungen zu unterstützen.
+Zielerreichung durch Verwendung von klaren Architekturmustern, sauberem Quellcode, Code-Reviews und umfassender Dokumentation.
+
+==== Usability (Nutzbarkeit)
+- Voranstellung: Die Web-Anwendung muss definierte Funktionen bereitstellen, um eine digitale Abwicklung der Geschäftsprozesse zu ermöglichen. Sie muss soweit zuverlässig sein, um einen unterbrechungsfreien Betrieb und eine hohe Verfügbarkeit sicherzustellen.
+- Einfache und intuitive Benutzeroberfläche: Die Benutzeroberfläche der Web-Anwendung sollte so benutzerfreundlich gestaltet sein, das Personen mit ausreichendem Prozesswissen diese einfache und intuitive bedienen können.
+- Performance: Die Anwendung muss effizient arbeiten und eine schnelle Verarbeitung von Transaktionen ermöglichen.
+
+==== Security (Sicherheit)
+
+- Authentifizierung und Autorisierung: Nur autorisierte Benutzer dürfen auf die Anwendung zugreifen und bestimmte Funktionen ausführen.
+- Datenschutz: Schutz der Benutzerdaten vor unbefugtem Zugriff.
+- Integration von Spring Security, um benutzerdefinierte Authentifizierungs- und Autorisierungsschemata zu implementieren und die Anwendung vor Sicherheitsbedrohungen zu schützen.
+- Verschlüsselte Kommunikation: Verwendung des HTTPS-Standards zur sicheren Datenübertragung
+
+==== Kompatibilität
+
+- Entwickeln der Anwendung in Java für plattformunabhängige Ausführung auf verschiedenen Betriebssystemen und Geräten.
+- Einsatz von Thymeleaf für serverseitiges Rendern von Templates, um eine konsistente Benutzererfahrung auf verschiedenen Geräten und Browsern sicherzustellen.
 
 
-=== Qualitätsziele
-*Funktionalität und Zuverlässigkeit:*
-Die Web-Anwendung muss alle erforderlichen Funktionen bereitstellen, um die Geschäftsprozesse der Miss Mint Mending Points effektiv zu unterstützen.
-Sie muss zuverlässig sein, um einen unterbrechungsfreien Betrieb und eine hohe Verfügbarkeit sicherzustellen.
 
-*Benutzerfreundlichkeit und Effizienz:*
-Die Benutzeroberfläche der Web-Anwendung sollte benutzerfreundlich gestaltet sein, um eine einfache und intuitive Nutzung durch die Mitarbeiter zu gewährleisten.
-Die Anwendung muss effizient arbeiten und eine schnelle Verarbeitung von Transaktionen ermöglichen, um die Produktivität zu steigern.
-
-*Sicherheit und Wartbarkeit:*
-Die Sicherheit der Web-Anwendung ist von entscheidender Bedeutung, um die Vertraulichkeit, Integrität und Verfügbarkeit der Daten zu gewährleisten.
-Sie sollte gut strukturiert und dokumentiert sein, um eine einfache Wartung und Weiterentwicklung zu ermöglichen, während sie gleichzeitig vor Bedrohungen wie Cyberangriffen geschützt ist.
-
-*Portabilität und Kompatibilität:*
-Als Web-Anwendung sollte die Software plattformübergreifend und auf verschiedenen Geräten und Betriebssystemen nutzbar sein.
-Sie sollte mit gängigen Webbrowsern kompatibel sein und eine reibungslose Benutzererfahrung auf Desktops, Laptops, Tablets und Smartphones bieten.
-
-
-== Randbedingungen
-=== Hardware-Spezifikationen
-Eine Liste der notwendigen Geräte / Hardware, um die Anwendung auszuführen und zu verwenden.
+=== Randbedingungen
+==== Hardware-Spezifikationen
+Folgende Geräte sind für die Nutzung der Anwendung notwendig:
 
 * Server
 * Computer
@@ -60,10 +93,8 @@ Eine Liste der notwendigen Geräte / Hardware, um die Anwendung auszuführen und
 * Maus
 
 
-=== Software-Spezifikationen
-Eine Liste der notwendigen Software, um die Anwendung auszuführen und zu verwenden.
-
-Die folgende (oder neuere) Java-Version ist erforderlich, um die Anwendung auszuführen:
+==== Software-Spezifikationen
+Folgende Software ist notwendig um die Anwendung auszuführen und zu verwenden.
 
 * Java 17
 * Apache Maven (mindestens Version 3.6.3)
@@ -76,7 +107,7 @@ Die folgenden (oder neuere) Browser-Versionen sind erforderlich, um die Anwendun
 * Google Chrome 9.0
 * Opera 7.5
 
-=== Hardware-Anforderungen
+==== Hardware-Anforderungen
 Um das Projekt lokal ausführen und entwickeln zu können, sollten die folgenden Mindestanforderungen an die Hardware erfüllt werden:
 
 * Prozessor: Quad-Core CPU, mindestens 2.5 GHz (z.B. Intel Core i5 oder AMD Ryzen 5)
@@ -84,91 +115,115 @@ Um das Projekt lokal ausführen und entwickeln zu können, sollten die folgenden
 * Festplattenspeicher: Mindestens 20 GB verfügbarer Speicherplatz
 * Bildschirm: Mindestens 15 Zoll, 1920 x 1080 Pixel Auflösung
 
+== Architekturentscheidungen
 
-=== Vorgaben zum Betrieb des Software
-Dieser Abschnitt gibt einen Überblick darüber, wie das Produkt nach Abschluss verwendet werden soll und unter welchen Umständen.
+=== Architekturpattern
+Die Architektur der Anwendung soll auf dem MVC-Pattern nach Spring MVC basieren.
+Das MVC-Pattern (Model-View-Controller) unterteilt das Gesamtziel in unterschiedliche Schichten auf.
+Dabei übernehmen die einzelnen Schichten folgende Aufgaben:
 
-Das System wird von der Miss Mint Mending Points als Webshop verwendet, um Dienstleistungsangebot (Service) an Kunden zu verkaufen.
-Die Software soll auf einem Server ausgeführt und über das Internet (über einen Browser) für interessierte Kunden rund um die Uhr verfügbar sein.
+- Model: Repräsentiert die Geschäftslogik und die Datenbankzugriffe.
+- View: Zuständig für die Darstellung der Daten und die Benutzerinteraktionen.
+- Controller: Vermittelt zwischen Model und View und verarbeitet Benutzeranfragen.
 
-Die Hauptbenutzer der Software sind Mitarbeiter (Coworker), die angeblich typische Website-Navigationsmuster kennen, sowie Administratoren (Management), die nicht unbedingt über technische Kenntnisse verfügen.
-
-Das System soll keine technische Wartung benötigen, da das Personal der Miss Mint Mending Points bereits ausgelastet ist.
-Alle Daten sollen dauerhaft in einer Datenbank gespeichert und über die Anwendung zugänglich sein (z. B. sollte für das Management kein SQL-Wissen erforderlich sein).
-
-== Kontextabgrenzung
-=== Kontextdiagramm
-
-[[context_diagram_d_c4]]
-image::./models/context_diagram.jpg[context diagram c4, 100%, 100%, pdfwidth=100%, title= "Context diagram in C4 notation (Level 1: System Context)", align=center]
-
-== Lösungsstrategie
-=== Erfüllung der Qualitätsziele
-[options="header"]
-|=== 
-|Qualitätsziel |Lösungsansatz
-|Funktionaliät | Verwendung des Spring Frameworks, insbesondere Spring MVC, um Controller zu definieren und die Anwendungslogik zu implementieren.
-Einbindung von Spring Data für die Datenbankintegration, um die Persistenzschicht zu verwalten und den Zugriff auf die Datenbank zu erleichtern.
-|Benutzerfreundlichkeit | Nutzung von Thymeleaf zur Gestaltung der Benutzeroberfläche, was eine einfache Integration von Java-Code in HTML-Templates ermöglicht.
-|Sicherheit | Integration von Spring Security, um benutzerdefinierte Authentifizierungs- und Autorisierungsschemata zu implementieren und die Anwendung vor Sicherheitsbedrohungen zu schützen.
-| Kompatibilität |Entwickeln der Anwendung in Java für plattformunabhängige Ausführung auf verschiedenen Betriebssystemen und Geräten.
-Einsatz von Thymeleaf für serverseitiges Rendern von Templates, um eine konsistente Benutzererfahrung auf verschiedenen Geräten und Browsern sicherzustellen.
-|===
-
-=== Softwarearchitektur
-
-[[client_server_diagram]]
-
-image::./models/client_server.jpg[context diagram c4, 100%, 100%, pdfwidth=100%, title= "Client Server Model of the application. The client only contains HTML and CSS files. The application logic is implemented on the server", align=center]
-
-*Erklärung:* HTML-Vorlagen werden auf dem Server gerendert und vom Client mit ihren entsprechenden CSS-Stylesheets angezeigt. Die in den Vorlagen angezeigten Daten werden von Thymeleaf bereitgestellt. Thymeleaf empfängt die angeforderten Daten durch die Controller-Klassen, die im Backend implementiert sind. Diese Controller-Klassen verwenden wiederum Instanzen und Methoden der Model-Klassen. Standardmäßig speichert eine zugrunde liegende H2-Datenbank Daten dauerhaft.
+Die Verwendung dieses Patterns soll eine einfache Wartbarkeit und Erweiterbarkeit der Software ermöglichen.
 
 
-=== Entwurfsentscheidungen
-==== Entwurfsmuster
-* Spring MVC
+==== Client-Server-Modell
+
+image::./models/final/Client-Server-Diagramm.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Client-Server-Diagramm", align=center]
+- **Client**: Beinhaltet HTML- und CSS-Dateien. Stellt die Benutzeroberfläche dar und kommuniziert mit dem Server.
+- **Server**: Verwendet Thymeleaf als Template-Engine. Implementiert die Anwendungslogik mittels Spring Framework und verwaltet eine H2 Datenbank.
 
 ==== Persistenz
-Die Anwendung verwendet *Hibernate annotation based mapping*, um Java-Klassen auf Datenbanktabellen abzubilden. Als Datenbank wird *H2* verwendet.
+Um die Persistenz der Daten zu gewährleisten, wird Hibernate für das Object-Relational Mapping (ORM) und eine H2-Datenbank für die Datenspeicherung verwendet.
 
-Die Persistenz ist standardmäßig ausgeschaltet. Um die Persistenzspeicherung zu aktivieren, müssen die folgenden zwei Zeilen in der Datei _application.properties_ auskommentiert werden:
-....
-# spring.datasource.url=jdbc:h2:./db/videoshop
-# spring.jpa.hibernate.ddl-auto=update
-....
+- *Hibernate*: ermöglicht eine einfache und transparente Persistenz von Java-Objekten in der Datenbank.
+Verbindet die Objekte der Geschäftslogik mit der relationalen Datenbank.
 
-
-==== Benutzeroberfläche
-[[user-interface]]
-image::./models/UI_Diagramm_V2.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Dialog Map of the kleinreparatur_service Service", align=center]
-
-NOTE: Die gelben Kästchen innerhalb der Vorlagen stellen Schaltflächen dar, die zu den Vorlagen weiterleiten, deren ausgehende Pfeile auf._ zeigen.
+- *H2-Datenbank*: eine schlanke, in Java implementierte relationale Datenbank, die einfach zu konfigurieren ist.
+Der Vorteile der H2-Datenbank besteht außerdem in dem geringen Speicherbedarf, der unkomplizierten Konfiguration und einer schnelle Ausführung von Abfragen.
 
 
-* Verwendung externer Frameworks
+==== Frameworks
+Für die Anwendungsentwicklung werden verschiedene Frameworks und Bibliotheken verwendet, um die Entwicklung zu erleichtern und die Qualität der Software zu verbessern.
+Insbesondere die unten aufgeführten Frameworks werden verwendet:
 
-[options="header", cols="1,2"]
-|===
-|Externes Package |Verwendet von 
-|Spring Boot|General purpose 
-|Spring Data JPA|Persistence
-|Spring Security|Security
-|Semantic UI|UI
-|Thymeleaf|UI
-|jQuery|UI
-|===
+- *Spring Boot*: Einfache Konfiguration und Betrieb von Spring-Anwendungen durch Konventionen und automatische Konfiguration.
+- *Spring Data JPA*: Schnelle und einfache Implementierung von JPA-basierten Datenzugriffstechnologien.
+- *Spring Security*: Implementierung umfassender Sicherheitsfunktionen, einschließlich Authentifizierung und Autorisierung.
+- *Thymeleaf*: Serverseitige Java-Template-Engine, zur Generierung dynamischer HTML-Seiten.
 
-== Bausteinsicht
-* Package-Diagramm
-* Entwurfsklassendiagramme der einzelnen Packages
+=== Kontrollfluss der Nutzeroberfläche
 
-=== User
-image::./models/BlockViewUser.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "User Block-View-Diagramm", align=center]
+image::./models/final/Kontrollflussdiagramm.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Kontrollflussdiagramm", align=center]
+
+*Interaktion*: Der Nutzer interagiert mit der Benutzeroberfläche, die Anfragen an den Server sendet. Diese Interaktionen können die Eingabe von Daten, das Auslösen von Aktionen oder das Navigieren durch die Anwendung umfassen.
+
+*Serververarbeitung*: Der Server verarbeitet die Anfragen und führt die notwendige Geschäftslogik aus. Dies kann das Speichern oder Abrufen von Daten aus der Datenbank, die Berechnung von Ergebnissen oder die Validierung von Eingaben umfassen.
+
+*Antwort*: Der Server sendet die verarbeiteten Daten zurück an den Client. Dies geschieht in Form von HTML-Seiten, die mit Thymeleaf generiert wurden. Die Seiten enthalten die aktualisierten Daten und ermöglichen dem Nutzer die weitere Interaktion.
+
+*Benutzeroberfläche*: Die Benutzeroberfläche aktualisiert sich basierend auf den erhaltenen Daten und stellt diese dem Nutzer zur Verfügung.
+
+== Toplevel-Architektur
+
+=== Systemkontext
+
+image::./models/final/Kontextdiagram.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Systemkontextdiagramm", align=center]
+
+Im Rahmen des Systemkontextes interagieren Kunden (Customer), Mitarbeiter (Coworker) und das Filial-Management mit dem System.
+
+Unregistrierte Kunden können über die Webanwendungen Informationen zu den angebotenen Dienstleistungen und zum Unternehmen abrufen.
+Um für einen Kunden einen Auftrag zu erstellen, ist ein Registrierung in dem jeweiligen Standort erforderlich.
+Der Kunde wird dann durch einen Mitarbeiter im System angelegt und erhält einen Benutzeraccount.
+Mit diesem ist es dann möglich, Aufträge zu erstellen, einzusehen und den Gegenstand (Item) auch wieder abzuholen.
+
+Damit die Mitarbeiter die Webanwendung nutzen können, müssen sie sich ebenfalls registriert sein.
+Der Prozess der allgemeinen Mitarbeiterverwaltung ist dem Filial-Management vorbehalten.
+Es legt den Mitarbeiter an, aktualisiert Mitarbeiterinformationen und löscht deren Accounts bei Entfallen des Arbeitsverhältnisses.
+
+
+
+Das System an sich kommuniziert auf der einen Seite mit einer Datenbank zur dauerhaften Speicherung der Daten.
+Auf der anderen Seite werden die montalichen Bilanzen an die Zentrale (Headquarter) übermittelt.
+
+=== Teilkomponenten
+
+An dieser Stelle erfolgt nun eine vollständige Aufzählung aller Komponenten, die für die Entwicklung der Webanwendung als notwendig identifiziert wurden.
+Die Identifizierung erfolgt auf Basis der Anforderungen des und der Architektur des Systems.
+
+* Accountancy: Verwaltung und Erstellung der monatlichen Bilanzen
+* Customer: Repräsentation der Kunden
+* Depot: Verwaltung der Warenlagerung (Erstellung, Bearbeitung, Löschung)
+* Item: Repräsentation der Reparaturgegenstände
+* Management: Rollengebundene Funktionen für die Verwaltung der Filiale
+* Materials: Verwaltung aller für Reparaturen benötigten Materialien (Erstellung, Bearbeitung, Löschung)
+* Order: Repräsenation der Aufträge - in direkter Beziehung zu Customer, Items und Service, mit Abhängigkeiten zu Accountancy
+* Ressources: Bündelung der Komponenten Coworkers und WorkingStations
+** Coworkers: Repräsentation der Mitarbeiter inkl. deren Verwaltung (Erstellung, Bearbeitung, Löschung)
+** WorkingStations: Repräsentation der Arbeitsplätze inkl. Verwaltung (Erstellung, Bearbeitung, Löschung)
+* ServiceCatalog: Repräsentation der Dienstleistungsklassen - notwendige Zuordnung von Service zu einem ServiceType
+** Service: Repräsentation der Dienstleistungen inkl. Verwaltung (Erstellung, Bearbeitung, Löschung)
+* Startpage: Startseite der Webanwendung
+* User: Repräsentation der Benutzer inkl. deren Verwaltung (Erstellung, Bearbeitung, Löschung)
+
+Im weiteren Verlauf der Dokumentation werden jedoch nicht alle dieser Komponenten im Detail betrachtet, sondern nur diejenigen, die für die Entwicklung der Webanwendung von besonderer Bedeutung oder besonders komplex sind.
+
+
+
+
+== Detailarchitektur der Komponenten
+
+=== Komponentenübersicht inkl. Klassen
+
+==== User
+image::./models/final/KD_Users.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "User: Block-View-Diagramm", align=center]
 
 [options="header"]
 |===
-|Class/Enumeration |Description
-|User| Klasse erweiter Salespoint-UserAccount mit zusätzlichen Eigenschaften
+|Klasse |Beschreibung
+|user| Klasse erweitert Salespoint-UserAccount mit zusätzlichen Eigenschaften
 |UserController| Ein Spring MVC Controller behandeln von Aktionen die User betreffen 
 |UserDatainitializer| Ein Datainitializer der Dummy User beim Application start erstellt
 |UserManagement| Eine Klasse für das Verwalten von User
@@ -176,53 +231,78 @@ image::./models/BlockViewUser.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= 
 |RegistrationFrom| ein Interface um die Eingaben bei Registriegung von einem User zu prüfen
 |===
 
-=== Depot
-image::./models/DepotController.drawio.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Depot Block-View-Diagramm", align=center]
-
-=== Order
-image::./models/CustomOrder.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Order Block-View-Diagramm", align=center]
+==== Depot
+image::./models/final/KD_Depot.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Depot: Block-View-Diagramm", align=center]
 
 [options="header"]
 |===
-|Class/Enumeration |Description
+|Klasse |Beschreibung
+|DepotController| Controller zur Verwaltung der Navigation zwischen den einzelnen Depot-Views
+|===
+
+==== Order
+image::./models/final/KD_Order.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Order Block-View-Diagramm", align=center]
+
+[options="header"]
+|===
+|Klasse |Beschreibung
 |OrderController|Ein Spring MVC Controller für den Warenkorb
+|CustomOrder| Klasse für die Entität Order ("Bestellung" - Erstellung von Auftragsobjekten)
+|CustomOrderService| Implementierung der Geschäftslogik bzgl. der Aufträge wie bspw. Lagergebühren, etc.
 |===
 
-=== Item
-image::./models/Komponentendiagramm-Item.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Item Block-View-Diagramm", align=center]
+==== ServiceCatalog
+image::./models/final/KD_ServiceCatalog.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "ServiceCatalog Block-View-Diagramm", align=center]
 
 [options="header"]
 |===
-|Class/Enumeration |Description
-|ItemController|Diese Klasse ist für die Verwaltung der Artikel zuständig und enthält Methoden zur Initialisierung der Artikelliste, zum Hinzufügen, Löschen und Auflisten von Artikeln sowie zur Verwaltung von Artikelbedingungen, -mengen und zur Berechnung von Artikeln.
-|Items|Eine Sammlung von Artikeln, die im ItemController verwendet wird.
-|Order|Eine Komponente, die Bestellungen verwaltet und mit Artikeln in Beziehung steht.
-|Item DB|Eine Datenbankkomponente, die Artikel speichert und vom ItemController verwendet wird.
+|Klasse |Beschreibung
+|Service| Klasse für die Entität Service
+|ServiceCatalog| Interface für die ServiceCatalog-Komponente
+|ServiceCatalogController| Controller zur Verwaltung der Navigation
+|ServiceCatalogDataInitializier| Initialisierung der ServiceCatalog-Komponente
+|ServiceComponent| Erweiterung der Service-Klasse um für den Service benöitgtes Material und WorkingStation
+|ServiceController| Controller zur Verwaltung der Navigation
+|ServiceMaterial | Erweiterung der Material-Klasse um für den Service benötigtes Material
+|ServiceRepository| JPA-Repository Interface für die Service-Klasse
 |===
 
-=== Service
-image::./models/DeveloperDocumentation_Catalog-BuildingblockView.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
+==== Customer
+image::./models/final/KD_Customer.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
 
-=== Customer
-image::./models/BuildingBlockView_Customer.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Block-View-Diagramm", align=center]
+[options="header"]
+|===
+|Klasse |Beschreibung
+|Customer| Klasse für die Entität Customer
+|CustomerController| Controller zur Verwaltung der Navigation
+|CustomerRepository| JPA-Repository Interface für die Customer-Klasse
+|CustomerService| Implementierung der Geschäftslogik bzgl. Kunden
+|===
 
-== Laufzeitsicht
-* Darstellung der Komponenteninteraktion anhand eines Sequenzdiagramms, welches die relevantesten Interaktionen darstellt.
+=== Laufzeitsicht
+Darstellung der Komponenteninteraktion anhand eines Sequenzdiagramms, welches die relevantesten Interaktionen darstellt.
 
-=== User
-image::./models/SequenzdiagrammUser.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "User Sequenzdiagramm", align=center]
+==== User
+image::./models/final/SD_User.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Sequenzdiagramm User", align=center]
 
-=== Depot
-image::./models/Seq Diagram Depot.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Depot Sequenzdiagramm", align=center]
+==== Depot
+image::./models/final/SD_Depot.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Sequenzdiagramm Depot", align=center]
 
-=== Order
-image::./models/SequenzdiagrammOrder.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Order Sequenzdiagramm", align=center]
+==== Order
+image::./models/final/SequenzdiagrammOrder.jpg[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Sequenzdiagramm Order", align=center]
 
-=== Item
-image::./models/SequenzdiagrammItem.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Item Sequenzdiagramm", align=center]
+==== Service
+image::./models/final/SD_Service.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Sequenzdiagramm Service", align=center]
 
-=== Service
-image::./models/Runtime View Catalog.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
+==== Customer
+image::./models/final/SD_Customer.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Sequenzdiagramm Customer", align=center]
 
-=== Customer
-image::./models/design/RunTimeView_Customer.png[UI Diagram, 100%, 100%, pdfwidth=100%, title= "Service Sequenzdiagramm", align=center]
+== Verwendungsgrad der Element des Analysemodells
+Im Analysemodell wurden Anforderungen, Komponenten und Zusammenhänge nicht ausreichend detailliert bzw. spezifiziert, sodass im Rahmen der Erstellung der Entwicklerdokumentation
+erheblicher Mehraufwand entstanden ist, diese und weitere Details, sowie Komponenten und Klassen zu identifizieren und zu beschreiben.
+Die grundlegende Struktur sowie die Anforderungen und Use-Cases des Analysemodells konnte jedoch beibehalten werden und diente als Grundlage für die Erstellung der Entwicklerdokumentation.
+
+
+
+== Testvorgehen und -ergebnisse
+
