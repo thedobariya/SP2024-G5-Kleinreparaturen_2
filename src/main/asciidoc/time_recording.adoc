@@ -22,7 +22,46 @@ Die individuell erfasste Zeit beinhaltet auch das Lesen von Dokumentationen, Bes
 |13  |180   |180   |480    |600    |300   |380
 |Nachbereitung |600   |180    |320    |120    |300   |380
 |===
+= Zeiterfassung für Gruppe 5
 
+
+== Berechnungen
+
+=== Summe der Arbeitsstunden pro Student
+
+[options="header"]
+|===
+|Student |Summe (Stunden)
+|Jannes |60.00
+|Prit |48.50
+|Philipp |54.92
+|Vihar |67.67
+|Pascal |65.17
+|===
+
+=== Arbeitsstunden pro Woche pro Student (inklusive Nachbereitung)
+
+[options="header"]
+|===
+|Student |Stunden pro Woche
+|Jannes |5.38
+|Prit |3.96
+|Philipp |4.63
+|Vihar |5.36
+|Pascal |5.41
+|===
+
+=== Durchschnittliche Arbeitszeit aller Studenten pro Woche
+
+Die durchschnittliche Arbeitszeit aller Studenten pro Woche beträgt 4.55 Stunden.
+
+== Formeln
+
+* Summe der Arbeitsstunden pro Student: `SUMME(SPALTE(DevX)) / 60`
+* Arbeitsstunden pro Woche pro Student: `(SUMME(SPALTE(DevX)) + Nachbereitung) / 13 / 60`
+* Durchschnittliche Arbeitzeit aller Studenten pro Woche: `(SUMME(SPALTE(Dev1)) + SUMME(SPALTE(Dev2)) + SUMME(SPALTE(Dev3)) + SUMME(SPALTE(Dev4)) + SUMME(SPALTE(Dev5))) / (5 * 13) / 60`
+
+NOTE: Alle Zeiten wurden von Minuten in Stunden umgerechnet.
 Bitte tragen Sie am Ende des Praktikums noch folgende weitere Werte ein:
 Summe der Arbeitsstunden pro Student:
 
