@@ -16,7 +16,6 @@
 
     <div class="input-container">
         <h2>Neues Item erstellen</h2>
-        <br>
         <form th:action="@{/items/add}" th:object="${item}" method="post">
             <div class="input-group">
                 <input type="text" th:field="*{name}" pattern="[A-Za-z\s]+" title="Please enter a valid name (letters and spaces only)" required/>

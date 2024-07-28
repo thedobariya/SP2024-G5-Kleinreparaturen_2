@@ -21,7 +21,7 @@
         <h2>Lager</h2>
         <!-- Navigation Buttons -->
         <div class="btn-group my-3" role="group">
-            <a href="/depot/workingstations" class="btn btn-primary">Arbeitsplatz</a>
+            <a href="/depot/workingstations" class="btn btn-primary">Arbeitsplätze</a>
             <a href="/depot/coworkers" class="btn btn-primary">Mitarbeiter</a>
             <a href="/depot/materials" class="btn btn-primary">Materialien</a>
             <a href="/depot/items" class="btn btn-primary">Artikel</a>
@@ -30,7 +30,7 @@
 
         <!-- Content -->
         <div th:if="${workingstations}">
-            <h2>Arbeitsplatz</h2>
+            <h2>Arbeitsplätze</h2>
             <table class="table">
                 <thead>
                 <tr>
@@ -141,9 +141,11 @@
                         <a>Update</a>
                     </button>
 
+                    <!-- Prefill Data Button - only for testing purposes
                     <form th:action="@{/items/prefill}" method="post">
                         <input type="submit" class="button" value="Prefill Data">
                     </form>
+                    -->
                 </div>
             </div>
         </div>

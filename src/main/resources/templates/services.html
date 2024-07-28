@@ -27,7 +27,7 @@
 
     <div class="depot-container">
 
-        <h2>Service Verwaltung</h2>
+        <h2>Dienstleistungsverwaltung</h2>
         <table>
 
 
@@ -46,10 +46,10 @@
         </div>
 
         <div class="input-container">
-            <h2>Neuen Service erstellen</h2>
+            <h2>Neue Dienstleistung erstellen</h2>
             <form th:action="@{/services/create}" method="post">
 
-                <p style ="text-decoration: underline;">Wähle das zugehörige Service Offering aus </p>
+                <p style ="text-decoration: underline;">Wähle die zugehörige Kategorie aus </p>
                 <div th:each="type : ${T(kleinreparatur_service.servicecatalog.Service.ServiceType).values()}">
                     <input type="radio" th:value="${type}" th:id="${{type}}" name="ServiceType" required>
                     <label th:for="${{type}}"> <span th:text="${type}"></span> </label>
@@ -101,7 +101,7 @@
         </div>
         <br>
         <hr>
-        <h2>Services</h2>
+        <h2>Dienstleistungen</h2>
 
 
         <table>
@@ -109,7 +109,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Service Offering</th>
+                <th>Kategorie</th>
                 <th>Beschreibung</th>
                 <th>Preis</th>
                 <th>Arbeitsaufwand</th>
@@ -137,7 +137,7 @@
                     </span>
                 </td>
                 <td>
-                    <a th:href="@{/services/delete/{id}(id=${service.id})}">Service löschen</a>
+                    <a th:href="@{/services/delete/{id}(id=${service.id})}">Dienstleistung löschen</a>
 
                     <form th:action="@{/service/updateDescription}" method="post">
                         <input type="hidden" th:value="${service.id}" name="id"/>

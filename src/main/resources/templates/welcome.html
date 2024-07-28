@@ -7,8 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startseite</title>
     <link th:href ="@{resources/css/style.css}" rel="stylesheet" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .main {
+            flex: 1;
+        }
+    </style>
 </head>
-<body>
+<body style="height: 100vh; margin: 0">
 
     <div id="banner">
         <h1>Kleinreparatur Service</h1>
@@ -18,10 +29,12 @@
 
     <div class="main">
         <h1>Willkommen auf unserer Website</h1>
-        <p>Dies ist unsere Startseite. Hier finden Sie Informationen über unser Unternehmen und unsere Dienstleistungen.</p>
-        <p th:text="${'Ihre Rolle: ' + role}"></p>
-    </div>
+        <p style="text-align: center">Dies ist unsere Startseite. Hier finden Sie Informationen über unser Unternehmen und unsere Dienstleistungen.</p>
 
+        <!-- Display the role of the logged in user - only for testing purposes
+        <p th:text="${'Ihre Rolle: ' + role}"></p>
+        -->
+    </div>
     <div th:insert="~{footer :: footer}"></div>
 </body>
 </html>

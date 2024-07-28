@@ -16,14 +16,14 @@
     <div class="depot-container">
 
 
-        <h2>Management</h2>
+        <h2>Verwaltung</h2>
         <div class="btn-group my-3" role = "group">
         <a class="btn btn-primary" th:href="@{/customers/customerlist}" sec:authorize="hasAnyRole('MANAGEMENTLEAD', 'WORKER')">Kunden</a>
         <a class="btn btn-primary" th:href="@{/resources}" sec:authorize="hasRole('MANAGEMENTLEAD')">Ressourcen</a>
         <a class="btn btn-primary" th:href="@{/accountancy}" sec:authorize="hasRole('MANAGEMENTLEAD')">Finanzen</a>
-        <a class="btn btn-primary" th:href="@{/usermainpage}" sec:authorize="hasRole('MANAGEMENTLEAD')">User Verwaltung</a>
+        <a class="btn btn-primary" th:href="@{/usermainpage}" sec:authorize="hasRole('MANAGEMENTLEAD')">Nutzerverwaltung</a>
         <a class="btn btn-primary" th:href="@{/coworkers}" sec:authorize="hasRole('MANAGEMENTLEAD')">Mitarbeiter</a>
-        <a class="btn btn-primary" th:href="@{/orders}" sec:authorize="hasAnyRole('MANAGEMENTLEAD','WORKER')">Aufträge</a>
+        <a class="btn btn-primary" th:href="@{/orders}" sec:authorize="hasAnyRole('MANAGEMENTLEAD','WORKER')">Bestellungen</a>
         <a class="btn btn-primary" th:href="@{/services}" sec:authorize="hasRole('MANAGEMENTLEAD')">Dienstleistungen</a>
     </div>
     </div>
