@@ -44,10 +44,18 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    # Create a simple Dockerfile if it doesn't exist
+    - name: Create Dockerfile
+      run: |
+        echo "FROM openjdk:17-jdk-slim" > Dockerfile
+        echo "COPY target/*.jar app.jar" >> Dockerfile
+        echo "ENTRYPOINT [\"java\",\"-jar\",\"/app.jar\"]" >> Dockerfile
+
     # Update your build-push-action configuration
     - name: Build and push Docker Image
       uses: docker/build-push-action@v6
       with:
         context: .
+        file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/app:latest
